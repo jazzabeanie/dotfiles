@@ -12,5 +12,5 @@ git clone https://github.com/stuartrexking/dotfiles.git ~/Workspace/dotfiles
 
 ln -s ~/Workspace/dotfiles/bash/bash_profile ~/.bash_profile
 ln -s ~/Workspace/dotfiles/bash/bashrc ~/.bashrc
-ln -s ~/Workspace/dotfiles/git/gitconfig ~/.gitconfig
-ln -s ~/Workspace/dotfiles/tmux/tmux.conf ~/.tmux
+#ln -s ~/Workspace/dotfiles/git/gitconfig ~/.gitconfig
+#ln -s ~/Workspace/dotfiles/tmux/tmux.conf ~/.tmux
