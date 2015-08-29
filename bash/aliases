@@ -9,12 +9,12 @@
 #alias l.='ls -d .[^.]*'
 alias l='ls -lhGt' # long, most recent first, colour
 #alias ll='ls -Fol'
-alias lt='ls -lt' # list, most recent first
+alias lt='ls -ltr' # list, most recent first
 alias la='ls -al'
 #alias ..='cd ..'
 #alias s='cd ..'
 #alias cdd='cd -'
-#alias cdw='cd ~/Workspace'
+alias cdw='cd ~/Workspace'
 #alias cdgo='cd ~/Workspace/go'
 #alias cdwp='cd ~/Workspace/personal'
 #alias cdwc='cd ~/Workspace/cards'
@@ -86,3 +86,5 @@ function cd() {
 	fi;
 	builtin cd "${new_directory}" && ls -lah
 }
+
+alias desk='cd ~/Desktop/' # change to desktop and list

@@ -1,0 +1,66 @@
+" vim: set filetype=vim : "
+" the above code is a modeline so that vim knows how to format the colours. See here for mmore information: http://vimdoc.sourceforge.net/htmldoc/options.html#modeline
+
+" How to find help
+
+:options				"This will display all the options that are changeable in the .vimrc file
+:verbose set _____?			"This will tell you where the _____ option was set
+:help					"This will open the help file
+:help ____				"This will search the help file for a sepecific comand
+:help CTRL-I				"this will open up the help file and let you search a specific command. type the command immediately after pressing CTRL-I and you will be able to see what it does.
+:map					"apparently this shows the custom mapped keystrokes. It shows 3 columns; mode the keystroke is applied to; keystroke; and command. Use :help after this to find more information on the command. I don't really understand this at the moment beause I have not mapped any keystrokes myself. 
+					"why is the above comment not purple? is that because :map is
+					"typically followed by command?	
+
+
+"what follows is a list of commonly used commands that I found
+"here:https://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier
+"my plan is to learn these are remove them as I consolidate them in my mind.
+>                                       "indent selected text 	
+<                                       "unindent selected text 	
+:ls                                     "list buffers 		
+:bN (N = buffer number)                 "open buffer 		
+:hardcopy                               "print 			
+:e /path/to/file.txt                    "open a file 		
+:sort                                   "sort selected rows 	
+search for word under cursor 		"* 
+open file under cursor 			"gf 
+	(absolute path or relative) 
+format selected code 			"= 
+ggVG					"select contents of entire file 			 
+U                                       "convert selected text to uppercase 	
+u                                       "convert selected text to lowercase 	
+~                                       "invert case of selected text 		
+:retab                                  "convert tabs to spaces 			
+qX (X = key to assign macro to)         "start recording a macro 		
+q                                       "stop recording a macro 			
+@X (X = key macro was assigned to)      "playback macro 				
+@@                                      "replay previously played macro. As with other commands in vi, you can playback a macro any number of times. The following command would playback the macro assigned to the key `w' 100 times: 100@w 
+CTRL + n                                "auto-complete a word you are typing. Vim uses words that exist in your current buffer and any other buffer you may have open for auto-complete suggestions.
+mX (X = key to assign bookmark to)      "bookmark current place in file 		
+`X (X = key bookmark was assigned to    "jump to bookmark 			
+	` = back tick/tilde key)        "					
+:marks                                  "show all bookmarks 			
+:delm X (X = key bookmark to delete)    "delete a bookmark 			
+:delm!                                  "delete all bookmarks 			
+:split                                  "split screen horizontally 		
+:vsplit                                 "split screen vertically 		
+CTRL + w + j = move down a screen       "navigating split screens 		
+CTRL + w + k = move up a screen         					
+CTRL + w + h = move left a screen       					
+CTRL + w + l = move right a screen      					
+:only                                   "close all other split screens 		
+
+
+" some of my own additions:
+CTRL-o					"enter command mode for one key press only while in INSERT mode		
+0     					"go to start of line 							 		
+Ctrl-D					"move half-page down 			                                 
+Ctrl-U					"move half-page up                     	                                
+Ctrl-B					"page up                               	                                
+Ctrl-F					"page down                             	                                
+gi					"Insert text in the same position as where Insert mode was stopped last time in the current buffer.
+zz					"reposition the scroll so that the cursor line is in the middle of the window
+M					"move the cursor to the middle without repositioning.
+gj, gk					"move up or down on a single line that is displaying over two lines.
+
