@@ -10,7 +10,7 @@
 
 ```
 cd ~
-git clone https://github.com/stuartrexking/dotfiles.git .dotfiles
+git clone https://github.com/jazzabeanie/dotfiles.git .dotfiles
 cd ~/.dotfiles
 make
 
