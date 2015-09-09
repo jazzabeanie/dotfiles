@@ -53,6 +53,46 @@
     - maven-completion
     - packer-completion
     - vagrant-completion
+      # end Stu's input, enter mine. These were the list of packages installed when I started setting up my dot files.
+    - bash-completion
+    - fdk-aac
+    - ffmpeg
+    - fontconfig
+    - freetype
+    - frei0r
+    - fribidi
+    - git
+    - jpeg
+    - lame
+    - libass
+    - libevent
+    - libogg
+    - libpng
+    - libtiff
+    - libvo-aacenc
+    - libvorbis
+    - libvpx
+    - libyaml
+    - little-cms2
+    - opencore-amr
+    - openjpeg
+    - openssl
+    - opus
+    - orc
+    - pkg-config
+    - rtmpdump
+    - schroedinger
+    - sdl
+    - speex
+    - texi2html
+    - theora
+    - tmux
+    - tree
+    - vim
+    - x264
+    - xvid
+    - yasm
+    - youtube-dl
 
 - name: Install aspell with Homebrew
   homebrew: name=aspell state=latest install_options=all
