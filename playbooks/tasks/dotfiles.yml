@@ -1,3 +1,8 @@
 ---
 - name: Synchronize dotfiles
   synchronize: src=~/.dotfiles/home/ dest=~
+
+# create GOPATH directory
+- name: Make GOPATH directory
+  file: path=~/Workspace/go state=directory
+
