@@ -16,4 +16,13 @@ make
 
 cd ~/.emacs.d
 cask install
+
+touch ~/.gitconfig.local
+# input your personal GitHub details into this file:
+
+#[github]
+#    user = GitHubUserName
+#[user]
+#    name = Your Name
+#    email = youremail@gmail.com
 ```
