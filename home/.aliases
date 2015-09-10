@@ -10,3 +10,8 @@ function cd() {
 	fi;
 	builtin cd "${new_directory}" && ls -lah
 }
+
+## This changed directories to desktop
+function desk() {
+        cd ~/Desktop/
+}
