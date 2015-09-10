@@ -12,6 +12,7 @@
 ```
 cd ~
 git clone https://github.com/jazzabeanie/dotfiles.git .dotfiles
+# or us SSH if setup git@github.com:jazzabeanie/dotfiles.git
 cd ~/.dotfiles
 make
 
