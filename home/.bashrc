@@ -1,4 +1,4 @@
-export EDITOR="emacs"
+export EDITOR="vim"
 export GOPATH=~/Workspace/go
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="~/.bin:/usr/local/sbin:/usr/local/bin:$PATH:$GOPATH/bin"
