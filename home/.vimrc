@@ -10,7 +10,7 @@ set ruler
 set paste
 set expandtab
 set colorcolumn=80
-set nowrap
+set wrap
 set backspace=indent,eol,start
 set noswapfile
 set fileformat=unix
