@@ -15,3 +15,6 @@ function cd() {
 function desk() {
         cd ~/Desktop/
 }
+function mark {
+    export $1=`pwd`;
+} #Saves teh current working directory to a variable. To store the current working directory type "mark there". Then to change back to that directory later, type "cd $there", for example.
