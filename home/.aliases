@@ -17,4 +17,41 @@ function desk() {
 }
 function mark {
     export $1=`pwd`;
-} #Saves teh current working directory to a variable. To store the current working directory type "mark there". Then to change back to that directory later, type "cd $there", for example.
+} 
+## when I want to remember a directory, I can just type, e.g. `mark there` then to change back to it I type `cd $there`
+
+Then when I want to go back to that location, I just type cd $there
+
+function trash {
+        mv -fv $1 ~/.Trash
+}
+function whatatune {
+~/Dropbox/Music/whatatune/Bash/downloadtags.sh
+}
+
+function playdesk() {
+        #This function will play music files on the desktop. Or, more specifically, it will play a list of the files matched by the regular expression [.]m
+        cd ~/Desktop/
+        playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX) #{} expand the variable so the path of TMPDIR is actually used. #where is this file stored??
+        ls | grep [.]m > $playlist
+        while read SONG
+        do
+                echo ""
+                echo "playing $SONG"
+                ffplay -showmode 1 -window_title "Desktop Playlist" -autoexit "$SONG"
+        done < $playlist
+        #for i in ./*.m4a; do ffplay -nodisp -autoexit "$i"; done #this is the original one liner I wanted to create. The only probably was that it won't play mp3s.
+}
+
+function play() {
+        #This function will play music files in the current folder. Or, more specifically, it will play a list of the files matched by the regular expression [.]m
+        playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX) #{} expand the variable so the path of TMPDIR is actually used. #where is this file stored??
+        ls | grep [.]m > $playlist
+        while read SONG
+        do
+                echo ""
+                echo "playing $SONG"
+                ffplay -showmode 1 -window_title "Desktop Playlist" -autoexit "$SONG"
+        done < $playlist
+        #for i in ./*.m4a; do ffplay -nodisp -autoexit "$i"; done #this is the original one liner I wanted to create. The only probably was that it won't play mp3s.
+}

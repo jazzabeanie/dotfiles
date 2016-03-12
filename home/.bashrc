@@ -1,6 +1,7 @@
 export EDITOR="vim"
 export GOPATH=~/Workspace/go
 export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 export PATH="~/.bin:/usr/local/sbin:/usr/local/bin:$PATH:$GOPATH/bin"
 export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m] ")\[\033[1;34m\]\$ \[\033[0m\] \n→ '
 
@@ -61,14 +62,14 @@ export CLICOLOR=1 # make ls command display colors by defult (like with -N argum
 # 
 # ## Command Line
 # #alias l.='ls -d .[^.]*'
-# alias l='ls -lhGt' # long, most recent first, colour
+alias l='ls -alhGtr' # long, most recent first, colour
 # #alias ll='ls -Fol'
-# alias lt='ls -ltr' # list, most recent first
+# alias lt='ls -alhtr' # list, most recent first #disabled because this conflicts with localtunnel
 # alias la='ls -al'
 # #alias ..='cd ..'
 # #alias s='cd ..'
 # #alias cdd='cd -'
-# alias cdw='cd ~/Workspace'
+alias cdw='cd ~/Workspace'
 # #alias cdgo='cd ~/Workspace/go'
 # #alias cdwp='cd ~/Workspace/personal'
 # #alias cdwc='cd ~/Workspace/cards'
@@ -79,7 +80,7 @@ export CLICOLOR=1 # make ls command display colors by defult (like with -N argum
 # #alias cdtmp='cd ~/Temp'
 # #alias cddwn='cd ~/Downloads'
 # #alias f='fg'
-# alias h='cd ~/'
+alias h='cd ~/'
 # #alias md='mkdir -p'
 # #alias rmd='rm -rf'
 # #alias rk='rake'

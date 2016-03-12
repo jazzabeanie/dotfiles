@@ -13,3 +13,6 @@
 
 - name: Get Zenburn
   get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
+
+- name: Get Flake8
+  get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
