@@ -34,3 +34,5 @@ touch ~/.gitconfig.local
 #    email = youremail@gmail.com
 ##################################
 ```
+
+todo: add installation of ffmpeg (including ffplay)
