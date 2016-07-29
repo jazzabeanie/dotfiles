@@ -1,5 +1,5 @@
-osx: update
-	ansible-playbook -v -D -i playbooks/inventory playbooks/osx.yml
+ubuntu: update
+	ansible-playbook -v -D -i playbooks/inventory playbooks/ubuntu.yml
 
 update:
 	git pull
