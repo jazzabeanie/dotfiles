@@ -1,22 +1,19 @@
 ---
-- hosts: localhost # this is a play since it is a left-most item
-  gather_facts: False # disables gathering facts about the operating sys        tem, Usually these are discovered automatically by the setup module in A        nsible. https://viewsby.wordpress.com/2014/11/25/ansible-disable-gather-        facts/
-  tasks:
-    - name: Install libraries with apt
-      sudo: false
-      apt: name={{ item }} state=latest
-      with_items:
-        - silversearcher-ag # for quickly searching for files (including contents)
-        - encfs # for encrypting directories
-        - ffmpeg 
-        - git
-        - vim
-        - heroku
-        - scala
-        - tmux
-        - tree
-        - unrar
-        - youtube-dl
-        - lame
+- name: Install libraries with apt
+  sudo: false
+  apt: name={{ item }} state=latest
+  with_items:
+    - silversearcher-ag # for quickly searching for files (including contents)
+    - encfs # for encrypting directories
+    - ffmpeg 
+    - git
+    - vim
+    - scala
+    - tmux
+    - tree
+    - youtube-dl
+    - lame
 
 #todo: install vcprompt https://github.com/djl/vcprompt
+#todo: install unrar
+#todo: heroku

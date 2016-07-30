@@ -1,4 +1,7 @@
 ---
+- name: Test Go
+  shell: go env
+
 - name: Install Go dependencies
   shell: go get -u -v {{ item }}
   with_items:
