@@ -1,0 +1,9 @@
+---
+# After I changed the dest directory of get_url below, I don't think I need to change the install directory. I think it already exists on ubuntu by default
+- name: install vcprompt
+  get_url: url=https://github.com/djl/vcprompt/raw/master/bin/vcprompt dest=~/bin
+
+# the equivalent of ` chmod 755 ~/bin/vcprompt`, see: https://docs.ansible.com/ansible/file_module.html
+- file: path=~/bin/vcprompt mode=0755
+
+# I don't think that adding vcprompt to the path is needed now that I have changed the install location to ~/bin rather than ~/bin/vcprompt. I think ~/bin is on the path already
