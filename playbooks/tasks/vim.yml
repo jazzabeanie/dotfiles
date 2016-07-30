@@ -11,8 +11,10 @@
 - name: Clone ctrlp
   git: repo=https://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
 
+- name: Create Zenburn directory
+      file: path=~/.vim/colors state=directory
+  
 - name: Get Zenburn
-  # may need to create the ~/.vim/colors directory here for the next line to work
   get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
 
   #todo: add Flake8 - a python styling check tool
