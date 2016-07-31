@@ -7,3 +7,16 @@
 - file: path=~/bin/vcprompt mode=0755
 
 # I don't think that adding vcprompt to the path is needed now that I have changed the install location to ~/bin rather than ~/bin/vcprompt. I think ~/bin is on the path already
+
+- name: Change keyboard options to remap caps
+  sudo: true
+  lineinefile: dest=/etc/default/keyboard regexp=^XKBOPTIONS="" line=XKBOPTIONS="ctrl:nocaps"
+
+- name: Reconfigure new options
+  sudo: true
+  #shell: dpkg-reconfigure keyboard-configuration
+  shell: dpkg-reconfigure -phigh console-setup
+
+# see: https://askubuntu.com/questions/149971/how-do-you-remap-a-key-to-the-caps-lock-key-in-xubuntu?answertab=votes#tab-top
+# or: https://www.emacswiki.org/emacs/MovingTheCtrlKey#toc9
+# see here for an alternative to scripting the key mapping operation: https://askubuntu.com/questions/158150/how-to-remap-capslock-key-to-ctrl-in-xubuntu
