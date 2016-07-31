@@ -18,6 +18,7 @@
     - lame
     - fluxgui
     - network-manager-openvpn
+    - glipper
 
 #todo: install vcprompt https://github.com/djl/vcprompt
 #todo: install unrar
