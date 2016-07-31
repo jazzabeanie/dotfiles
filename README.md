@@ -42,6 +42,7 @@ touch ~/.gitconfig.local
         https://askubuntu.com/questions/149971/how-do-you-remap-a-key-to-the-caps-lock-key-in-xubuntu
 2. add ppa then install flux
 
-## Other programs to install (not scripted)
+## Other tasks (not scripted)
 1. Dropbox
 2. Google Chrome
+3. Set up github SSH
