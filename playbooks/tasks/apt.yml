@@ -19,7 +19,7 @@
     - fluxgui
     - network-manager-openvpn
     - glipper
+    - transmission-gtk
 
-#todo: install vcprompt https://github.com/djl/vcprompt
 #todo: install unrar
 #todo: heroku
