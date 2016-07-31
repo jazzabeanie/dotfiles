@@ -46,3 +46,6 @@ touch ~/.gitconfig.local
 1. Dropbox
 2. Google Chrome
 3. Set up github SSH
+4. VyprVPN: https://support.goldenfrog.com/hc/en-us/articles/203815626-VyprVPN-OpenVPN-Setup-for-Linux-Ubuntu-
+        network-manager-openvpn already installed, continue from 
+        restarting the network manager

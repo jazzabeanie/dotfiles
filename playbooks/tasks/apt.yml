@@ -17,6 +17,7 @@
     - youtube-dl
     - lame
     - fluxgui
+    - network-manager-openvpn
 
 #todo: install vcprompt https://github.com/djl/vcprompt
 #todo: install unrar
