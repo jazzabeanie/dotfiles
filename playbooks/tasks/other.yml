@@ -1,22 +1,23 @@
 ---
-# After I changed the dest directory of get_url below, I don't think I need to change the install directory. I think it already exists on ubuntu by default
+- name: Make bin directory for vcprompt
+  file: path=~/bin state=directory
+
 - name: install vcprompt
-  get_url: url=https://github.com/djl/vcprompt/raw/master/bin/vcprompt dest=~/bin
+  sudo: true
+  get_url: url=https://github.com/djl/vcprompt/raw/master/bin/vcprompt dest=~/bin/vcprompt
 
 # the equivalent of ` chmod 755 ~/bin/vcprompt`, see: https://docs.ansible.com/ansible/file_module.html
+#- name: change permissions on file
 - file: path=~/bin/vcprompt mode=0755
 
-# I don't think that adding vcprompt to the path is needed now that I have changed the install location to ~/bin rather than ~/bin/vcprompt. I think ~/bin is on the path already
+#- name: Change keyboard options to remap caps
+-  lineinfile: dest=/etc/default/keyboard regexp=^XKBOPTIONS="" line=XKBOPTIONS="ctrl:nocaps"
 
-- name: Change keyboard options to remap caps
+- name: Reconfigure new options #is this step needed? does ubuntu do this every time it starts?
   sudo: true
-  lineinefile: dest=/etc/default/keyboard regexp=^XKBOPTIONS="" line=XKBOPTIONS="ctrl:nocaps"
-
-- name: Reconfigure new options
-  sudo: true
-  #shell: dpkg-reconfigure keyboard-configuration
+  ignore_errors: yes # because there is a lock and the message says it will be done on restart
   shell: dpkg-reconfigure -phigh console-setup
-
+#
 # see: https://askubuntu.com/questions/149971/how-do-you-remap-a-key-to-the-caps-lock-key-in-xubuntu?answertab=votes#tab-top
 # or: https://www.emacswiki.org/emacs/MovingTheCtrlKey#toc9
 # see here for an alternative to scripting the key mapping operation: https://askubuntu.com/questions/158150/how-to-remap-capslock-key-to-ctrl-in-xubuntu
