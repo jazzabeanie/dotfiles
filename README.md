@@ -45,3 +45,8 @@ touch ~/.gitconfig.local
 4. VyprVPN: https://support.goldenfrog.com/hc/en-us/articles/203815626-VyprVPN-OpenVPN-Setup-for-Linux-Ubuntu-
         network-manager-openvpn already installed, continue from 
         restarting the network manager
+5. installing node.js
+        - check that `command -v nvm` in bsah  outputs "NVM"
+        - install desired version of node with `nvm install 4.4.7` (check the desired version first)
+        - run `nvm alias default node`
+        - read more here: http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#node-version-manager

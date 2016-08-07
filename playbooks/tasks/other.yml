@@ -17,7 +17,11 @@
   sudo: true
   ignore_errors: yes # because there is a lock and the message says it will be done on restart
   shell: dpkg-reconfigure -phigh console-setup
-#
 # see: https://askubuntu.com/questions/149971/how-do-you-remap-a-key-to-the-caps-lock-key-in-xubuntu?answertab=votes#tab-top
 # or: https://www.emacswiki.org/emacs/MovingTheCtrlKey#toc9
 # see here for an alternative to scripting the key mapping operation: https://askubuntu.com/questions/158150/how-to-remap-capslock-key-to-ctrl-in-xubuntu
+
+# part of the node.js install
+# followed this guide: http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#node-version-manager
+- name: curl the install.sh
+  shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
