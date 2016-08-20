@@ -22,6 +22,7 @@
     - transmission-gtk
     - build-essential checkinstall
     - libssl-dev
+    - calibre
 
 - name: Install node dependancies
   sudo: true
