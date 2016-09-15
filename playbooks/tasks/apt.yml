@@ -23,6 +23,13 @@
     - build-essential checkinstall
     - libssl-dev
     - calibre
+    - vagrant
+    - virtualbox
+    - virtualenv
+    - direnv
+    - maven
+    - compizconfig-settings-manager
+    - compiz-plugins
 
 - name: Install node dependancies
   sudo: true

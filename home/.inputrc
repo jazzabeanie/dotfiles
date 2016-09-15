@@ -1,3 +1,17 @@
 $include /etc/inputrc
 set completion-ignore-case On
 set editing-mode vi set keymap vi-command
+
+# many more commands to be found here: http://linux.about.com/library/cmd/blcmdl3_readline.htm
+$if mode=vi
+
+  set keypam vi-command
+  # these are for vi-command mode
+  Control-l: clear-screen
+
+  set keymap vi-insert
+  # these are for vi-insert mode
+  Control-l: clear-screen
+  Control-p: previous-history
+  "jk": vi-movement-mode
+$endif
