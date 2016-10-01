@@ -2,6 +2,10 @@ function cdg() {
     cd ~/Workspace/go/src
 }
 
+function flamenco() {
+    cd ~/Documents/Guitar/Flamenco
+}
+
 ## This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
 function cd() {
     	new_directory="$*";
@@ -66,4 +70,10 @@ function trim {
 function p-dl {
         # takes one argument - URL
         youtube-dl -o "./%(extractor)s/%(title)s.%(ext)s" $1
+}
+
+# TODO: make any git command automatically do a `git status` after
+function g() {
+	    git $1
+      git status
 }

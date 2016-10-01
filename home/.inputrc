@@ -5,7 +5,7 @@ set editing-mode vi set keymap vi-command
 # many more commands to be found here: http://linux.about.com/library/cmd/blcmdl3_readline.htm
 $if mode=vi
 
-  set keypam vi-command
+  set keymap vi-command
   # these are for vi-command mode
   Control-l: clear-screen
 
