@@ -73,7 +73,9 @@ function p-dl {
 }
 
 # TODO: make any git command automatically do a `git status` after
+# TODO: make all parameters passed in no matter how many
 function g() {
-	    git $1
+	    git $1 $2 $3 $4 $5 $6 $7 $8 $9
+      # TODO: if $1 != status, then do the next line
       git status
 }
