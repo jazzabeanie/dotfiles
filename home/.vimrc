@@ -1,10 +1,12 @@
+" See key notation for all the key codes: http://vimdoc.sourceforge.net/htmldoc/intro.html#notation
+
+" Basic Settings --------------------- {{{
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+colors zenburn
 behave xterm
-
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2
 set statusline=%F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set autoread
@@ -27,14 +29,32 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set clipboard=unnamedplus
+set foldlevelstart=0
 
-" See key notation: http://vimdoc.sourceforge.net/htmldoc/intro.html#notation
+" add Pydiction (python dictionary) to vim autocomplete.
+" see https://github.com/rkulla/pydiction
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+" }}}
+
+" Statusline ------------- {{{
+set laststatus=2
+set statusline=%.30F " Full filename, to a max of 30 chars
+set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}] "File enconding?, ??
+set statusline+=%h " Help buffer flag, text is "[help]"
+set statusline+=%m " Modified flag
+set statusline+=%r " Readonly flag [RO]
+set statusline+=%y " filetype
+set statusline+=%= " Separation between left and right
+set statusline+=%c, " Column number
+set statusline+=%l/%L " line number over total number of lines in buffer
+set statusline+=\  " Literal space
+set statusline+=%P " Percentage through file of window
+" }}}
+
+" Mappings ------------ {{{
 
 let mapleader =","
 let maplocalleader = "\\"
-
-" TODO: map a command to yank selection, start a search and replace with the
-" current selection
 
 noremap <leader>- ddp
 noremap <leader>_ ddkP
@@ -63,7 +83,6 @@ vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left
 " Format selection
 vnoremap <leader>f gq
 
-colors zenburn
 
 " Navigation
 nnoremap L $
@@ -96,13 +115,17 @@ onoremap iF" :<c-u>normal! F"vi"<cr>
 " surround selection in parenthesis
 vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>
 "
-" For linux:
+" Linux paste commands:
 vnoremap <leader>y "+y
-inoremap <leader>p <c-r>*
-vnoremap "+y <esc>:echo "!!!! NOPE try ',y' instead !!!!"<cr>
+inoremap <leader>p <c-r>+
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
+" }}}
+
+" Autogroup commands ---------- {{{
+
+" Guitar tabs -------------------{{{
 augroup filetype_guitar_tab
 	" Guitar tab setting.
 	" these apply to files with a .gtab extention
@@ -138,7 +161,9 @@ augroup filetype_guitar_tab
 	:autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>p sp<esc>l
 	:autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> -- C-------------------------------------------------------<esc>b
 augroup END
+" }}}
 
+" Python files -------------------{{{
 augroup filetype_python
 	autocmd!
 	autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
@@ -146,7 +171,9 @@ augroup filetype_python
 	autocmd FileType python :iabbrev <buffer> ret return
 	autocmd FileType python :iabbrev <buffer> return NOPE
 augroup END
+" }}}
 
+" Javascript files -------------------{{{
 augroup filetype_js
 	autocmd!
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
@@ -156,9 +183,12 @@ augroup filetype_js
 	autocmd FileType javascript :iabbrev <buffer> ret return
 	autocmd FileType javascript :iabbrev <buffer> return NOPE
   autocmd FileType javascript :iabbrev <buffer> yi yield
+	autocmd BufWritePre *.js :%s/\s\+$//e
   " TODO: add syntax highlighting for 'yield' in javascript
 augroup END
+" }}}
 
+" html files -------------------{{{
 augroup filetype_html
 	autocmd!
 	autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
@@ -166,7 +196,9 @@ augroup filetype_html
 	autocmd FileType html :iabbrev <buffer> <div> NOPENOPENOPE
 	autocmd FileType html :iabbrev <buffer> divc <div class=""></div><left><left><left><left><left><left><left><left>
 augroup END
+" }}}
 
+" hbs files -------------------{{{
 augroup filetype_hbs
 	autocmd!
 	autocmd BufNewFile,BufRead *.hbs nnoremap <buffer> <localleader>f Vatzf
@@ -174,16 +206,37 @@ augroup filetype_hbs
 	autocmd BufNewFile,BufRead *.hbs :iabbrev <buffer> <div> NOPENOPENOPE
 	autocmd BufNewFile,BufRead *.hbs :iabbrev <buffer> divc <div class=""></div><left><left><left><left><left><left><left><left>
 augroup END
+" }}}
 
+" batch files -------------------{{{
 augroup filetype_bat
 	autocmd!
 	autocmd FileType dosbatch nnoremap <buffer> <localleader>c Irem <esc>
 	autocmd FileType dosbatch vnoremap <buffer> <localleader>c Irem <esc>
 augroup END
+" }}}
 
+" markdown files ------------------ {{{
 augroup filetype_markdown
 	autocmd!
-	autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[-=][-=]\\+$\\r:nohlsearch\\rkvg_"<cr>
-	autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[-=][-=]\\+$\\r:nohlsearch\\rg_vk0"<cr>
+	autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rkvg_"<cr>
+	autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
+" }}}
 
+" Vimscript file settings ------------------ {{{
+augroup filetype_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" }}}
+
+" new stuff: -------------- {{{
+"
+"
+"
+"
+" TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
+" }}}

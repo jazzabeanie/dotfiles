@@ -14,6 +14,9 @@
 - name: Clone ctrlp
   git: repo=https://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
 
+- name: Clone Pydiction
+  git: repo=https://github.com/rkulla/pydiction.git dest=~/.vim/bundle
+
 - name: Get Zenburn
   get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
 
