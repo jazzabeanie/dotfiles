@@ -1,9 +1,10 @@
 [alias]
     aa = add --all
     amend = commit --amend
-    ci = commit
-    co = checkout
-    di = diff
+    b = !git branch && git status
+    ci = !git commit -v && git status
+    co = !git checkout
+    di = !git diff && git status
     dc = diff -- cached
     ff = merge --ff-only
     lo = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
@@ -11,6 +12,9 @@
     pom = push origin master
     pullff = pull --ff-only
     st = status
+    rb = !git rebase && git status
+    fe = !git fetch --all && git status
+    u = !git fetch && git rebase && git status
 
 [color]
     ui = true
@@ -26,3 +30,19 @@
 
 [include]
     path = ~/.gitconfig.local
+[user]
+    email = jazzab@gmail.com
+    name = Jared Johnston
+[merge]
+    # basically it shows three windows when you run `git mergetool`: LOCAL,
+    # BASE, and REMOTE. use `diffget RE`, `diffget LO`, or `diffget LO` as
+    # required.
+    # see here for more info: http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+    conflictstyle = diff3
+# Andre de Jager also has this in his .gitconfig because he uses neovim:
+# [mergetool "vimdiff"]
+#   cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
