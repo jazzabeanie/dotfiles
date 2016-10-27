@@ -30,6 +30,7 @@
     - maven
     - compizconfig-settings-manager
     - compiz-plugins
+    #- nodejs # do I want this? or do I want to use nvm, or the repository maintained by the nvm guys. See https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync, but keep in mind that you need a global install of nodejs to make tern work: https://github.com/ternjs/tern_for_vim
 
 - name: Install node dependancies
   sudo: true
