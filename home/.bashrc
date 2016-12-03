@@ -1,6 +1,6 @@
 export EDITOR="vim"
 export GOPATH=~/Workspace/go
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 export PATH="~/.bin:/usr/local/sbin:/usr/local/bin:$PATH:$GOPATH/bin"
 export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m] ")\[\033[1;34m\]\$ \[\033[0m\] \n→ '
@@ -65,6 +65,7 @@ export CLICOLOR=1 # make ls command display colors by defult (like with -N argum
 # ## Command Line
 # #alias l.='ls -d .[^.]*'
 alias l='ls -alhGtr' # long, most recent first, colour
+alias e='vim'
 # #alias ll='ls -Fol'
 # alias lt='ls -alhtr' # list, most recent first #disabled because this conflicts with localtunnel
 # alias la='ls -al'
@@ -73,6 +74,7 @@ alias l='ls -alhGtr' # long, most recent first, colour
 # #alias cdd='cd -'
 alias cdw='cd ~/Workspace'
 alias cdj='cd ~/Workspace/JESI/jesi-functional-tests'
+alias cds='cd ~/Workspace/scheduler'
 # #alias cdgo='cd ~/Workspace/go'
 # #alias cdwp='cd ~/Workspace/personal'
 # #alias cdwc='cd ~/Workspace/cards'
@@ -135,8 +137,11 @@ alias h='cd ~/'
 # #rm -Rf ~/Library/PubSub/Database; \
 # #rm -Rf ~/Library/Saved\ Application\ State/com.apple.Safari.savedState"
 
+#I uninstalled nodejs from nvm and installed it from the official ubuntu repository because I need to do it for tern for vim.
 export NVM_DIR="/home/jaredjohnston/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion # this enables nvm completion
 
 eval "$(direnv hook bash)"
 
+export PATH=$HOME/local/bin:$PATH

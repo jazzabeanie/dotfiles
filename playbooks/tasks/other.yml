@@ -26,3 +26,20 @@
 ## followed this guide: http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#node-version-manager
 #- name: curl the install.sh
 #  shell: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+- name: Install nodejs
+  sudo: false
+  # Andre de Jager reckons this is the proper way to install:
+  # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+  # TODO: test this method and install this way if I can do it without having
+  # to run npm as superuser to install packages.
+# TODO: turn the following into a task. Source: https://gist.github.com/isaacs/579814, or http://stackoverflow.com/questions/31025159/installing-nodejs-without-sudo-in-ubuntu
+# echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
+# . ~/.bashrc
+# mkdir ~/local
+# mkdir ~/node-latest-install
+# cd ~/node-latest-install
+# curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+# ./configure --prefix=~/local
+# make install # ok, fine, this step probably takes more than 30 seconds...
+# curl https://www.npmjs.org/install.sh | sh

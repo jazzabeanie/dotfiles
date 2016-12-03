@@ -1,3 +1,4 @@
+#!/bin/bash
 function cdg() {
     cd ~/Workspace/go/src
 }
@@ -23,8 +24,6 @@ function mark {
     export $1=`pwd`;
 } 
 ## when I want to remember a directory, I can just type, e.g. `mark there` then to change back to it I type `cd $there`
-
-Then when I want to go back to that location, I just type cd $there
 
 function trash {
         mv -fv $1 ~/.Trash
@@ -60,11 +59,35 @@ function play() {
         #for i in ./*.m4a; do ffplay -nodisp -autoexit "$i"; done #this is the original one liner I wanted to create. The only probably was that it won't play mp3s.
 }
 
+function playvids() {
+        #This function will play videos recursivly
+        playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX)
+        ls | grep [.]m > $playlist
+        while read VIDEO
+        do
+                echo ""
+                echo "playing $VIDEO"
+                ffplay -showmode 0 -window_title "Video Playlist" -autoexit "$VIDEO"
+        done < $playlist
+}
+
 function trim {
-        # first argument: input file name
-        # second argument: start time
-        # third argument: finish time
-        ffmpeg -i "$1" -ss $2 -c copy -to $3 "trimmed_$1"
+  if (( $# == 0 )); then
+  # if [[ $# -eq 0 ]]; then
+    echo "trim takes 3 arguments:"
+    echo "1. input file"
+    echo "2. start time"
+    echo "3. finish time"
+    return
+  elif [ -f ./trimmed_$1 ]; then
+    read -rsp $"trimmed_$1 exists. Press any key to delete and continue...\n" -n1 key
+    rm ./trimmed_$1
+  fi
+  if (( $# == 2 )); then
+    ffmpeg -i "$1" -ss $2 -c copy "trimmed_$1"
+  else
+    ffmpeg -i "$1" -ss $2 -c copy -to $3 "trimmed_$1"
+  fi
 }
 
 function p-dl {
@@ -72,10 +95,23 @@ function p-dl {
         youtube-dl -o "./%(extractor)s/%(title)s.%(ext)s" $1
 }
 
-# TODO: make any git command automatically do a `git status` after
-# TODO: make all parameters passed in no matter how many
 function g() {
-	    git $1 $2 $3 $4 $5 $6 $7 $8 $9
-      # TODO: if $1 != status, then do the next line
-      git status
+	    git "$@"
+      if ! [[ $1 == "st" || $1 == "status" ]]; then
+        git status
+      fi
 }
+
+# jesi commands
+function jesit {
+      # runs jesi tests on specific file passed in 
+      gnome-terminal -x bash -c "cd ~/Workspace/JESI/jesi-functional-tests; npm test -- $1; read -p 'Press [Enter] key to quit...'"
+}
+function t {
+  if [[ -z "$CURRENT_TEST" ]]; then
+    read -p "Which file do you want to test? " CURRENT_TEST
+  else
+    echo "CURRENT_TEST is set to $CURRENT_TEST"
+  fi
+  jesit $CURRENT_TEST
+} 
