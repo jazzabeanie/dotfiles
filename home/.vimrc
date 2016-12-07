@@ -19,7 +19,8 @@ set hlsearch
 set nopaste
 set expandtab
 set colorcolumn=80
-set textwidth=79
+" set textwidth=79
+set textwidth=0
 set wrap
 set backspace=indent,eol,start
 set noswapfile
@@ -80,22 +81,35 @@ onoremap jk <esc>
 " Search and replace selection
 vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
+" Search case insensitive by deault
+nnoremap / /\c
+nnoremap ? ?\c
+
+" Find next selection
+" TODO
+" vnoremap <leader>
+
 " Format selection
 vnoremap <leader>f gq
 
 
 " Navigation
-nnoremap L $
 nnoremap H ^
+nnoremap L $
 nnoremap <leader>H H
 nnoremap <leader>L L
-vnoremap L $
 vnoremap H ^
+vnoremap L $
 vnoremap <leader>H H
 vnoremap <leader>L L
+onoremap H ^
+onoremap L $
+onoremap <leader>H H
+onoremap <leader>L L
 
 " make Backspace useful in normal mode
-nnoremap <BS> a<BS><esc>
+" nnoremap <BS> i<BS><esc>l
+nnoremap <BS> hx
 
 " surround selection in i __
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
@@ -168,29 +182,32 @@ augroup filetype_python
 	autocmd!
 	autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
 	autocmd FileType python :inoremap <buffer> if if:<left>
-	autocmd FileType python :iabbrev <buffer> ret return
-	autocmd FileType python :iabbrev <buffer> return NOPE
 augroup END
 " }}}
 
 " Javascript files -------------------{{{
 augroup filetype_js
 	autocmd!
+  vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
+	" autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget that you can use tern: https://github.com/ternjs/tern_for_vim" | echo "!!!!!" 
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
 	autocmd FileType javascript :iabbrev <buffer> if if (
-	autocmd FileType javascript :iabbrev <buffer> func function
-	autocmd FileType javascript :iabbrev <buffer> function NOPE
-	autocmd FileType javascript :iabbrev <buffer> ret return
-	autocmd FileType javascript :iabbrev <buffer> return NOPE
-  autocmd FileType javascript :iabbrev <buffer> yi yield
+  " these lines are commented out because I should start to try to use <c-n>
+  " for vim completion
+	" autocmd FileType javascript :iabbrev <buffer> func function
+	" autocmd FileType javascript :iabbrev <buffer> ret return
+  " autocmd FileType javascript :iabbrev <buffer> yi yield
 	autocmd BufWritePre *.js :%s/\s\+$//e
   " TODO: add syntax highlighting for 'yield' in javascript
+  " TODO: add a command that allows me to mark a line for deletion, perhaps
+  " using 
 augroup END
 " }}}
 
 " html files -------------------{{{
 augroup filetype_html
 	autocmd!
+  vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
 	autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 	autocmd FileType html :iabbrev <buffer> div <div></div><left><left><left><left><left><left>
 	autocmd FileType html :iabbrev <buffer> <div> NOPENOPENOPE
