@@ -15,10 +15,10 @@
   git: repo=https://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
 
 - name: Clone Pydiction
-  git: repo=https://github.com/rkulla/pydiction.git dest=~/.vim/bundle
+  git: repo=https://github.com/rkulla/pydiction.git dest=~/.vim/bundle/pydiciton
 
 - name: Clone Auto Pairs
-  git: repo=git://github.com/jiangmiao/auto-pairs.git dest=~/.vim/bundle
+  git: repo=git://github.com/jiangmiao/auto-pairs.git dest=~/.vim/bundle/auto-pairs
 
 - name: Get Zenburn
   get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
