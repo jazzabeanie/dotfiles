@@ -29,8 +29,13 @@ set fileformats=unix,dos
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set clipboard=unnamedplus
 set foldlevelstart=0
+
+if has('unnamedplus') " for linux
+  set clipboard=unnamedplus
+else " for mac
+  set clipboard=unnamed
+endif
 
 " add Pydiction (python dictionary) to vim autocomplete.
 " see https://github.com/rkulla/pydiction
