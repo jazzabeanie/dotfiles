@@ -82,6 +82,8 @@ iabbrev waht what
 " escaping
 inoremap jk <esc>l
 onoremap jk <esc>
+inoremap Jk <esc>l
+onoremap Jk <esc>
 
 " Search and replace selection
 vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left><left><left><left><left><left><left><left><left><left>
@@ -120,6 +122,8 @@ nnoremap <BS> hx
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
 vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>
+vnoremap <leader>[ <esc>`>a]<esc>`<i[<esc>
+vnoremap <leader>{ <esc>`>a}<esc>`<i{<esc>
 
 " change in next and last __
 onoremap if( :<c-u>normal! f(vi(<cr>
@@ -131,11 +135,10 @@ onoremap iF' :<c-u>normal! F'vi'<cr>
 onoremap if" :<c-u>normal! f"vi"<cr>
 onoremap iF" :<c-u>normal! F"vi"<cr>
 
-" surround selection in parenthesis
-vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>
-"
 " Linux paste commands:
 vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 inoremap <leader>p <c-r>+
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
@@ -186,7 +189,6 @@ augroup END
 augroup filetype_python
 	autocmd!
 	autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
-	autocmd FileType python :inoremap <buffer> if if:<left>
 augroup END
 " }}}
 
@@ -196,16 +198,16 @@ augroup filetype_js
   vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
 	" autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget that you can use tern: https://github.com/ternjs/tern_for_vim" | echo "!!!!!" 
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
-	autocmd FileType javascript :iabbrev <buffer> if if (
   " these lines are commented out because I should start to try to use <c-n>
   " for vim completion
 	" autocmd FileType javascript :iabbrev <buffer> func function
 	" autocmd FileType javascript :iabbrev <buffer> ret return
   " autocmd FileType javascript :iabbrev <buffer> yi yield
-	autocmd BufWritePre *.js :%s/\s\+$//e
+	autocmd BufWritePre *.js :%s/\s\+$//e 
   " TODO: add syntax highlighting for 'yield' in javascript
   " TODO: add a command that allows me to mark a line for deletion, perhaps
   " using 
+	autocmd FileType javascript nnoremap <buffer> ZZ :<c-u>execute "normal! :g_^\\s*//d_d\r:wq\r"<cr>
 augroup END
 " }}}
 
