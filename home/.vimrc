@@ -30,6 +30,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set foldlevelstart=0
+set ignorecase
+set smartcase
 
 if has('unnamedplus') " for linux
   set clipboard=unnamedplus
@@ -88,9 +90,12 @@ onoremap Jk <esc>
 " Search and replace selection
 vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
-" Search case insensitive by deault
-nnoremap / /\c
-nnoremap ? ?\c
+" this code is redundant when ignorecase and smartcase settings are use above.
+" Though, it might be useful if you want to ignore case by default with `/`
+" searches but not with %s.
+" " Search case insensitive by deault
+" nnoremap / /\c
+" nnoremap ? ?\c
 
 " Find next selection
 " TODO
