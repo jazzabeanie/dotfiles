@@ -74,6 +74,7 @@ vnoremap <leader><c-c> "*y
 vnoremap <leader>y "*y
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+command! Wq wq
 
 iabbrev @@ jazzab@gmail.com
 iabbrev ssig --<cr>Jared Johnston<cr>jazzab@gmail.com
