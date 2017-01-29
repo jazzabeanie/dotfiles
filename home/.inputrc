@@ -2,7 +2,9 @@ $include /etc/inputrc
 set completion-ignore-case On
 set editing-mode vi set keymap vi-command
 
-# many more commands to be found here: http://linux.about.com/library/cmd/blcmdl3_readline.htm
+# `man readline` shows all possible remap commands
+# see also: http://linux.about.com/library/cmd/blcmdl3_readline.htm
+
 $if mode=vi
 
   set keymap vi-command
@@ -14,4 +16,6 @@ $if mode=vi
   Control-l: clear-screen
   Control-p: previous-history
   "jk": vi-movement-mode
+  "H": vi-first-print
+  "L": end-of-line
 $endif
