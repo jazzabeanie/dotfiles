@@ -98,17 +98,21 @@ function p-dl {
 
 function g() {
 	    git "$@"
-      if ! [[ $1 == "st" || $1 == "status" ]]; then
+      if ! [[ $1 == "st" || $1 == "status" || $1 == "u" ]]; then
         git status
       fi
-      ls -lah
 }
 
 # jesi commands
 function jesit {
-      # runs jesi tests on specific file passed in 
-      gnome-terminal -x bash -c "cd ~/Workspace/JESI/jesi-functional-tests; npm test -- $1; read -p 'Press [Enter] key to quit...'"
+  if [[ $# -eq 0 ]]; then
+    echo "jesit will run 'npm test -- $1', you must pass it the name of a test file to run."
+  else
+    # runs jesi tests on specific file passed in 
+    gnome-terminal -x bash -c "cd ~/Workspace/JESI/jesi-functional-tests; npm test -- $1; read -p 'Press [Enter] key to quit...'"
+  fi
 }
+
 function t {
   if [[ -z "$CURRENT_TEST" ]]; then
     read -p "Which file do you want to test? " CURRENT_TEST
