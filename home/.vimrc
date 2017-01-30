@@ -48,7 +48,26 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " }}}
 
 " Statusline and cursor ------------- {{{
-" this is now all taken care of by vim-airline
+
+" This section is so that the color theme works well with vim-airline: Idea
+" came from here:
+" https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode#7619174
+" TODO: sort this section out then change the highlighting colour of Ubuntu:
+" https://ubuntuforums.org/showthread.php?t=2001319
+"
+" " Visual Mode Orange Background, Black Text
+hi Visual          ctermbg=202 ctermfg=Black
+" " Default Colors for CursorLine
+" highlight CursorLine ctermbg=LightGreen
+" highlight Cursor ctermbg=190;
+" " Change Color when entering Insert Mode
+" autocmd InsertEnter * highlight  CursorLine ctermbg=DarkCyan
+" autocmd InsertEnter * highlight  Cursor ctermbg=39;
+" " Revert Color to default when leaving Insert Mode
+" autocmd InsertLeave * highlight  CursorLine ctermbg=190
+" autocmd InsertLeave * highlight  Cursor ctermbg=190;
+
+" the rest is taken care of by vim-airline
 " set laststatus=2
 " set statusline=%.30F " Full filename, to a max of 30 chars
 " set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}] "File enconding?, ??
@@ -291,7 +310,7 @@ endif
 " }}}
 
 " new stuff: -------------- {{{
-autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
+" autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
 "
 "
 "
