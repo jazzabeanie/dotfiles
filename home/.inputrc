@@ -17,5 +17,7 @@ $if mode=vi
   # these are for vi-insert mode
   Control-l: clear-screen
   Control-p: previous-history
+  Control-j: menu-complete
+  Control-k: menu-complete-backward
   "jk": vi-movement-mode
 $endif
