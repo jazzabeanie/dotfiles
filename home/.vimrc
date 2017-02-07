@@ -14,7 +14,7 @@ set cursorline
 set hidden
 set nocompatible
 set number
-set relativenumber
+" set relativenumber " this is a good options normally, as it usually requires you to press less numbers when jumping around (use 22j instead of 354G). At the moment I am trying to get better at touch typing the number keys.
 set ruler
 set hlsearch
 set nopaste
@@ -36,10 +36,12 @@ set shiftwidth=2
 set expandtab
 set tabstop=2
 
-if has('unnamedplus') " for linux
-  set clipboard=unnamedplus
-else " for mac
-  set clipboard=unnamed
+if $TMUX == '' " TODO: solve this issue. Read more to understand this issue: https://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
+  if has('unnamedplus') " for linux
+    set clipboard=unnamedplus
+  else " for mac
+    set clipboard=unnamed
+  endif
 endif
 
 " add Pydiction (python dictionary) to vim autocomplete.
@@ -48,26 +50,7 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " }}}
 
 " Statusline and cursor ------------- {{{
-
-" This section is so that the color theme works well with vim-airline: Idea
-" came from here:
-" https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode#7619174
-" TODO: sort this section out then change the highlighting colour of Ubuntu:
-" https://ubuntuforums.org/showthread.php?t=2001319
-"
-" " Visual Mode Orange Background, Black Text
-hi Visual          ctermbg=202 ctermfg=Black
-" " Default Colors for CursorLine
-" highlight CursorLine ctermbg=LightGreen
-" highlight Cursor ctermbg=190;
-" " Change Color when entering Insert Mode
-" autocmd InsertEnter * highlight  CursorLine ctermbg=DarkCyan
-" autocmd InsertEnter * highlight  Cursor ctermbg=39;
-" " Revert Color to default when leaving Insert Mode
-" autocmd InsertLeave * highlight  CursorLine ctermbg=190
-" autocmd InsertLeave * highlight  Cursor ctermbg=190;
-
-" the rest is taken care of by vim-airline
+" this is now all taken care of by vim-airline
 " set laststatus=2
 " set statusline=%.30F " Full filename, to a max of 30 chars
 " set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}] "File enconding?, ??
@@ -144,15 +127,15 @@ vnoremap <leader>f gq
 
 " Navigation
 nnoremap H ^
-nnoremap L g_
+nnoremap L $
 nnoremap <leader>H H
 nnoremap <leader>L L
 vnoremap H ^
-vnoremap L g_ "TODO: make this include whitespace, but not newline characters
+vnoremap L $
 vnoremap <leader>H H
 vnoremap <leader>L L
 onoremap H ^
-onoremap L g_ "TODO: make this include whitespace, but not newline characters
+onoremap L $
 onoremap <leader>H H
 onoremap <leader>L L
 
@@ -311,6 +294,10 @@ endif
 
 " new stuff: -------------- {{{
 " autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
+" autocmd BufNewFile,BufRead * nnoremap h <nop>
+" autocmd BufNewFile,BufRead * nnoremap j <nop>
+" autocmd BufNewFile,BufRead * nnoremap k <nop>
+" autocmd BufNewFile,BufRead * nnoremap l <nop>
 "
 "
 "
