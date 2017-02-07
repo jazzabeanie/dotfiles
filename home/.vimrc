@@ -144,15 +144,15 @@ vnoremap <leader>f gq
 
 " Navigation
 nnoremap H ^
-nnoremap L $
+nnoremap L g_
 nnoremap <leader>H H
 nnoremap <leader>L L
 vnoremap H ^
-vnoremap L $
+vnoremap L g_ "TODO: make this include whitespace, but not newline characters
 vnoremap <leader>H H
 vnoremap <leader>L L
 onoremap H ^
-onoremap L $
+onoremap L g_ "TODO: make this include whitespace, but not newline characters
 onoremap <leader>H H
 onoremap <leader>L L
 
