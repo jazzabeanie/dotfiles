@@ -160,13 +160,27 @@ onoremap iF' :<c-u>normal! F'vi'<cr>
 onoremap if" :<c-u>normal! f"vi"<cr>
 onoremap iF" :<c-u>normal! F"vi"<cr>
 
+" TODO: address the clipboard issue accross all OS:
+function Paste()
+	if &paste
+		echom "paste mode already set"
+		" TOOD: execute paste here
+	else
+		echom "setting paste"
+		set paste
+		" TOOD: execute paste here
+		set nopaste
+	endif
+endfunction
+
 " Linux paste commands:
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
-inoremap <leader>p <c-r>+
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+inoremap <leader>p <c-r>+
+" inoremap <leader>p <esc>:call Paste()<cr> " TODO: uncomment when Paste() method is fixed
 
 " }}}
 
