@@ -1,6 +1,5 @@
-" See key notation for all the key codes: http://vimdoc.sourceforge.net/htmldoc/intro.html#notation
-
 " Basic Settings --------------------- {{{
+" if settings are not behaving as expected, use `:verbose set setting?`
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -19,18 +18,19 @@ set ruler
 set hlsearch
 set nopaste
 set colorcolumn=80
-" set textwidth=79
+" set textwidth=79 " TODO: find out whey textwidth is being overwritten (see
+" `:verbose set textwidth?`)
 set textwidth=0
 set wrap
 set backspace=indent,eol,start
 set noswapfile
 set fileformat=unix
 set fileformats=unix,dos
-set softtabstop=2
 set foldlevelstart=0
 set updatetime=250
 set incsearch
-" the settings that follow mean that spaces will always be used for tabs. See
+set softtabstop=2 " Is this related to settings below?
+" the 3 settings that follow mean that spaces will always be used for tabs. See
 " `:help tabstop` for more info
 set shiftwidth=2
 set expandtab
@@ -43,10 +43,8 @@ if $TMUX == '' " TODO: solve this issue. Read more to understand this issue: htt
     set clipboard=unnamed
   endif
 endif
+" TODO: solve the tmux issue here.
 
-" add Pydiction (python dictionary) to vim autocomplete.
-" see https://github.com/rkulla/pydiction
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " }}}
 
 " Statusline and cursor ------------- {{{
@@ -65,6 +63,7 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " set statusline+=%P " Percentage through file of window
 "
 " " Cursor ------------- {{{
+" " TODO: sort my cursor so that it's a bar for insert mode.
 "
 " if &term =~ "xterm\\|rxvt"
 "   " source: https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
@@ -83,18 +82,11 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " }}}
 
 " Mappings ------------ {{{
+" See key notation for all the key codes:
+" http://vimdoc.sourceforge.net/htmldoc/intro.html#notation
 
 let mapleader =","
 let maplocalleader = "\\"
-
-noremap <leader>- ddp
-noremap <leader>_ ddkP
-inoremap <leader><c-u> <esc>viwUea
-nnoremap <leader><c-u> viwUe
-nnoremap <leader><c-v> "*P
-inoremap <leader><c-v> <esc>"*pa
-vnoremap <leader><c-c> "*y
-vnoremap <leader>y "*y
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -103,6 +95,9 @@ iabbrev ssig --<cr>Jared Johnston<cr>jazzab@gmail.com
 iabbrev teh the
 iabbrev tehn then
 iabbrev waht what
+
+inoremap <leader><c-u> <esc>viwUea
+nnoremap <leader><c-u> viwUe
 
 " escaping
 inoremap jk <esc>l
@@ -173,7 +168,7 @@ function Paste()
 	endif
 endfunction
 
-" Linux paste commands:
+" Linux clipboard commands:
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
@@ -181,6 +176,12 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 inoremap <leader>p <c-r>+
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: uncomment when Paste() method is fixed
+"
+" clipboard commands
+nnoremap <leader><c-v> "*P
+inoremap <leader><c-v> <esc>"*pa
+vnoremap <leader><c-c> "*y
+" vnoremap <leader>y "*y
 
 " }}}
 
@@ -228,6 +229,9 @@ augroup END
 augroup filetype_python
   autocmd!
   autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
+  " add Pydiction (python dictionary) to vim autocomplete.
+  " see https://github.com/rkulla/pydiction
+  let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 augroup END
 " }}}
 
