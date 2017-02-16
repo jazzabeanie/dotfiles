@@ -199,16 +199,16 @@ augroup filetype_guitar_tab
   :autocmd BufNewFile,BufRead *.gtab nnoremap x s-<esc>l
   " TODO:
   " map backspace key to actually delete a character
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 1 s1<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 2 s2<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 3 s3<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 4 s4<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 5 s5<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 6 s6<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 7 s7<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 8 s8<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 9 s9<esc>l
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 0 s0<esc>l
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 1 s1<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 2 s2<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 3 s3<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 4 s4<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 5 s5<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 6 s6<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 7 s7<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 8 s8<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 9 s9<esc>
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> 0 s0<esc>
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>1 1
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>2 2
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>3 3
