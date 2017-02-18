@@ -172,11 +172,11 @@ endif
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 
 " }}}
-
 " Autogroup commands ---------- {{{
 
 " Guitar tabs -------------------{{{
 augroup filetype_guitar_tab
+  autocmd!
   " Guitar tab setting.
   " these apply to files with a .gtab extention
   " TODO: change these autocmds to appy to guitar tab filetypes. This would mean
@@ -210,6 +210,14 @@ augroup filetype_guitar_tab
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>h sh<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>p sp<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> -- C-------------------------------------------------------<esc>b
+  function ScrollDown(speed)
+    let s:waitTime = float2nr(60.0 / a:speed * 12)
+    execute "sleep " . s:waitTime
+    execute "normal \<C-E>"
+    " TODO: update view here. the scrolling is getting updated until function
+    " is cancelled.
+    call ScrollDown(a:speed)
+  endfunction
 augroup END
 " }}}
 
