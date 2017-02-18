@@ -91,12 +91,11 @@ iabbrev teh the
 iabbrev tehn then
 iabbrev waht what
 
-inoremap <leader><c-u> <esc>viwUea
-nnoremap <leader><c-u> viwUe
-
 " escaping
 inoremap jk <esc>l
 onoremap jk <esc>
+inoremap kj <esc>l
+onoremap kj <esc>
 inoremap Jk <esc>l
 onoremap Jk <esc>
 
@@ -130,38 +129,23 @@ onoremap <leader>H H
 onoremap <leader>L L
 
 " make Backspace useful in normal mode
-" nnoremap <BS> i<BS><esc>l
 nnoremap <BS> hx
-
-" " surround selection in i __ (this is not needed anymore with vim-surround)
-" vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>
-" vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>
-" vnoremap <leader>( <esc>`>a)<esc>`<i(<esc>
-" vnoremap <leader>[ <esc>`>a]<esc>`<i[<esc>
-" vnoremap <leader>{ <esc>`>a}<esc>`<i{<esc>
 
 " change in next and last __
 onoremap if( :<c-u>normal! f(vi(<cr>
 onoremap iF( :<c-u>normal! F)vi(<cr>
+onoremap if[ :<c-u>normal! f[vi[<cr>
+onoremap iF[ :<c-u>normal! F]vi[<cr>
 onoremap if{ :<c-u>normal! f{vi{<cr>
 onoremap iF{ :<c-u>normal! F}vi{<cr>
+onoremap if< :<c-u>normal! f<vi<<cr>
+onoremap iF< :<c-u>normal! F>vi<<cr>
 onoremap if' :<c-u>normal! f'vi'<cr>
 onoremap iF' :<c-u>normal! F'vi'<cr>
 onoremap if" :<c-u>normal! f"vi"<cr>
 onoremap iF" :<c-u>normal! F"vi"<cr>
-
-function Paste()
-  " sets paste mode before pasting
-	if &paste
-		echom "paste mode already set"
-		" TOOD: execute paste here
-	else
-		echom "setting paste"
-		set paste
-		" TOOD: execute paste here
-		set nopaste
-	endif
-endfunction
+onoremap if` :<c-u>normal! f`vi`<cr>
+onoremap iF` :<c-u>normal! F`vi`<cr>
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -236,6 +220,8 @@ augroup filetype_python
   " add Pydiction (python dictionary) to vim autocomplete.
   " see https://github.com/rkulla/pydiction
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+  " sets foldable sections to code blocks:
+  autocmd FileType python setlocal foldmethod=indent
 augroup END
 " }}}
 
@@ -244,38 +230,31 @@ augroup filetype_js
   autocmd!
   vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
   " autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget that you can use tern: https://github.com/ternjs/tern_for_vim" | echo "!!!!!"
+  " autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget to use <c-n> for vim completion" | echo "!!!!!"
   autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
-  " these lines are commented out because I should start to try to use <c-n>
-  " for vim completion
-  " autocmd FileType javascript :iabbrev <buffer> func function
-  " autocmd FileType javascript :iabbrev <buffer> ret return
-  " autocmd FileType javascript :iabbrev <buffer> yi yield
   autocmd BufWritePre *.js :%s/\s\+$//e
   " TODO: add syntax highlighting for 'yield' in javascript
-  " TODO: add a command that allows me to mark a line for deletion, perhaps
-  " using
-  autocmd FileType javascript nnoremap <buffer> ZZ :<c-u>execute "normal! :g_^\\s*//d_d\r:wq\r"<cr>
+  " mark a line for deletion by commenting with `// d:`
+  autocmd FileType javascript nnoremap <buffer> ZZ :<c-u>execute "normal! :g_^\\s*// d:_d\r:wq\r"<cr>
 augroup END
 " }}}
 
 " html files -------------------{{{
 augroup filetype_html
   autocmd!
+  " make selection bold:
   vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
+  " fold tags with `\f`
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
-  autocmd FileType html :iabbrev <buffer> div <div></div><left><left><left><left><left><left>
-  autocmd FileType html :iabbrev <buffer> <div> NOPENOPENOPE
-  autocmd FileType html :iabbrev <buffer> divc <div class=""></div><left><left><left><left><left><left><left><left>
+  " TODO: find an html plugin to autocomplete tags
 augroup END
 " }}}
 
 " hbs files -------------------{{{
 augroup filetype_hbs
   autocmd!
+  " fold tags with `\f`
   autocmd BufNewFile,BufRead *.hbs nnoremap <buffer> <localleader>f Vatzf
-  autocmd BufNewFile,BufRead *.hbs :iabbrev <buffer> div <div></div><left><left><left><left><left><left>
-  autocmd BufNewFile,BufRead *.hbs :iabbrev <buffer> <div> NOPENOPENOPE
-  autocmd BufNewFile,BufRead *.hbs :iabbrev <buffer> divc <div class=""></div><left><left><left><left><left><left><left><left>
 augroup END
 " }}}
 
@@ -283,13 +262,13 @@ augroup END
 augroup filetype_bat
   autocmd!
   autocmd FileType dosbatch nnoremap <buffer> <localleader>c Irem <esc>
-  autocmd FileType dosbatch vnoremap <buffer> <localleader>c Irem <esc>
 augroup END
 " }}}
 
 " markdown files ------------------ {{{
 augroup filetype_markdown
   autocmd!
+  " operate on headding of current section:
   autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rkvg_"<cr>
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
@@ -298,6 +277,7 @@ augroup END
 " Vimscript file settings ------------------ {{{
 augroup filetype_vim
   autocmd!
+  " sets foldable sections to those identified by the marker:
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
@@ -311,6 +291,19 @@ augroup END
 if filereadable(".local_vimrc")
     source .local_vimrc
 endif
+
+function Paste()
+  " sets paste mode before pasting
+	if &paste
+		echom "paste mode already set"
+		" TOOD: execute paste here
+	else
+		echom "setting paste"
+		set paste
+		" TOOD: execute paste here
+		set nopaste
+	endif
+endfunction
 
 " }}}
 
