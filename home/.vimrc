@@ -83,7 +83,7 @@ let mapleader =","
 let maplocalleader = "\\"
 " quickly edit .vimrc:
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source! $MYVIMRC<cr>
 
 iabbrev @@ jazzab@gmail.com
 iabbrev ssig --<cr>Jared Johnston<cr>jazzab@gmail.com
@@ -215,14 +215,41 @@ augroup filetype_guitar_tab
   " :autocmd BufNewFile,BufRead *.gtab vnoremap <buffer> d 8
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>u u
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>d d
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer>  :call ScrollDown(400.0)<cr>
-  function ScrollDown(speed)
-    " TODO: capture key presses
+
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <silent> <expr>  ScrollDown("\", 400.0)
+  function ScrollDown(playMap, speed)
+    echom "function running:"
     let s:waitTime = float2nr(60.0 / a:speed * 12)
     execute "sleep " . s:waitTime
-    execute "normal \<C-E>"
-    redraw!
-    call ScrollDown(a:speed)
+    " execute "normal \<C-E>"
+    echo "scroll down!"
+    " TODO: make one of these redraw and call the function again:
+    " return "\<C-R>=Redraw()\<CR>" . a:playMap
+    " return a:playMap
+  endfunction
+
+  " source: http://vim.wikia.com/wiki/Capture_all_keys
+  imap <buffer> <silent> <expr> <F12> Double("\<F12>")
+  function! Double(mymap)
+    try
+      let char = getchar()
+    catch /^Vim:Interrupt$/
+      let char = "\<Esc>"
+    endtry
+    "exec BPBreakIf(char == 32, 1)
+    if char == '^\d\+$' || type(char) == 0
+      let char = nr2char(char)
+    endif " It is the ascii code.
+    if char == "\<Esc>"
+      return ''
+    endif
+    redraw
+    return char.char."\<C-R>=Redraw()\<CR>".a:mymap
+  endfunction
+
+  function! Redraw()
+    redraw
+    return ''
   endfunction
 augroup END
 " }}}
@@ -293,6 +320,7 @@ augroup filetype_vim
   autocmd!
   " sets foldable sections to those identified by the marker:
   autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>
 augroup END
 " }}}
 
