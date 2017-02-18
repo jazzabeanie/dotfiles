@@ -172,6 +172,7 @@ endif
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 
 " }}}
+
 " Autogroup commands ---------- {{{
 
 " Guitar tabs -------------------{{{
@@ -210,12 +211,17 @@ augroup filetype_guitar_tab
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>h sh<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>p sp<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> -- C-------------------------------------------------------<esc>b
+  " :autocmd BufNewFile,BufRead *.gtab vnoremap <buffer> u 8
+  " :autocmd BufNewFile,BufRead *.gtab vnoremap <buffer> d 8
+  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>u u
+  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>d d
+  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer>  :call ScrollDown(400.0)<cr>
   function ScrollDown(speed)
+    " TODO: capture key presses
     let s:waitTime = float2nr(60.0 / a:speed * 12)
     execute "sleep " . s:waitTime
     execute "normal \<C-E>"
-    " TODO: update view here. the scrolling is getting updated until function
-    " is cancelled.
+    redraw!
     call ScrollDown(a:speed)
   endfunction
 augroup END
