@@ -216,16 +216,22 @@ augroup filetype_guitar_tab
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>u u
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>d d
 
-  :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <silent> <expr>  ScrollDown("\", 400.0)
-  function ScrollDown(playMap, speed)
+  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
+  nmap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
+  imap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
+  function! ScrollDown(playMap, speed)
     echom "function running:"
     let s:waitTime = float2nr(60.0 / a:speed * 12)
     execute "sleep " . s:waitTime
-    " execute "normal \<C-E>"
+    " TODO: execute the scroll. I'm current getting a 'not allowed here'
+    " error. :h E523
+    " execute "normal! \<C-E>"
     echo "scroll down!"
     " TODO: make one of these redraw and call the function again:
     " return "\<C-R>=Redraw()\<CR>" . a:playMap
-    " return a:playMap
+    redraw
+    echom a:playMap
+    return "\<C-R>=Redraw()\<CR>".a:playMap
   endfunction
 
   " source: http://vim.wikia.com/wiki/Capture_all_keys
@@ -244,6 +250,7 @@ augroup filetype_guitar_tab
       return ''
     endif
     redraw
+    " return char.char."\<C-R>=Redraw()\<CR>".a:mymap
     return char.char."\<C-R>=Redraw()\<CR>".a:mymap
   endfunction
 
