@@ -18,7 +18,7 @@ set ruler
 set hlsearch
 set nopaste
 set colorcolumn=80
-" set textwidth=79 " TODO: find out whey textwidth is being overwritten (see
+" set textwidth=79 " TODO: find out whey textwidth is being overwritten on mac (see
 " `:verbose set textwidth?`)
 set textwidth=0
 set wrap
@@ -36,15 +36,9 @@ set shiftwidth=2
 set expandtab
 set tabstop=2
 
-if $TMUX == '' " TODO: solve this issue. Read more to understand this issue: https://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
-  if has('unnamedplus') " for linux
-    set clipboard=unnamedplus
-  else " for mac
-    set clipboard=unnamed
-  endif
+if $TMUX == '' 
+  "TODO: solve the tmux issue. Read more to understand this issue: https://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register"
 endif
-" TODO: solve the tmux issue here.
-
 " }}}
 
 " Statusline and cursor ------------- {{{
@@ -63,7 +57,7 @@ endif
 " set statusline+=%P " Percentage through file of window
 "
 " " Cursor ------------- {{{
-" " TODO: sort my cursor so that it's a bar for insert mode.
+" " TODO: make cursor a bar for insert mode.
 "
 " if &term =~ "xterm\\|rxvt"
 "   " source: https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
@@ -87,6 +81,7 @@ endif
 
 let mapleader =","
 let maplocalleader = "\\"
+" quickly edit .vimrc:
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -112,25 +107,25 @@ vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left
 nnoremap / /\c
 nnoremap ? ?\c
 
-" Find next selection
-" TODO
-" vnoremap <leader>
+" Find next selection (/ and \ still need to be scaped) TODO: fix this
+vnoremap <leader>f y/\V<c-r>"<cr>
 
 " Format selection
-vnoremap <leader>f gq
+vnoremap <leader>F gq
 
 
 " Navigation
 nnoremap H ^
 nnoremap L $
+nnoremap L g_
 nnoremap <leader>H H
 nnoremap <leader>L L
 vnoremap H ^
-vnoremap L $
+vnoremap L g_
 vnoremap <leader>H H
 vnoremap <leader>L L
 onoremap H ^
-onoremap L $
+onoremap L g_
 onoremap <leader>H H
 onoremap <leader>L L
 
@@ -155,8 +150,8 @@ onoremap iF' :<c-u>normal! F'vi'<cr>
 onoremap if" :<c-u>normal! f"vi"<cr>
 onoremap iF" :<c-u>normal! F"vi"<cr>
 
-" TODO: address the clipboard issue accross all OS:
 function Paste()
+  " sets paste mode before pasting
 	if &paste
 		echom "paste mode already set"
 		" TOOD: execute paste here
@@ -168,20 +163,29 @@ function Paste()
 	endif
 endfunction
 
-" Linux clipboard commands:
-vnoremap <leader>y "+y
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-inoremap <leader>p <c-r>+
-" inoremap <leader>p <esc>:call Paste()<cr> " TODO: uncomment when Paste() method is fixed
-"
-" clipboard commands
-nnoremap <leader><c-v> "*P
-inoremap <leader><c-v> <esc>"*pa
-vnoremap <leader><c-c> "*y
-" vnoremap <leader>y "*y
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Linux"
+  " Setting linux specific settings:"
+  set clipboard=unnamedplus
+  vnoremap <leader>y "+y
+  vnoremap <leader>p "+p
+  vnoremap <leader>P "+P
+  nnoremap <leader>p "+p
+  nnoremap <leader>P "+P
+  inoremap <leader>p <c-r>+
+elseif os == "Mac"
+  " Setting Mac specific settings:"
+  set clipboard=unnamed
+  nnoremap <leader><c-v> "*P
+  inoremap <leader><c-v> <esc>"*pa
+  vnoremap <leader><c-c> "*y
+  vnoremap <leader>y "*y
+else
+  echom "TODO: change else to elseif and enter Windows specific settings here"
+  echom "OS variable = " . os
+endif
+
+" inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 
 " }}}
 
