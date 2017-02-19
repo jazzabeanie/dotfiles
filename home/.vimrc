@@ -217,21 +217,29 @@ augroup filetype_guitar_tab
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>d d
 
   " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
-  nmap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
-  imap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
+  :autocmd BufNewFile,BufRead *.gtab nmap <buffer> <c-l> i<c-l>
+  :autocmd BufNewFile,BufRead *.gtab imap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
   function! ScrollDown(playMap, speed)
-    echom "function running:"
+    try
+      let char = getchar()
+    endtry
+    if char == 100
+      " u is pressed -> jump up 8 lines
+      return "\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-R>=Redraw()\<CR>".a:playMap
+    elseif char == 117
+      " d is pressed -> jump down 8 lines
+      return "\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-R>=Redraw()\<CR>".a:playMap
+    " else
+    "   let s:movement = "\<C-O>\<C-E>"
+    endif
+    if char == "\<Esc>"
+      return ''
+    endif
+    echo "Autoscroll enabled (press Ctrl-c to cancel)"
     let s:waitTime = float2nr(60.0 / a:speed * 12)
     execute "sleep " . s:waitTime
-    " TODO: execute the scroll. I'm current getting a 'not allowed here'
-    " error. :h E523
-    " execute "normal! \<C-E>"
-    echo "scroll down!"
-    " TODO: make one of these redraw and call the function again:
-    " return "\<C-R>=Redraw()\<CR>" . a:playMap
     redraw
-    echom a:playMap
-    return "\<C-R>=Redraw()\<CR>".a:playMap
+    return "\<C-O>\<C-E>\<C-R>=Redraw()\<CR>".a:playMap
   endfunction
 
   " source: http://vim.wikia.com/wiki/Capture_all_keys
