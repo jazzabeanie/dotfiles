@@ -211,16 +211,16 @@ augroup filetype_guitar_tab
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>h sh<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>p sp<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> -- C-------------------------------------------------------<esc>b
-	au BufReadPost *.gtab if getline(1) =~ "BMP" | call SetBMP(getline(1)) | endif
+  au BufReadPost *.gtab if getline(1) =~ "BPM" | call SetBPM(getline(1)) | else | echom "no BPM set. put BPM=xxx in the first line" | endif
 
-  function! SetBMP(firstLine)
-    echom "set bmp here:".a:firstLine
-    " let s:bmp = TODO: parse argument here
-    " TODO: set buffer local value for BMP to pass into ScrollDown
+  function! SetBPM(firstLine)
+    let g:bpm = substitute(a:firstLine, "BPM=", "", "")
+    echom "Autoscroll supported. Press Ctrl-a to start"
+    " TODO: set buffer local value for BPM to pass into ScrollDown
   endfunction
 
   :autocmd BufNewFile,BufRead *.gtab nmap <buffer> <c-a> i<c-a>
-  :autocmd BufNewFile,BufRead *.gtab imap <buffer> <silent> <expr> <c-a> ScrollDown("\<c-a>", 402.0)
+  :autocmd BufNewFile,BufRead *.gtab imap <buffer> <silent> <expr> <c-a> ScrollDown("\<c-a>", g:bpm)
   
   function! ScrollDown(playMap, speed)
     try " source: http://vim.wikia.com/wiki/Capture_all_keys
@@ -237,7 +237,7 @@ augroup filetype_guitar_tab
       return ''
     endif
     echo "Autoscroll enabled (press Ctrl-c to cancel)"
-    let s:waitTime = float2nr(60.0 / a:speed * 12)
+    let s:waitTime = float2nr(60.0 / a:speed * 4)
     execute "sleep " . s:waitTime
     redraw
     return s:movement."\<C-R>=Redraw()\<CR>".a:playMap
