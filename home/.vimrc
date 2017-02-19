@@ -211,26 +211,27 @@ augroup filetype_guitar_tab
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>h sh<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <localleader>p sp<esc>l
   :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> -- C-------------------------------------------------------<esc>b
-  " :autocmd BufNewFile,BufRead *.gtab vnoremap <buffer> u 8
-  " :autocmd BufNewFile,BufRead *.gtab vnoremap <buffer> d 8
-  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>u u
-  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <leader>d d
+	au BufReadPost *.gtab if getline(1) =~ "BMP" | call SetBMP(getline(1)) | endif
 
-  " :autocmd BufNewFile,BufRead *.gtab nnoremap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
-  :autocmd BufNewFile,BufRead *.gtab nmap <buffer> <c-l> i<c-l>
-  :autocmd BufNewFile,BufRead *.gtab imap <buffer> <silent> <expr> <c-l> ScrollDown("\<c-l>", 401.0)
+  function! SetBMP(firstLine)
+    echom "set bmp here:".a:firstLine
+    " let s:bmp = TODO: parse argument here
+    " TODO: set buffer local value for BMP to pass into ScrollDown
+  endfunction
+
+  :autocmd BufNewFile,BufRead *.gtab nmap <buffer> <c-a> i<c-a>
+  :autocmd BufNewFile,BufRead *.gtab imap <buffer> <silent> <expr> <c-a> ScrollDown("\<c-a>", 402.0)
+  
   function! ScrollDown(playMap, speed)
-    try
+    try " source: http://vim.wikia.com/wiki/Capture_all_keys
       let char = getchar()
     endtry
-    if char == 100
-      " u is pressed -> jump up 8 lines
-      return "\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-R>=Redraw()\<CR>".a:playMap
-    elseif char == 117
-      " d is pressed -> jump down 8 lines
-      return "\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-R>=Redraw()\<CR>".a:playMap
-    " else
-    "   let s:movement = "\<C-O>\<C-E>"
+    if char == 100 " u is pressed -> jump up 8 lines
+      let s:movement = "\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>\<C-O>\<C-E>"
+    elseif char == 117 " d is pressed -> jump down 8 lines
+      let s:movement = "\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>\<C-O>\<C-Y>"
+    else " just move down one line
+      let s:movement = "\<C-O>\<C-E>"
     endif
     if char == "\<Esc>"
       return ''
@@ -239,27 +240,7 @@ augroup filetype_guitar_tab
     let s:waitTime = float2nr(60.0 / a:speed * 12)
     execute "sleep " . s:waitTime
     redraw
-    return "\<C-O>\<C-E>\<C-R>=Redraw()\<CR>".a:playMap
-  endfunction
-
-  " source: http://vim.wikia.com/wiki/Capture_all_keys
-  imap <buffer> <silent> <expr> <F12> Double("\<F12>")
-  function! Double(mymap)
-    try
-      let char = getchar()
-    catch /^Vim:Interrupt$/
-      let char = "\<Esc>"
-    endtry
-    "exec BPBreakIf(char == 32, 1)
-    if char == '^\d\+$' || type(char) == 0
-      let char = nr2char(char)
-    endif " It is the ascii code.
-    if char == "\<Esc>"
-      return ''
-    endif
-    redraw
-    " return char.char."\<C-R>=Redraw()\<CR>".a:mymap
-    return char.char."\<C-R>=Redraw()\<CR>".a:mymap
+    return s:movement."\<C-R>=Redraw()\<CR>".a:playMap
   endfunction
 
   function! Redraw()
