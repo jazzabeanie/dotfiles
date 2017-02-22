@@ -162,7 +162,7 @@ if os == "Linux"
   nnoremap <leader>p "+p
   nnoremap <leader>P "+P
   inoremap <leader>p <c-r>+
-elseif os == "Mac"
+elseif os == "Darwin"
   " Setting Mac specific settings:"
   set clipboard=unnamed
   nnoremap <leader><c-v> "*P
@@ -255,7 +255,7 @@ augroup filetype_guitar_tab
 augroup END
 " }}}
 
-" Python files -------------------{{{
+" Python -------------------{{{
 augroup filetype_python
   autocmd!
   autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
@@ -267,7 +267,7 @@ augroup filetype_python
 augroup END
 " }}}
 
-" Javascript files -------------------{{{
+" Javascript -------------------{{{
 augroup filetype_js
   autocmd!
   vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
@@ -281,7 +281,7 @@ augroup filetype_js
 augroup END
 " }}}
 
-" html files -------------------{{{
+" html -------------------{{{
 augroup filetype_html
   autocmd!
   " make selection bold:
@@ -292,7 +292,7 @@ augroup filetype_html
 augroup END
 " }}}
 
-" hbs files -------------------{{{
+" hbs -------------------{{{
 augroup filetype_hbs
   autocmd!
   " fold tags with `\f`
@@ -300,14 +300,21 @@ augroup filetype_hbs
 augroup END
 " }}}
 
-" batch files -------------------{{{
+" Sass -------------------{{{
+augroup filetype_sass
+  autocmd!
+  autocmd BufNewFile,BufRead *.sass set noexpandtab
+augroup END
+" }}}
+
+" batch -------------------{{{
 augroup filetype_bat
   autocmd!
   autocmd FileType dosbatch nnoremap <buffer> <localleader>c Irem <esc>
 augroup END
 " }}}
 
-" markdown files ------------------ {{{
+" markdown ------------------ {{{
 augroup filetype_markdown
   autocmd!
   " operate on headding of current section:
@@ -316,7 +323,7 @@ augroup filetype_markdown
 augroup END
 " }}}
 
-" Vimscript file settings ------------------ {{{
+" Vim files ------------------ {{{
 augroup filetype_vim
   autocmd!
   " sets foldable sections to those identified by the marker:
@@ -337,15 +344,15 @@ endif
 
 function Paste()
   " sets paste mode before pasting
-	if &paste
-		echom "paste mode already set"
-		" TOOD: execute paste here
-	else
-		echom "setting paste"
-		set paste
-		" TOOD: execute paste here
-		set nopaste
-	endif
+  if &paste
+    echom "paste mode already set"
+    " TOOD: execute paste here
+  else
+    echom "setting paste"
+    set paste
+    " TOOD: execute paste here
+    set nopaste
+  endif
 endfunction
 
 " }}}
