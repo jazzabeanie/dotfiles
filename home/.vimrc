@@ -91,6 +91,12 @@ iabbrev teh the
 iabbrev tehn then
 iabbrev waht what
 
+" quitting
+nnoremap command! Wq wq
+nnoremap command! WQ wq
+nnoremap command! W w
+nnoremap command! Q q
+
 " escaping
 inoremap jk <esc>l
 onoremap jk <esc>
@@ -106,7 +112,7 @@ vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left
 nnoremap / /\c
 nnoremap ? ?\c
 
-" Find next selection (/ and \ still need to be scaped) TODO: fix this
+" Find next selection (/ and \ still need to be escaped) TODO: fix this
 vnoremap <leader>f y/\V<c-r>"<cr>
 
 " Format selection
@@ -115,7 +121,6 @@ vnoremap <leader>F gq
 
 " Navigation
 nnoremap H ^
-nnoremap L $
 nnoremap L g_
 nnoremap <leader>H H
 nnoremap <leader>L L
