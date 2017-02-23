@@ -170,8 +170,17 @@ elseif os == "Darwin"
   vnoremap <leader><c-c> "*y
   vnoremap <leader>y "*y
 else
-  echom "TODO: change else to elseif and enter Windows specific settings here"
-  echom "OS variable = " . os
+  " echom "OS variable = " . os
+  vnoremap <leader>y "*y
+  vnoremap <leader>p "*p
+  vnoremap <leader>P "*P
+  nnoremap <leader>p "*p
+  nnoremap <leader>P "*P
+  inoremap <leader>p <c-r>+
+  source C:/Program\ Files\ (x86)/Vim/_vimrc
+  iabbrev @@ jared.johnston@townsville.qld.gov.au
+  iabbrev ssig --<cr>Jared Johnston<cr>jared.johnston@townsville.qld.gov.au
+  iabbrev TCC Townsville City Council
 endif
 
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
@@ -264,6 +273,9 @@ augroup filetype_python
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
   " sets foldable sections to code blocks:
   autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType python let g:pymode_lint_ignore="E116"
+  autocmd BufWritePre *.py :%s/\s\+$//e
+  autocmd BufWritePost *.py :PymodeLint
 augroup END
 " }}}
 
@@ -313,6 +325,7 @@ augroup END
 augroup filetype_bat
   autocmd!
   autocmd FileType dosbatch nnoremap <buffer> <localleader>c Irem <esc>
+  autocmd FileType dosbatch vnoremap <buffer> <localleader>c Irem <esc>
 augroup END
 " }}}
 
@@ -322,6 +335,8 @@ augroup filetype_markdown
   " operate on headding of current section:
   autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rkvg_"<cr>
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rg_vk0"<cr>
+  autocmd FileType markdown set spell spelllang=en_au
+  autocmd FileType markdown :iabbrev <buffer> fc feature class
 augroup END
 " }}}
 
@@ -331,6 +346,7 @@ augroup filetype_vim
   " sets foldable sections to those identified by the marker:
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>
+  autocmd FileType vim :iabbrev <buffer> == ==#
 augroup END
 " }}}
 
