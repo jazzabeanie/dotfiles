@@ -13,7 +13,7 @@ set cursorline
 set hidden
 set nocompatible
 set number
-" set relativenumber " this is a good options normally, as it usually requires you to press less numbers when jumping around (use 22j instead of 354G). At the moment I am trying to get better at touch typing the number keys.
+set relativenumber " this is a good options normally, as it usually requires you to press less numbers when jumping around (use 22j instead of 354G). At the moment I am trying to get better at touch typing the number keys.
 set ruler
 set hlsearch
 set nopaste
@@ -114,6 +114,10 @@ nnoremap ? ?\c
 
 " Find next selection (/ and \ still need to be escaped) TODO: fix this
 vnoremap <leader>f y/\V<c-r>"<cr>
+
+" n and N put the match at centre screen
+nnoremap n nzz
+nnoremap N Nzz
 
 " Format selection
 vnoremap <leader>F gq
