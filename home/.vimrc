@@ -100,7 +100,7 @@ nnoremap command! Q q
 " escaping
 inoremap jk <esc>l
 onoremap jk <esc>
-inoremap kj <esc>l
+inoremap kj <esc>
 onoremap kj <esc>
 inoremap Jk <esc>l
 onoremap Jk <esc>
