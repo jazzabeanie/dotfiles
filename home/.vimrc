@@ -380,11 +380,11 @@ endfunction
 " }}}
 
 " new stuff: -------------- {{{
-" autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
-" autocmd BufNewFile,BufRead * nnoremap h <nop>
-" autocmd BufNewFile,BufRead * nnoremap j <nop>
-" autocmd BufNewFile,BufRead * nnoremap k <nop>
-" autocmd BufNewFile,BufRead * nnoremap l <nop>
+autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
+autocmd BufNewFile,BufRead * nnoremap h <nop>
+autocmd BufNewFile,BufRead * nnoremap j <nop>
+autocmd BufNewFile,BufRead * nnoremap k <nop>
+autocmd BufNewFile,BufRead * nnoremap l <nop>
 "
 "
 "
