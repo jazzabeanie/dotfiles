@@ -81,7 +81,6 @@ alias cdj='cd ~/Workspace/JESI/jesi-functional-tests'
 alias cds='cd ~/Workspace/scheduler'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
-echo "alias cdev='cd ~/.dotfiles/home'"
 # #alias cdgo='cd ~/Workspace/go'
 # #alias cdwp='cd ~/Workspace/personal'
 # #alias cdwc='cd ~/Workspace/cards'
