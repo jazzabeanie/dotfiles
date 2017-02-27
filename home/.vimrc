@@ -115,9 +115,11 @@ nnoremap ? ?\c
 " Find next selection (/ and \ still need to be escaped) TODO: fix this
 vnoremap <leader>f y/\V<c-r>"<cr>
 
-" n and N put the match at centre screen
+" put search matches at centre screen
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
 
 " Format selection
 vnoremap <leader>F gq

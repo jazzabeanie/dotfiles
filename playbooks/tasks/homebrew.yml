@@ -22,6 +22,7 @@
     - curl
     - flyway
     - git
+    - git-extras
     - gnu-sed
     - heroku
     - leiningen
