@@ -3,6 +3,14 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+if executable('ag')
+  " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
+  let g:ackprg = 'ag --vimgrep'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+endif
 colors zenburn
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
