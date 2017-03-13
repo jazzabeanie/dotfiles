@@ -43,6 +43,8 @@ set softtabstop=2 " Is this related to settings below?
 set shiftwidth=2
 set expandtab
 set tabstop=2
+" ignores
+set wildignore+=*/node_modules/*,.git,*/target/*
 
 if $TMUX == '' 
   "TODO: solve the tmux issue. Read more to understand this issue: https://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register"
@@ -108,8 +110,6 @@ nnoremap command! Q q
 " escaping
 inoremap jk <esc>l
 onoremap jk <esc>
-inoremap kj <esc>
-onoremap kj <esc>
 inoremap Jk <esc>l
 onoremap Jk <esc>
 
@@ -390,7 +390,7 @@ endfunction
 " }}}
 
 " new stuff: -------------- {{{
-autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
+" autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
 autocmd BufNewFile,BufRead * nnoremap hh <nop>
 autocmd BufNewFile,BufRead * nnoremap jj <nop>
 autocmd BufNewFile,BufRead * nnoremap kk <nop>
