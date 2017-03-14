@@ -399,6 +399,10 @@ autocmd BufNewFile,BufRead * nnoremap ll <nop>
 nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'k'<CR>
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
 "
+" make * and # put matches at centre screen
+nnoremap * *zz
+" " Also make n go down, and N go up no matter which key is pressed.
+noremap # *NNzz
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
