@@ -399,6 +399,7 @@ autocmd BufNewFile,BufRead * nnoremap ll <nop>
 nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'k'<CR>
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
 "
+" TODO: apply this instead: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
 " make * and # put matches at centre screen
 nnoremap * *zz
 " " Also make n go down, and N go up no matter which key is pressed.
