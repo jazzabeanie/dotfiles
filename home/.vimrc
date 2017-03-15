@@ -98,6 +98,7 @@ nnoremap <leader>sv :source! $MYVIMRC<cr>
 iabbrev @@ jazzab@gmail.com
 iabbrev ssig --<cr>Jared Johnston<cr>jazzab@gmail.com
 iabbrev teh the
+iabbrev taht that
 iabbrev tehn then
 iabbrev waht what
 
