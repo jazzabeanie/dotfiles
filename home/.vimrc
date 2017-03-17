@@ -105,6 +105,7 @@ nnoremap command! Wq wq
 nnoremap command! WQ wq
 nnoremap command! W w
 nnoremap command! Q q
+" this doesn't work anymore since `cnoremap <expr> <CR> getcmdtype() == '/' ? '<CR>zz' : '<CR>'` was implemented
 cabbrev Wq wq
 cabbrev WQ wq
 cabbrev Q q
@@ -406,8 +407,14 @@ nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') 
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
 "
 " TODO: apply this instead: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
+" Makes search matches appear centre screen
+cnoremap <expr> <CR> getcmdtype() == '/' ? '<CR>zz' : '<CR>'
+" Makes n and N search direction consistent regardless of whether ? or / was
+" used. see for more info: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
+" TODO: look into another option that shows context for matches, making the
+" need to centre after matching redundant.
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
