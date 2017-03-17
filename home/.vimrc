@@ -407,7 +407,8 @@ nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') 
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
 "
 " TODO: apply this instead: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
-" Makes search matches appear centre screen
+" Makes search matches appear centre screen, but breaks other functionality
+" above (cabbrev). get more info here with possable alternatvie (TODO): https://vi.stackexchange.com/questions/10775/how-can-i-automatically-center-first-search-result
 cnoremap <expr> <CR> getcmdtype() == '/' ? '<CR>zz' : '<CR>'
 " Makes n and N search direction consistent regardless of whether ? or / was
 " used. see for more info: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
