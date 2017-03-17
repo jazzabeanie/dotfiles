@@ -392,10 +392,6 @@ endfunction
 
 " new stuff: -------------- {{{
 " autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
-autocmd BufNewFile,BufRead * nnoremap hh <nop>
-autocmd BufNewFile,BufRead * nnoremap jj <nop>
-autocmd BufNewFile,BufRead * nnoremap kk <nop>
-autocmd BufNewFile,BufRead * nnoremap ll <nop>
 " these remappings set a mark so I can jump back to a previous location with `` or '' or <c-o>
 nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'k'<CR>
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
