@@ -3,6 +3,7 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules)$'
 if executable('ag')
   " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
   let g:ackprg = 'ag --vimgrep'
@@ -392,15 +393,13 @@ endfunction
 
 " new stuff: -------------- {{{
 " autocmd BufNewFile,BufRead * echo "don't forget to use vim-surround plugin"
-" these remappings set a mark so I can jump back to a previous location with `` or '' or <c-o>
+" these remappings set a mark so I can jump back to a previous location with `` or '' or <c-o>. " doesn't work in intelliJ
 nnoremap <silent> k :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'k'<CR>
 nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') . 'j'<CR>
 "
 " TODO: apply this instead: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
-" make * and # put matches at centre screen
-nnoremap * *zz
-" " Also make n go down, and N go up no matter which key is pressed.
-noremap # *NNzz
+noremap <expr> n 'Nn'[v:searchforward]
+noremap <expr> N 'nN'[v:searchforward]
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
