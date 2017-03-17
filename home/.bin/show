@@ -1,0 +1,5 @@
+#!/bin/bash
+function show
+    echo $argv
+    eval $argv
+end

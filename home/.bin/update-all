@@ -1,0 +1,19 @@
+#!/bin/bash
+# source: The Andre https://github.com/AndreTheHunter
+show brew update
+show brew upgrade
+show npm install npm@latest -g
+show npm update -g
+show gem update
+
+for pkg in (pip list --outdated --format freeze|ag -o '.+(?===)')
+    show pip install --upgrade $pkg 
+end
+
+# this
+# #use (vagrant box outdated --global) instead?
+# for vm in (vagrant-list)
+#     show cd $vm
+#     show vagrant box update
+#     cd -
+# end

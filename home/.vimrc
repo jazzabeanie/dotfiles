@@ -47,9 +47,6 @@ set tabstop=2
 " ignores
 set wildignore+=*/node_modules/*,.git,*/target/*
 
-if $TMUX == '' 
-  "TODO: solve the tmux issue. Read more to understand this issue: https://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register"
-endif
 " }}}
 
 " Statusline and cursor ------------- {{{
@@ -108,6 +105,10 @@ nnoremap command! Wq wq
 nnoremap command! WQ wq
 nnoremap command! W w
 nnoremap command! Q q
+cabbrev Wq wq
+cabbrev WQ wq
+cabbrev Q q
+cabbrev W w
 
 " escaping
 inoremap jk <esc>l
@@ -180,11 +181,18 @@ if os == "Linux"
   inoremap <leader>p <c-r>+
 elseif os == "Darwin"
   " Setting Mac specific settings:"
-  set clipboard=unnamed
+  if $TMUX == '' 
+    set clipboard+=unnamed
+  endif
   nnoremap <leader><c-v> "*P
   inoremap <leader><c-v> <esc>"*pa
   vnoremap <leader><c-c> "*y
   vnoremap <leader>y "*y
+  vnoremap <leader>p "*p
+  vnoremap <leader>P "*P
+  nnoremap <leader>p "*p
+  nnoremap <leader>P "*P
+  inoremap <leader>p <c-r>+
 else
   " echom "OS variable = " . os
   vnoremap <leader>y "*y
