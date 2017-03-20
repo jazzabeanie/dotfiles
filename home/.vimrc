@@ -415,6 +415,7 @@ noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 " TODO: look into another option that shows context for matches, making the
 " need to centre after matching redundant.
+" try: set scrolloff=5
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
