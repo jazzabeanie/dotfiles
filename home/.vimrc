@@ -12,7 +12,9 @@ if executable('ag')
   cnoreabbrev Ag Ack
   cnoreabbrev AG Ack
 endif
-colors zenburn
+" colors zenburn
+" colors badwolf
+colors vividchalk
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2
@@ -418,6 +420,10 @@ noremap <expr> N 'nN'[v:searchforward]
 " TODO: look into another option that shows context for matches, making the
 " need to centre after matching redundant.
 " try: set scrolloff=5
+"
+"
+" check this out: https://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
+" cmap w!! %!sudo tee > /dev/null %
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
