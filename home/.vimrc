@@ -311,6 +311,7 @@ augroup filetype_js
   " autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget that you can use tern: https://github.com/ternjs/tern_for_vim" | echo "!!!!!"
   " autocmd BufNewFile,BufRead *.js echo "!!!!!" | echo "Don't forget to use <c-n> for vim completion" | echo "!!!!!"
   autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
+  autocmd FileType javascript nnoremap <buffer> <localleader>d I// d: <esc>
   autocmd BufWritePre *.js :%s/\s\+$//e
   " TODO: add syntax highlighting for 'yield' in javascript
   " mark a line for deletion by commenting with `// d:`
