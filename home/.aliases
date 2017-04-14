@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo "use untar to unzip .tar.gz"
+
 function cdg() {
     cd ~/Workspace/go/src
 }
@@ -71,23 +74,56 @@ function playvids() {
         done < $playlist
 }
 
-function trim {
-  if (( $# == 0 )); then
-  # if [[ $# -eq 0 ]]; then
-    echo "trim takes 3 arguments:"
-    echo "1. input file"
-    echo "2. start time"
-    echo "3. finish time"
+function ffmpeg-trim {
+  if (( $# < 2 )) || (( $# > 4 )); then
+    echo "ffmpeg-trim takes at least 2 arguments:"
+    echo "1.    input file"
+    echo "2.    start time"
+    echo "[3].  finish time. if not provided, will trim to the end."
+    echo "[4].  timmed filename. if not provided, original will be overwritten"
+    echo ""
+    echo "Time can be privded as number of seconds, or [HH:]MM:SS."
+    echo "Seconds expressed as a decimal are suppored in both cases"
+    echo "See 'man ffmpeg-utils' and search for 'Time duration' for more info"
     return
-  elif [ -f ./trimmed_$1 ]; then
-    read -rsp $"trimmed_$1 exists. Press any key to delete and continue...\n" -n1 key
-    rm ./trimmed_$1
+  elif (( $# < 4 )); then
+    # read -rsp $"No output filename give, original file will be overwritten.\nBackup will be created at /tmp\nPress any key to contines...\n" -n1 key
+    cp ./$1 /tmp
   fi
   if (( $# == 2 )); then
-    ffmpeg -i "$1" -ss $2 -c copy "trimmed_$1"
-  else
-    ffmpeg -i "$1" -ss $2 -c copy -to $3 "trimmed_$1"
+    ffmpeg -i "$1" -ss $2 -c copy "$1"
+  elif (( $# == 3 )); then
+    ffmpeg -i "$1" -ss $2 -c copy -to $3 "$1"
+  elif (( $# == 4 )); then
+    ffmpeg -i "$1" -ss $2 -c copy -to $3 "$4"
   fi
+}
+
+function ffmpeg-separate {
+  if (( $# != 3 )); then
+  # if [[ $# -eq 0 ]]; then
+    echo "ffmpeg-separate takes 3 arguments:"
+    echo "1. input file"
+    echo "2. the timestamp to separate to (starting from 0)"
+    echo "3. the name of the output file"
+    echo "The original file will be trimmed. A backup will be put in /tmp"
+    return
+  fi
+  if [ -f ./$1  ]; then
+    cp "$1" /tmp
+  fi
+  if [ -f ./$3  ]; then
+    echo "$3 exists. Delete and continue?[Y/n]"
+    read answer
+    if [ "$answer" = "Y" ]; then
+      cp "$3" /tmp
+      rm ./$3
+    else
+      echo "script cancelled"
+      return
+    fi
+  fi
+  # TODO: trim the file here
 }
 
 function p-dl {
@@ -101,6 +137,7 @@ function g() {
       if ! [[ $1 == "st" || $1 == "status" || $1 == "u" ]]; then
         git status
       fi
+      ls -lah
 }
 
 # jesi commands
@@ -121,3 +158,12 @@ function t {
   fi
   jesit $CURRENT_TEST
 } 
+
+function untar {
+  if (( $# == 0 )); then
+  # if [[ $# -eq 0 ]]; then
+    echo "untar takes 1 argument: the *.tar.gz file to unzip"
+    return
+  fi
+  tar -xvzf "$@"
+}
