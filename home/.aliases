@@ -88,10 +88,10 @@ function ffmpeg-trim {
     return
   elif (( $# < 4 )); then
     # read -rsp $"No output filename give, original file will be overwritten.\nBackup will be created at /tmp\nPress any key to contines...\n" -n1 key
-    cp ./$1 /tmp
+    cp --remove-destination ./$1 /tmp
   fi
   if (( $# == 2 )); then
-    ffmpeg -i "$1" -ss $2 -c copy "$1"
+    ffmpeg -i "$1" -ss $2 -c copy "$1" #FIXME: I don't think this is working. test it.
   elif (( $# == 3 )); then
     ffmpeg -i "$1" -ss $2 -c copy -to $3 "$1"
   elif (( $# == 4 )); then
@@ -110,20 +110,21 @@ function ffmpeg-separate {
     return
   fi
   if [ -f ./$1  ]; then
-    cp "$1" /tmp
+    cp --remove-destination "$1" /tmp
   fi
   if [ -f ./$3  ]; then
     echo "$3 exists. Delete and continue?[Y/n]"
     read answer
     if [ "$answer" = "Y" ]; then
-      cp "$3" /tmp
+      cp --remove-destination "$3" /tmp
       rm ./$3
     else
       echo "script cancelled"
       return
     fi
   fi
-  # TODO: trim the file here
+  ffmpeg-trim "$1" 0 "$2" "$3"
+  ffmpeg-trim "$1" "$2"
 }
 
 function p-dl {
