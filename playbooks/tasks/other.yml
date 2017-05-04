@@ -43,3 +43,8 @@
 # ./configure --prefix=~/local
 # make install # ok, fine, this step probably takes more than 30 seconds...
 # curl https://www.npmjs.org/install.sh | sh
+
+- name: Install hist
+  sudo: false
+  # https://github.com/jcsalterego/historian
+  # TODO: curl the raw hist file to .bin directory
