@@ -12,9 +12,11 @@ if executable('ag')
   cnoreabbrev Ag Ack
   cnoreabbrev AG Ack
 endif
+<<<<<<< d5b0d90898d1f4f7d71122d03a8348d7fa0f315a
 " colors zenburn
 " colors badwolf
 colors vividchalk
+set background=dark
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2
@@ -317,6 +319,7 @@ augroup filetype_js
   autocmd BufWritePre *.js :%s/\s\+$//e
   " TODO: add syntax highlighting for 'yield' in javascript
   " mark a line for deletion by commenting with `// d:`
+  autocmd FileType javascript nnoremap <buffer> <localleader>d I// d: <esc>
   autocmd FileType javascript nnoremap <buffer> ZZ :<c-u>execute "normal! :g_^\\s*// d:_d\r:wq\r"<cr>
 augroup END
 " }}}

@@ -1,0 +1,14 @@
+#!/bin/bash
+# Source: GoGaRuCo 2010 - The Shell Hater's Handbook by: (Ryan Tomayko)[https://youtu.be/olH-9b3VJfs]
+# Usage: wordfreq <text file>
+# Show top 25 words in text file.
+
+file="$1"
+
+cat "$file"         |
+tr -c "A-Za-z" '\n' |
+grep -v '^$'        |
+sort                |
+uniq -ci            |
+sort -rn            |
+head -25
