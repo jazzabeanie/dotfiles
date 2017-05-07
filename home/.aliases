@@ -138,7 +138,7 @@ function g() {
       if ! [[ $1 == "st" || $1 == "status" || $1 == "u" ]]; then
         git status
       fi
-      ls -lah
+      # ls -lah
 }
 
 # jesi commands

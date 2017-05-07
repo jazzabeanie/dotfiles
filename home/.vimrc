@@ -12,10 +12,9 @@ if executable('ag')
   cnoreabbrev Ag Ack
   cnoreabbrev AG Ack
 endif
-<<<<<<< d5b0d90898d1f4f7d71122d03a8348d7fa0f315a
 " colors zenburn
 " colors badwolf
-colors vividchalk
+" colors vividchalk
 set background=dark
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim

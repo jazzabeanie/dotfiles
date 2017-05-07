@@ -48,3 +48,14 @@
   sudo: false
   # https://github.com/jcsalterego/historian
   # TODO: curl the raw hist file to .bin directory
+
+- name: Install openvpn
+  sudo: false
+  apt: name={{ item }} state=latest
+  with_items:
+    # - openvpn # what else needs to be installed here? I followed this vid: https://youtu.be/rveZMU0Vg7A
+  # set a password for openvpn user `passwd openvpn`
+  # go to URL given for admin webserver, and log in
+  # download the client.ovpn
+  # open client.ovpn in vim and change the ip address to the public address of the server
+  # user the client.ovpn file to set up vpn connection on other devices.
