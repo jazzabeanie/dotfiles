@@ -1,7 +1,4 @@
 ---
-- name: Add flux PPA
-  apt_repository: repo='ppa:nathan-renniewaldock/flux'
-  
 - name: Install libraries with apt
   sudo: false
   apt: name={{ item }} state=latest
@@ -16,10 +13,8 @@
     - tree
     - youtube-dl
     - lame
-    - fluxgui
     - network-manager-openvpn
     - glipper
-    - transmission-gtk
     - build-essential checkinstall
     - libssl-dev
     - calibre

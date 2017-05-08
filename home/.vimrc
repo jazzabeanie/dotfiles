@@ -1,6 +1,20 @@
+" Plugin manager --------------------- {{{
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp'
+Plug 'rkulla/pydiction'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'tpope/vim-surround'
+" Initialize plugin system
+call plug#end()
+" }}}
+
 " Basic Settings --------------------- {{{
 " if settings are not behaving as expected, use `:verbose set setting?`
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules)$'

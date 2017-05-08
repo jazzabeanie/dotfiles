@@ -8,34 +8,13 @@
 - name: Make Zenburn directory
   file: path=~/.vim/colors state=directory
 
-- name: Get Pathogen
-  get_url: url=https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim dest=~/.vim/autoload/pathogen.vim
-
-- name: Clone ctrlp
-  git: repo=https://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
-
-- name: Clone Pydiction
-  git: repo=https://github.com/rkulla/pydiction.git dest=~/.vim/bundle/pydiciton
-
-- name: Clone Auto Pairs
-  git: repo=git://github.com/jiangmiao/auto-pairs.git dest=~/.vim/bundle/auto-pairs
-
-- name: vim-airline
-  git: repo=https://github.com/vim-airline/vim-airline.git dest=~/.vim/bundle/vim-airline
-
-- name: vim-gitgutter
-  git: repo=https://github.com/airblade/vim-gitgutter.git dest=~/.vim/bundle/vim-gitgutter
-
-- name: vim-misc
-  git: repo=https://github.com/xolox/vim-misc dest=~/.vim/bundle/vim-misc
-
-- name: vim-notes
-  git: repo=https://github.com/xolox/vim-notes.git dest=~/.vim/bundle/vim-notes
-
-- name: vim-surround
-  git: repo=https://github.com/tpope/vim-surround.git dest=~/.vim/bundle/vim-surround
-
 - name: Get Zenburn
   get_url: url=https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim dest=~/.vim/colors/zenburn.vim
+
+- name: Get Vim Plug
+  get_url: url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim dest=~/.vim/autoload/plug.vim
+
+  # - name: Clone ctrlp
+  #   git: repo=https://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
 
   #todo: add Flake8 - a python styling check tool

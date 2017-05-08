@@ -3,6 +3,5 @@
   tasks:
     - include: tasks/dotfiles.yml
     - include: tasks/apt.yml
-    - include: tasks/go.yml
     - include: tasks/vim.yml
     - include: tasks/other.yml

@@ -5,8 +5,3 @@
 # create Workspace diretory # I added this becaues the ~/Workspace directory was owned by root. I hope that this was created by ansible and not already existing in ubuntu by default and I've changed the permissions... Might need to also change the group
 - name: Make Workspace directory
   file: path=~/Workspace owner=jaredjohnston mode=0775 state=directory
-
-# create GOPATH directory
-- name: Make GOPATH directory
-  file: path=~/Workspace/go state=directory
-
