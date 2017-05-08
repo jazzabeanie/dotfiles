@@ -15,11 +15,9 @@
     - lame
     - network-manager-openvpn
     - glipper
-    - build-essential checkinstall
+    - build-essential
+    - checkinstall
     - libssl-dev
-    - calibre
-    - vagrant
-    - virtualbox
     - virtualenv
     - direnv
     - maven

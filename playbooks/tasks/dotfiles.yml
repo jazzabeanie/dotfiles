@@ -1,8 +1,9 @@
 ---
 # Symlink dotfiles
 - file:
-    src: '{{ items.src }}'
-    dest: '{{ items.dest }}'
+    force: yes
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
     state: link
   with_items:
     - { src: '~/.dotfiles/home/.aliases', dest: '~/.aliases' }
