@@ -10,9 +10,6 @@
 #- name: change permissions on file
 - file: path=~/bin/vcprompt mode=0755
 
-#- name: Change keyboard options to remap caps
--  lineinfile: dest=/etc/default/keyboard regexp=^XKBOPTIONS="" line=XKBOPTIONS="ctrl:nocaps"
-
 - name: Reconfigure new options #is this step needed? does ubuntu do this every time it starts?
   sudo: true
   ignore_errors: yes # because there is a lock and the message says it will be done on restart

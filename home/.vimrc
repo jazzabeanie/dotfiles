@@ -1,7 +1,7 @@
 " Plugin manager --------------------- {{{
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'kien/ctrlp'
+Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'rkulla/pydiction', {'for': 'python'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
