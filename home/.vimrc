@@ -2,7 +2,7 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp'
-Plug 'rkulla/pydiction'
+Plug 'rkulla/pydiction', {'for': 'python'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
