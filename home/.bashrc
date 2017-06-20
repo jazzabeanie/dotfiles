@@ -82,6 +82,11 @@ alias cdj='cd ~/Workspace/JESI/jesi-functional-tests'
 alias cds='cd ~/Workspace/scheduler'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
+
+# source: http://jetpackweb.com/blog/2009/09/23/pbcopy-in-ubuntu-command-line-clipboard/
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # #alias cdgo='cd ~/Workspace/go'
 # #alias cdwp='cd ~/Workspace/personal'
 # #alias cdwc='cd ~/Workspace/cards'

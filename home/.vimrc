@@ -122,7 +122,6 @@ nnoremap command! Wq wq
 nnoremap command! WQ wq
 nnoremap command! W w
 nnoremap command! Q q
-" this doesn't work anymore since `cnoremap <expr> <CR> getcmdtype() == '/' ? '<CR>zz' : '<CR>'` was implemented
 cabbrev Wq wq
 cabbrev WQ wq
 cabbrev Q q
@@ -143,12 +142,6 @@ nnoremap ? ?\c
 
 " Find next selection (/ and \ still need to be escaped) TODO: fix this
 vnoremap <leader>f y/\V<c-r>"<cr>
-
-" put search matches at centre screen
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
 
 " Format selection
 vnoremap <leader>F gq
@@ -334,6 +327,7 @@ augroup filetype_js
   " mark a line for deletion by commenting with `// d:`
   autocmd FileType javascript nnoremap <buffer> <localleader>d I// d: <esc>
   autocmd FileType javascript nnoremap <buffer> ZZ :<c-u>execute "normal! :g_^\\s*// d:_d\r:wq\r"<cr>
+  autocmd FileType javascript nnoremap <buffer> <localleader>r :! node %<cr>
 augroup END
 " }}}
 
@@ -428,11 +422,14 @@ nnoremap <silent> j :<C-U>execute 'normal!' (v:count > 1 ? "m'" . v:count : '') 
 " TODO: apply this instead: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
 " Makes search matches appear centre screen, but breaks other functionality
 " above (cabbrev). get more info here with possable alternatvie (TODO): https://vi.stackexchange.com/questions/10775/how-can-i-automatically-center-first-search-result
-cnoremap <expr> <CR> getcmdtype() == '/' ? '<CR>zz' : '<CR>'
 " Makes n and N search direction consistent regardless of whether ? or / was
 " used. see for more info: https://www.reddit.com/r/vim/comments/49kvaf/making_n_and_n_more_consistent/
+
+set scrolloff=5
+
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
+
 " TODO: look into another option that shows context for matches, making the
 " need to centre after matching redundant.
 " try: set scrolloff=5
