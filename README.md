@@ -50,3 +50,5 @@ touch ~/.gitconfig.local
         - install desired version of node with `nvm install 4.4.7` (check the desired version first)
         - run `nvm alias default node`
         - read more here: http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#node-version-manager
+6. installing x11vnc:
+ - `apt-get install x11vnc`
