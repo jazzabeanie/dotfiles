@@ -50,6 +50,13 @@ set tabstop=2
 " ignores
 set wildignore+=*/node_modules/*,.git,*/target/*
 
+" Creates a $VIMHOME variable (currently used for spellfile)
+if has('win32') || has ('win64')
+    let $VIMHOME = $HOME."\\vimfiles"
+else
+    let $VIMHOME = $HOME."/.vim"
+endif
+
 " }}}
 
 " Statusline and cursor ------------- {{{
@@ -366,6 +373,8 @@ augroup filetype_markdown
   autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rkvg_"<cr>
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[-=][-=]\\+$\r:nohlsearch\rg_vk0"<cr>
   autocmd FileType markdown set spell spelllang=en_au
+  autocmd FileType markdown setlocal spellfile+=$VIMHOME/spell/en.utf-8.add
+  autocmd FileType markdown setlocal spellfile+=oneoff.utf-8.add
   autocmd FileType markdown :iabbrev <buffer> fc feature class
 augroup END
 " }}}
