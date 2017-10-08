@@ -63,6 +63,7 @@ set expandtab
 set tabstop=2
 " ignores
 set wildignore+=*/node_modules/*,.git,*/target/*
+set linebreak " allows wrapping to be done at end word instead of mid word.
 
 " }}}
 
@@ -353,7 +354,7 @@ augroup END
 " Sass -------------------{{{
 augroup filetype_sass
   autocmd!
-  autocmd BufNewFile,BufRead *.sass set noexpandtab
+  " autocmd BufNewFile,BufRead *.sass set noexpandtab
   autocmd BufNewFile,BufRead *.sass set tabstop=2
   autocmd BufNewFile,BufRead *.sass set softtabstop=0
 augroup END

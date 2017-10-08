@@ -52,7 +52,7 @@ function playdesk() {
 function playmusic() {
         #This function will play music files in the current folder. Or, more specifically, it will play a list of the files matched by the regular expression [.]m
         playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX) #{} expand the variable so the path of TMPDIR is actually used. #where is this file stored??
-        ls | grep [.]m > $playlist
+        ls | grep 'mp3\|m4a\|wav' > $playlist
         while read SONG
         do
                 echo ""

@@ -14,6 +14,9 @@ export TERM=xterm-256color
 #fi
 
 source ~/.aliases
+# Do I need to do this? If I do, I should probably remove the circular reference to .bashrc
+# source ~/.profile 
+
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
 alias rsync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
@@ -158,3 +161,6 @@ eval "$(direnv hook bash)"
 
 export PATH=$HOME/local/bin:$PATH
 hist import
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
