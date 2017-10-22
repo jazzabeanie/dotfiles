@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "use untar to unzip .tar.gz"
+echo "use `openvpn --config client.ovpn` to connect to VPN running on scaleway server"
 
 function cdg() {
     cd ~/Workspace/go/src
