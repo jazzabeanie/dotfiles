@@ -2,13 +2,20 @@
 - name: Tap Homebrew repositories
   homebrew_tap: name={{ item }} state=present
   with_items:
-    - homebrew/binary
-    - homebrew/completions
-    - homebrew/dupes
-    - homebrew/versions
+    - caskroom/cask
 
 - name: Update and upgrade Homebrew
   shell: brew update && brew upgrade && brew cleanup
+
+- name: Install libraries with Homebrew cask
+  homebrew_cask: name={{ item }}
+  with_items:
+   - java
+     # - google-chrome
+   - ngrok
+   - transmission
+   - virtualbox
+   - vlc
 
 - name: Install libraries with Homebrew
   homebrew: name={{ item }} state=latest
@@ -26,7 +33,6 @@
     - gnu-sed
     - heroku
     - leiningen
-    - maven
     - mercurial
     - node
     - openssl
@@ -43,7 +49,6 @@
     - tmux
     - tree
     - unrar
-    - vagrant-completion
     - vcprompt
     - vim
     - watch
@@ -51,13 +56,12 @@
     - wireshark
     - wrk
     - docker-completion
-    - maven-completion
     - packer-completion
-    - vagrant-completion
       # end Stu's input, enter mine. These were the list of packages installed when I started setting up my dot files.
     - bash-completion
     - fdk-aac
-    - ffmpeg
+    # - ffmpeg # might need to install this manually not sure if it installs with ffplay or not
+    # - youtube-dl
     - fontconfig
     - freetype
     - frei0r
@@ -93,13 +97,13 @@
     - x264
     - xvid
     - yasm
-    - youtube-dl
+    - direnv
 
-- name: Install aspell with Homebrew
-  homebrew: name=aspell state=latest install_options=all
-
-- name: Install emacs with Homebrew
-  homebrew: name=emacs state=linked install_options=cocoa
+# - name: Install aspell with Homebrew
+#   homebrew: name=aspell state=latest install_options=with-lang-en
+# 
+# - name: Install emacs with Homebrew
+#   homebrew: name=emacs state=linked install_options=cocoa
 
 - name: Install openssh with Homebrew
   homebrew: name=openssh state=latest install_options=with-keychain-support

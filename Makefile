@@ -1,2 +1,2 @@
-ubuntu: 
-	ansible-playbook -v -D -i playbooks/inventory playbooks/ubuntu.yml
+osx: 
+	ansible-playbook -v -D -i playbooks/inventory playbooks/osx.yml
