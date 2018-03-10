@@ -175,5 +175,6 @@ function desksync {
     echo 'it will run `rsync --size-only -r ~/Desktop HOST:/sdcard/`'
     return
   fi
+  # do I need to set the port to 2222 as requested by rsync?
   rsync --size-only -r ~/Desktop $1:/sdcard/
 }
