@@ -168,3 +168,12 @@ function untar {
   fi
   tar -xvzf "$@"
 }
+
+function desksync {
+  if (( $# == 0 )); then
+    echo "desksync takes 1 argument - the host running the server to sync to."
+    echo 'it will run `rsync --size-only -r ~/Desktop HOST:/sdcard/`'
+    return
+  fi
+  rsync --size-only -r ~/Desktop $1:/sdcard/
+}

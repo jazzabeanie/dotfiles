@@ -16,7 +16,7 @@ export TERM=xterm-256color
 source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
-alias rsync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
+# alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
 
 #complete -W "$(teamocil --list)" teamocil # this file was migrated from the original .bashrc and was created when installing teamocil. See https://github.com/remiprev/teamocil/blob/master/README.md
 
