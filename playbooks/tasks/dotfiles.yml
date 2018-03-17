@@ -1,6 +1,20 @@
 ---
-- name: Synchronize dotfiles
-  synchronize: src=~/.dotfiles/home/ dest=~
+- name: Link dotfile
+  file:
+    src: ~/.dotfiles/home/{{ item }}
+    dest: ~/{{ item }}
+    state: link
+    force: True
+  with_items:
+    - .aliases
+    - .bash_profile
+    - .bashrc
+    - .bin
+    - .gitconfig
+    - .gitignore
+    - .inputrc
+    - .tmux.conf
+    - .vimrc
 
 # create Workspace diretory # I added this becaues the ~/Workspace directory was owned by root. I hope that this was created by ansible and not already existing in ubuntu by default and I've changed the permissions... Might need to also change the group
 - name: Make Workspace directory
