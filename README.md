@@ -5,9 +5,10 @@
 OS X:
 1. Install Homebrew.
 2. Install Ansible (`brew install ansible`)
-3. Install [Go](http://golang.org/dl/). Don't forget to follow the [install instructions](https://golang.org/doc/install)
-4. Install git
-5. Setup git SSH keys
+3. Install git
+4. Change CAPS to Ctrl
+5. Enable touch to click and 3 finger drag
+6. Setup git SSH keys
 
 Ubuntu:
 1. Install Ansible (https://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-apt-ubuntu)
