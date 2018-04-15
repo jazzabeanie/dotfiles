@@ -24,3 +24,16 @@
 - name: Make GOPATH directory
   file: path=~/Workspace/go state=directory
 
+# create ssh directory
+- name: Make ssh directory
+  file: path=~/.ssh state=directory
+
+# link ssh config file
+- name: Link ssh config
+  file:
+    src: ~/.dotfiles/home/{{ item }}
+    dest: ~/.ssh/{{ item }}
+    state: link
+    force: True
+  with_items:
+    - config

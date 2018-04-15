@@ -1,0 +1,9 @@
+Host {INSERT SERVER IP]}
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/scaleway_MBP
+
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/github

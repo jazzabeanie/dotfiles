@@ -50,3 +50,5 @@ touch ~/.gitconfig.local
 - Update ssh key on saleway server
 - Update ssh key on SimpleSSHD
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
+- MyEtherWallet?
+- Login to 1Password in chrome
