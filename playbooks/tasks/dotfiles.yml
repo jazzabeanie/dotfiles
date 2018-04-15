@@ -28,12 +28,8 @@
 - name: Make ssh directory
   file: path=~/.ssh state=directory
 
-# link ssh config file
+# copy ssh config file
 - name: Link ssh config
-  file:
-    src: ~/.dotfiles/home/{{ item }}
-    dest: ~/.ssh/{{ item }}
-    state: link
-    force: True
-  with_items:
-    - config
+  copy:
+    src: ~/.dotfiles/home/ssh_config
+    dest: ~/.ssh/config
