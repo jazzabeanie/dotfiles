@@ -11,12 +11,14 @@
   homebrew_cask: name={{ item }}
   with_items:
    - java
-   # - google-chrome
+   - google-chrome
    - ngrok
    - transmission
    - virtualbox
    - vlc
    - spectacle
+   - dropbox
+   - Tunnelblick
 
 - name: Install libraries with Homebrew
   homebrew: name={{ item }} state=latest
