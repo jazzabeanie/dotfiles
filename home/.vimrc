@@ -313,6 +313,15 @@ augroup filetype_python
   autocmd BufWritePost *.py :PymodeLint
 augroup END
 " }}}
+"
+" Sonic_pi -------------------{{{
+augroup filetype_sonic_py
+  autocmd!
+  " could check to see if sonic_pi is open here first. Try sonicpi#detect()
+  " function in plugin/sonicpi.vim
+  autocmd BufNewFile,BufRead *.rb let g:vim_redraw=1
+augroup END
+" }}}
 
 " Javascript -------------------{{{
 augroup filetype_js

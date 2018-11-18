@@ -93,6 +93,7 @@ alias cdev='cd ~/.dotfiles/home'
 # #alias cddwn='cd ~/Downloads'
 # #alias f='fg'
 alias h='cd ~/'
+alias syncdesk=desksync
 # #alias md='mkdir -p'
 # #alias rmd='rm -rf'
 # #alias rk='rake'

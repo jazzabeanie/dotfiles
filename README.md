@@ -49,6 +49,8 @@ touch ~/.gitconfig.local
 -      - read more here: http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#node-version-manager
 - Update ssh key on saleway server
 - Update ssh key on SimpleSSHD
+- add config file to Tunnelblick
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - MyEtherWallet?
 - Login to 1Password in chrome
+- https://www.mowglii.com/itsycal/
