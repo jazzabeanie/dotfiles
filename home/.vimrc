@@ -34,6 +34,7 @@ set colorcolumn=80
 " `:verbose set textwidth?`)
 set textwidth=0
 set wrap
+set linebreak
 set backspace=indent,eol,start
 set noswapfile
 set fileformat=unix
