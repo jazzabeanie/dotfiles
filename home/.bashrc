@@ -94,6 +94,7 @@ alias cdev='cd ~/.dotfiles/home'
 # #alias f='fg'
 alias h='cd ~/'
 alias syncdesk=desksync
+alias copy="tr -d '\n' | pbcopy"
 # #alias md='mkdir -p'
 # #alias rmd='rm -rf'
 # #alias rk='rake'
