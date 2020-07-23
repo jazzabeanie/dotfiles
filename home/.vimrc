@@ -128,6 +128,9 @@ onoremap jk <esc>
 inoremap Jk <esc>l
 onoremap Jk <esc>
 
+" Copy all
+nnoremap <leader>a ggVG"*y
+
 " Search and replace selection
 vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
