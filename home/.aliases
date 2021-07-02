@@ -146,8 +146,7 @@ function p-sync {
 
 function p-dl {
     # takes one argument - URL
-    youtube-dl -o "./%(extractor)s/%(title)s.%(ext)s" $1
-    # TODO: then touch file to update date edited.
+    youtube-dl -o -no-mtime "./%(title)s.%(ext)s" $1
 }
 
 function g() {
