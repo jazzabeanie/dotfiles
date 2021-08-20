@@ -389,6 +389,8 @@ augroup filetype_markdown
   autocmd FileType markdown setlocal spellfile+=$VIMHOME/spell/en.utf-8.add
   autocmd FileType markdown setlocal spellfile+=oneoff.utf-8.add
   autocmd FileType markdown :iabbrev <buffer> fc feature class
+  " TODO: add a shortcut to search for non ASCII characters. Ie, do this
+  " `/[^\x00-\x7F]`
 augroup END
 " }}}
 
