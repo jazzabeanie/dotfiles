@@ -217,10 +217,21 @@ else
   nnoremap <leader>P "*P
   inoremap <leader>p <c-r>+
   source C:/Program\ Files\ (x86)/Vim/_vimrc
-  iabbrev @@ jared.johnston@townsville.qld.gov.au
-  iabbrev ssig --<cr>Jared Johnston<cr>jared.johnston@townsville.qld.gov.au
-  iabbrev TCC Townsville City Council
 endif
+
+" requires Tabluarize plugin. Came from
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+nnoremap <leader>t :Tabularize /
+vnoremap <leader>t :Tabularize /
+
+" quick set syntax
+nnoremap <localleader>sql :set syntax=sql<cr>
+" I think this might have been for pebble template files that Wherescape uses at TCC
+nnoremap <localleader>peb :syn match Folded /{#.*#}/<cr>:syn match PmenuSel /{{.*}}/<cr>:syn match SignColumn /{%.*%}/<cr>
+
+" format SQL - requires https://pypi.org/project/sqlparse/
+" TOOD: improve this
+vnoremap <localleader>fsql :%!sqlformat --reindent --keywords upper --identifiers lower -<CR>
 
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 
