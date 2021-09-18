@@ -198,6 +198,7 @@ function desksync {
   if (( $# == 0 )); then
     echo "desksync takes 1 argument - the host running the server to sync to."
     echo 'it will run `rsync --size-only -r ~/Desktop HOST:/sdcard/`'
+    echo 'and save to Main Storage/Desktop on the Samsung'
     return
   fi
   # should I have this function take another argument in case I want to copy a different source?
