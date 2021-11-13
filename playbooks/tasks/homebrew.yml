@@ -2,7 +2,7 @@
 - name: Tap Homebrew repositories
   homebrew_tap: name={{ item }} state=present
   with_items:
-    - caskroom/cask
+    - homebrew/cask
 
 - name: Update and upgrade Homebrew
   shell: brew update && brew upgrade && brew cleanup
@@ -10,104 +10,42 @@
 - name: Install libraries with Homebrew cask
   homebrew_cask: name={{ item }}
   with_items:
-   - java
    - google-chrome
-   - ngrok
+   - firefox
    - transmission
-   - virtualbox
    - vlc
    - spectacle
    - dropbox
-   - Tunnelblick
 
 - name: Install libraries with Homebrew
   homebrew: name={{ item }} state=latest
   with_items:
-    - awscli
     - bash
     - bash-completion
     - cask
-    - cloc
     - coreutils
     - curl
-    - flyway
-    - git
     - git-extras
     - gnu-sed
-    - heroku
-    - leiningen
-    - mercurial
-    - node
-    - openssl
-    - pkg-config
-    - packer
-    - postgresql
-    - protobuf
-    - pv
-    - scala
-    - ssh-copy-id
-    - subversion
     - the_silver_searcher
-    - tig
     - tmux
     - tree
-    - unrar
+    - rar
     - vcprompt
     - vim
-    - watch
     - wget
-    - wireshark
-    - wrk
-    - docker-completion
-    - packer-completion
-      # end Stu's input, enter mine. These were the list of packages installed when I started setting up my dot files.
     - bash-completion
     - fdk-aac
     # - ffmpeg # might need to install this manually not sure if it installs with ffplay or not
     # - youtube-dl
-    - fontconfig
-    - freetype
-    - frei0r
-    - fribidi
-    - git
     - jpeg
     - lame
-    - libass
-    - libevent
-    - libogg
-    - libpng
-    - libtiff
-    - libvo-aacenc
-    - libvorbis
-    - libvpx
-    - libyaml
-    - little-cms2
-    - opencore-amr
     - openjpeg
-    - openssl
     - opus
-    - orc
-    - pkg-config
-    - rtmpdump
     - schroedinger
-    - sdl
-    - speex
-    - texi2html
-    - theora
-    - tmux
-    - tree
-    - vim
     - x264
     - xvid
-    - yasm
     - direnv
-    - imagemagick
-
-# - name: Install aspell with Homebrew
-#   homebrew: name=aspell state=latest install_options=with-lang-en
-# 
-# - name: Install emacs with Homebrew
-#   homebrew: name=emacs state=linked install_options=cocoa
 
 - name: Install openssh with Homebrew
   homebrew: name=openssh state=latest install_options=with-keychain-support

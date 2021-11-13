@@ -42,7 +42,7 @@
   get_url: url=https://github.com/vim-utils/vim-ruby-fold
 
 - name: Get PyModeLine
-  git: repo: https://github.com/python-mode/python-mode dest=~/.vim/bundle/python-mode
+  git: repo=https://github.com/python-mode/python-mode dest=~/.vim/bundle/python-mode
 
   #todo: add Flake8 - a python styling check tool
   #TODO: add https://github.com/godlygeek/tabular which is a dependency of vim-markdown
