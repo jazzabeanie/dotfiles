@@ -20,6 +20,10 @@ Linux Mint:
 - run `setxkbmap -option ctrl:nocaps`
   - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
 - reverse scroll direction **Mouse and Touchpad** -> **Reverse scroll direction**
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - `setup_vim.sh`
+  - `install_packages.sh`
 
 ## Installing
 ```
