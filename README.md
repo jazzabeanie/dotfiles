@@ -17,7 +17,8 @@ Linux Mint:
 - Add ssh key to github
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- run `xmodmap ~/.dotfiles/.xmodmap`
+- run `setxkbmap -option ctrl:nocaps`
+  - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
 
 ## Installing
 ```
