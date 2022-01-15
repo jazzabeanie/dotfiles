@@ -19,6 +19,7 @@ Linux Mint:
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
 - run `setxkbmap -option ctrl:nocaps`
   - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
+- reverse scroll direction **Mouse and Touchpad** -> **Reverse scroll direction**
 
 ## Installing
 ```
