@@ -13,6 +13,12 @@ OS X:
 6. Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
+Linux Mint:
+- Add ssh key to github
+- install git `sudo apt install git`
+- `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
+- run `xmodmap ~/.dotfiles/.xmodmap`
+
 ## Installing
 ```
 cd ~
