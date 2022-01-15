@@ -51,3 +51,4 @@ touch ~/.gitconfig.local
 - Update ssh key on SimpleSSHD
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - https://www.mowglii.com/itsycal/
+- 1Password

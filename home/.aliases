@@ -1,13 +1,10 @@
 #!/bin/bash
 
 echo "use \`untar\` to unzip .tar.gz"
-echo "use \`desksync\` to sync the desktop to the phone"
-echo "use \`song-dl\` to download songs from google play music"
+# echo "use \`desksync\` to sync the desktop to the Samsung s7 edge"
 echo "\`sha256 FILE\` to generate a sha256 hash of a file"
 echo "run \`ssh -p 4810 10.1.1.11\` to connect to Lenovo x201. Run ifconfig on the lenovo to check the IP. edit /etc/ssh/sshd_config to see the port and other settings"
 echo ""
-echo "I havce set up postgresql to run on login using \`brew services start postgresql\`. run \`brew services\` to see how to stop it."
-echo "cdros to go to ROS workouts"
 
 function cdros() {
     cd ~/Movies/rmvt/ROS_protocols/beginner/exercises

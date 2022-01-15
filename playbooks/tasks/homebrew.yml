@@ -16,6 +16,8 @@
    - vlc
    - spectacle
    - dropbox
+   # - maccy
+   # - itsycal
 
 - name: Install libraries with Homebrew
   homebrew: name={{ item }} state=latest
