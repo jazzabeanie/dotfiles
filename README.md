@@ -19,7 +19,12 @@ Linux Mint:
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
 - run `setxkbmap -option ctrl:nocaps`
   - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
-- reverse scroll direction **Mouse and Touchpad** -> **Reverse scroll direction**
+- reverse scroll direction
+  - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
+  - gnome 
+    - `xinput --list` to get ID of the mouse. 
+    - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
+    - Add this to startup applications so that it runs every time.
 - run scirpts:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
