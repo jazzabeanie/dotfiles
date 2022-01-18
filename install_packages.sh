@@ -9,3 +9,4 @@ sudo apt install tmux
 sudo apt install silversearcher-ag
 # should I instll this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
   # sudo apt install python3-pip
+sudo apt install vim-gtk3
