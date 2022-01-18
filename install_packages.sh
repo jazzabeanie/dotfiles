@@ -5,3 +5,4 @@ sudo apt update
 
 curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
 chmod 755 ~/bin/vcprompt
+sudo apt install tmux
