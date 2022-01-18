@@ -12,4 +12,4 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 git clone https://github.com/xolox/vim-misc ~/.vim/bundle/vim-misc
 git clone https://github.com/xolox/vim-notes.git ~/.vim/bundle/vim-notes
 git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
-git clone https://github.com/python-mode/python-mode ~/.vim/bundle/python-mode
+git clone --recurse-submodules https://github.com/python-mode/python-mode ~/.vim/bundle/python-mode
