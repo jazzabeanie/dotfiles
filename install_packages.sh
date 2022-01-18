@@ -2,3 +2,6 @@
 sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.pref.backup
 sudo apt update
 # now restart then run `sudo apt install snapd`
+
+curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
+chmod 755 ~/bin/vcprompt
