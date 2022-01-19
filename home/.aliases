@@ -11,6 +11,7 @@ echo "  <prefix>z - zoom in to current windows"
 echo "  <prefix>( and <previx>) - move to previous or next session"
 echo "  <prefix>p - chane to previous window"
 echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
+echo "  <prefix>c - create new window in current session"
 
 
 function cdros() {
