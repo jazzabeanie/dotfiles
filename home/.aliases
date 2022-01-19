@@ -5,17 +5,12 @@ echo "use \`untar\` to unzip .tar.gz"
 echo "\`sha256 FILE\` to generate a sha256 hash of a file"
 echo "run \`ssh -p 4810 10.1.1.11\` to connect to Lenovo x201. Run ifconfig on the lenovo to check the IP. edit /etc/ssh/sshd_config to see the port and other settings"
 echo ""
-
-if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
-    echo ""
-    echo "Welcom to a tmux session. Here are some useful shortcuts:"
-    echo ""
-    echo "  <prefix>s - interactivly switch between sessions"
-    echo "  <prefix>z - zoom in to current windows"
-    echo "  <prefix>( and <previx>) - move to previous or next session"
-    echo "  <prefix>p - chane to previous window"
-    echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
-fi
+echo "If you are in tmux, here are some useful commands:"
+echo "  <prefix>s - interactivly switch between sessions"
+echo "  <prefix>z - zoom in to current windows"
+echo "  <prefix>( and <previx>) - move to previous or next session"
+echo "  <prefix>p - chane to previous window"
+echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
 
 
 function cdros() {
