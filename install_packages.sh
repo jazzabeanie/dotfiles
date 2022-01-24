@@ -13,6 +13,8 @@ sudo apt install vim-gtk3
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
 
+# pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/
+
 # # pyenv:
 # # doubl check here before installing: https://github.com/pyenv/pyenv-installer
 # sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
