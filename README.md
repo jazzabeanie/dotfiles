@@ -3,6 +3,7 @@
 ## Prerequisites
 
 OS X:
+
 1. Install Homebrew.
 2. Install Ansible (`brew install ansible`)
 3. Install `xcode-select --install`
@@ -14,6 +15,7 @@ OS X:
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 Linux Mint:
+
 - Add ssh key to github
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
@@ -29,6 +31,13 @@ Linux Mint:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
+
+Random Linux box:
+
+- this sets up .bashrc, aliases, and .vimrc. Run:
+  - `curl -o quick_setup.sh https://raw.githubusercontent.com/jazzabeanie/dotfiles/master/quick_basic_setup.sh`
+  - `sudo chmod 755 quick_setup.sh`
+  - `./quick_setup.sh`
 
 ## Installing
 ```
