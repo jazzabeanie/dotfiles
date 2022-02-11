@@ -37,7 +37,8 @@ Random Linux box:
 - this sets up .bashrc, aliases, and .vimrc. Run:
   - `curl -o quick_setup.sh https://raw.githubusercontent.com/jazzabeanie/dotfiles/master/quick_basic_setup.sh`
   - `sudo chmod 755 quick_setup.sh`
-  - `./quick_setup.sh`
+  - `~/quick_setup.sh`
+  - `source ~/.bashrc`
 
 ## Installing
 ```
