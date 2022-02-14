@@ -128,9 +128,6 @@ onoremap jk <esc>
 inoremap Jk <esc>l
 onoremap Jk <esc>
 
-" Copy all
-nnoremap <leader>a ggVG"*y
-
 " Search and replace selection
 vnoremap <leader>s y:.,$s/\V<c-r>"//gc\|1,''-&&\|'<<left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
@@ -194,6 +191,8 @@ if os == "Linux"
   nnoremap <leader>p "+p
   nnoremap <leader>P "+P
   inoremap <leader>p <c-r>+
+  " Copy all
+  nnoremap <leader>a ggVG"+y
 elseif os == "Darwin"
   " Setting Mac specific settings:"
   if $TMUX == '' 
@@ -208,6 +207,8 @@ elseif os == "Darwin"
   nnoremap <leader>p "*p
   nnoremap <leader>P "*P
   inoremap <leader>p <c-r>+
+  " Copy all
+  nnoremap <leader>a ggVG"*y
 else
   " echom "OS variable = " . os
   vnoremap <leader>y "*y
@@ -216,6 +217,8 @@ else
   nnoremap <leader>p "*p
   nnoremap <leader>P "*P
   inoremap <leader>p <c-r>+
+  " Copy all
+  nnoremap <leader>a ggVG"*y
   source C:/Program\ Files\ (x86)/Vim/_vimrc
 endif
 
@@ -232,6 +235,8 @@ nnoremap <localleader>peb :syn match Folded /{#.*#}/<cr>:syn match PmenuSel /{{.
 " format SQL - requires https://pypi.org/project/sqlparse/
 " TOOD: improve this
 vnoremap <localleader>fsql :%!sqlformat --reindent --keywords upper --identifiers lower -<CR>
+" format json - requires jq
+noremap <localleader>fjson :%!jq .<CR>
 
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 

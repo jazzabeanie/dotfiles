@@ -13,19 +13,9 @@ echo "  <prefix>p - chane to previous window"
 echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
 echo "  <prefix>c - create new window in current session"
 echo "  <prefix>w - choose window from list"
+echo "  :break-pane - break the current pane out into it's own window"
+echo "  <prefix>, - rename current window"
 
-
-function cdros() {
-    cd ~/Movies/rmvt/ROS_protocols/beginner/exercises
-}
-
-function cdg() {
-    cd ~/Workspace/go/src
-}
-
-function flamenco() {
-    cd ~/Documents/Guitar/Flamenco
-}
 
 ## This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
 function cd() {
