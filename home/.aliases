@@ -15,6 +15,8 @@ echo "  <prefix>c - create new window in current session"
 echo "  <prefix>w - choose window from list"
 echo "  :break-pane - break the current pane out into it's own window"
 echo "  <prefix>, - rename current window"
+echo "  <prefix>{ - swap current pane with another (useful if you want to move a particular pane as <prefix>CTRL+o rearranges everything)"
+echo "    alternatively <prefix>q to see pane numbers then <prefix>:swap-pane -s 3 -t 5"
 
 
 ## This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls

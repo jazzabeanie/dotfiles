@@ -1,8 +1,13 @@
+" Plugin Manager settings --------------------- {{{
+execute pathogen#infect()
+" I think these are optional:
+set nocompatible
+filetype plugin indent on
+" }}}
+
 " Basic Settings --------------------- {{{
 " if settings are not behaving as expected, use `:verbose set setting?`
-execute pathogen#infect()
 syntax on
-filetype plugin indent on
 let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules)$'
 if executable('ag')
   " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
@@ -23,7 +28,6 @@ set statusline=%F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set autoread
 set cursorline
 set hidden
-set nocompatible
 set number
 set relativenumber " this is a good options normally, as it usually requires you to press less numbers when jumping around (use 22j instead of 354G). At the moment I am trying to get better at touch typing the number keys.
 set ruler
@@ -240,6 +244,9 @@ noremap <localleader>fjson :%!jq .<CR>
 
 " inoremap <leader>p <esc>:call Paste()<cr> " TODO: implement when Paste() method is fixed
 
+" toggle wrap
+nnoremap <localleader>w :set wrap!<CR>
+
 " }}}
 
 " Autogroup commands ---------- {{{
@@ -407,6 +414,8 @@ augroup filetype_markdown
   autocmd FileType markdown :iabbrev <buffer> fc feature class
   " TODO: add a shortcut to search for non ASCII characters. Ie, do this
   " `/[^\x00-\x7F]`
+  " let g:vim_markdown_folding_disabled=1
+  let g:vim_markdown_folding_style_pythonic = 1
 augroup END
 " }}}
 

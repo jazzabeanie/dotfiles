@@ -15,3 +15,5 @@ git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 git clone --recurse-submodules https://github.com/python-mode/python-mode ~/.vim/bundle/python-mode
 git clone https://github.com/godlygeek/tabular.git ~/.vim/bundle/tabular
 git clone https://github.com/plasticboy/vim-markdown.git ~/.vim/bundle/tabular/vim-markdown
+# https://github.com/vim-autoformat/vim-autoformat?
+  # do I also need https://github.com/hhatto/autopep8 then?
