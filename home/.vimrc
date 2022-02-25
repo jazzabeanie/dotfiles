@@ -148,9 +148,11 @@ nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 
+" Formatting:
 " Format selection
 vnoremap <leader>F gq
-
+" run autoformat
+noremap <F3> :Autoformat<CR>
 
 " Navigation
 nnoremap H ^
@@ -426,6 +428,13 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>
   autocmd FileType vim :iabbrev <buffer> == ==#
+augroup END
+" }}}
+
+" JSON -------------------{{{
+augroup filetype_json
+  autocmd!
+  autocmd FileType json setlocal foldmethod=syntax
 augroup END
 " }}}
 
