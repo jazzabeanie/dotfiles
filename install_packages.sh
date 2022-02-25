@@ -12,6 +12,10 @@ sudo apt install silversearcher-ag
 sudo apt install vim-gtk3
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
+# lsd? - https://github.com/Peltoche/lsd
+# This doesn't quite work. Need to play with permissions for it would work
+  # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
+
 
 # pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/
 

@@ -1,5 +1,9 @@
 # dotfiles
 
+## Update:
+
+Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/en/getstarted/
+
 ## Prerequisites
 
 OS X:
