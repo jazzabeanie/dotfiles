@@ -190,7 +190,7 @@ onoremap iF` :<c-u>normal! F`vi`<cr>
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   " Setting linux specific settings:"
-  set clipboard=unnamedplus
+  set clipboard=unnamed
   vnoremap <leader>y "+y
   vnoremap <leader>p "+p
   vnoremap <leader>P "+P
