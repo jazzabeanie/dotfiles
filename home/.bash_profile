@@ -3,6 +3,10 @@ then
   source ~/.bashrc
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 # added by Miniconda3 4.7.12 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -18,15 +18,22 @@ echo "  <prefix>, - rename current window"
 echo "  <prefix>{ - swap current pane with another (useful if you want to move a particular pane as <prefix>CTRL+o rearranges everything)"
 echo "    alternatively <prefix>q to see pane numbers then <prefix>:swap-pane -s 3 -t 5"
 
+# to use visidata as the pager app in psql, export this before running psql `export PAGER='vd --filetype=tsv --delimiter="|" --undo=true --header=1 -'`
 
 ## This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
 function cd() {
-    	new_directory="$*";
-    	if [ $# -eq 0 ]; then 
+  new_directory="$*";
+  if [ $# -eq 0 ]; then 
 		new_directory=${HOME};
 	fi;
 	builtin cd "${new_directory}" && ls -lah
 }
+# ## This is the equivalent for zoxide:
+# TODO: make this work:
+# function z() {
+#   new_directory="$*";
+# 	builtin z "${new_directory}" && ls -lah
+# }
 
 ## This changed directories to desktop
 function desk() {

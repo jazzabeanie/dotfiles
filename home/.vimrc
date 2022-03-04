@@ -199,6 +199,8 @@ if os == "Linux"
   inoremap <leader>p <c-r>+
   " Copy all
   nnoremap <leader>a ggVG"+y
+  " Clipboard contents persists after vim session:
+  autocmd VimLeave * call system("xsel -ib", getreg('+'))
 elseif os == "Darwin"
   " Setting Mac specific settings:"
   if $TMUX == '' 
@@ -436,6 +438,10 @@ augroup filetype_json
   autocmd!
   autocmd FileType json setlocal foldmethod=syntax
 augroup END
+" }}}
+
+" PSQL temp files -------------------{{{
+au BufRead /tmp/psql.edit.* set syntax=sql
 " }}}
 
 " }}}
