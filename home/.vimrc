@@ -341,9 +341,9 @@ augroup filetype_python
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
   " sets foldable sections to code blocks:
   autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType python let g:pymode_lint_ignore="E116"
+  " autocmd FileType python let g:pymode_lint_ignore="E116"
   autocmd BufWritePre *.py :%s/\s\+$//e
-  autocmd BufWritePost *.py :PymodeLint
+  " autocmd BufWritePost *.py :PymodeLint
 augroup END
 " }}}
 "

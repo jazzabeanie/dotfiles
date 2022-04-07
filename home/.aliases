@@ -226,6 +226,10 @@ function spleeter {
   /Users/jaredjohnston/opt/miniconda3/bin/spleeter "$@"
 }
 
+function lsvim {
+  ls -lah | vim -
+}
+
 function song-dl {
   echo "warning: this function doesn't support relative directories currently."
   echo "If no output was provided, it will download to ~/Workspace/play_music."

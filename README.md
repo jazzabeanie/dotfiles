@@ -17,6 +17,7 @@ OS X:
   - do this in Accessability
 6. Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+7. Install cheat https://github.com/cheat/cheat
 
 Linux Mint:
 
