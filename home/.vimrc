@@ -334,6 +334,8 @@ augroup END
 augroup filetype_python
   autocmd!
   autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
+  " AIMS commend to quickly deploy the update_sites lambda:
+  autocmd FileType python nnoremap <buffer> <localleader>D :! sam build SitesUpdater && sam deploy<CR>
   " add Pydiction (python dictionary) to vim autocomplete.
   " see https://github.com/rkulla/pydiction
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
