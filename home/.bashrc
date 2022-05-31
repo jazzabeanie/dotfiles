@@ -20,10 +20,6 @@ if [ "$(uname -s)" = "Linux" ]; then
   reverse-mouse 
 fi
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
 # alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
 
 #complete -W "$(teamocil --list)" teamocil # this file was migrated from the original .bashrc and was created when installing teamocil. See https://github.com/remiprev/teamocil/blob/master/README.md
@@ -169,3 +165,20 @@ hist import
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+tmux attach -t base || tmux new -s base

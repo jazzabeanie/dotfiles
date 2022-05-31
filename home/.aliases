@@ -242,6 +242,7 @@ function song-dl {
 function reverse-mouse {
   xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1
   xinput set-prop pointer:"PixArt Dell MS116 USB Optical Mouse" "libinput Natural Scrolling Enabled" 1
+  xinput set-prop pointer:"PixArt Microsoft USB Optical Mouse" "libinput Natural Scrolling Enabled" 1
 }
 
 function pbcopy {

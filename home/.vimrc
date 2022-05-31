@@ -46,7 +46,7 @@ set fileformats=unix,dos
 set foldlevelstart=0
 set updatetime=250
 set incsearch
-set softtabstop=2 " Is this related to settings below?
+set softtabstop=2 " This will deleted two space when I backspace on space characters. Related to settings below.
 " the 3 settings that follow mean that spaces will always be used for tabs. See
 " `:help tabstop` for more info
 set shiftwidth=2
@@ -335,7 +335,7 @@ augroup filetype_python
   autocmd!
   autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
   " AIMS commend to quickly deploy the update_sites lambda:
-  autocmd FileType python nnoremap <buffer> <localleader>D :! sam build SitesUpdater && sam deploy<CR>
+  autocmd FileType python nnoremap <buffer> <localleader>D :! sam build && sam deploy<CR>
   " add Pydiction (python dictionary) to vim autocomplete.
   " see https://github.com/rkulla/pydiction
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
