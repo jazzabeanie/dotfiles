@@ -62,7 +62,7 @@ else
     let $VIMHOME = $HOME."/.vim"
 endif
 
-" So that the cut / move command from cutlass plugin gets put into clipboard history
+" So that delete operations gets put into clipboard history. Required for cut / move command from cutlass plugin (which I was using at some point if using).
 let g:yoinkIncludeDeleteOperations=1 
 
 " }}}
@@ -254,14 +254,14 @@ noremap <localleader>fjson :%!jq .<CR>
 " toggle wrap
 nnoremap <localleader>w :set wrap!<CR>
 
-" cutlass shortcuts: https://github.com/svermeulen/vim-cutlass
-nnoremap m d
-xnoremap m d
-nnoremap mm dd
-nnoremap M D
-
-" remapping the mark key because m is remaped to be a cutlass shortcut
-nnoremap <leader>m m
+" " cutlass shortcuts: https://github.com/svermeulen/vim-cutlass
+" nnoremap m d
+" xnoremap m d
+" nnoremap mm dd
+" nnoremap M D
+" 
+" " remapping the mark key because m is remaped to be a cutlass shortcut
+" nnoremap <leader>m m
 
 " vim-yoink mappings - https://github.com/svermeulen/vim-yoink
 nmap <c-n> <plug>(YoinkPostPasteSwapBack)
@@ -274,9 +274,14 @@ nmap gP <plug>(YoinkPaste_gP)
 " Keeping autoformat stuff together:
 let g:yoinkAutoFormatPaste=1
 nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
-" Allows yoink to be used in cojunction with ctrlp:
+" Allows yoink to be used in cojunction with ctrlp, but using p and P to cycle
+" the register stack:
 nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
 nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
+" Note: yoink doesn't work when pasting from visual mode. Could I make it work
+" with the mapping below? No, it doesn't work. I think the mapping interrupts
+" the action so Yoink doesn't realise something has just been pasted.
+" xnoremap d dP
 
 " }}}
 

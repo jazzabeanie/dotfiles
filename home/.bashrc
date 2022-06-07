@@ -107,6 +107,18 @@ alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the t
 # #alias g='generate'
 # #alias be='bundle exec '
 # #alias bs='bundle exec rspec '
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+alias ..........="cd ../../../../../../../../.."
+alias ...........="cd ../../../../../../../../../.."
+alias ............="cd ../../../../../../../../../../.."
+alias .............="cd ../../../../../../../../../../../.."
 # 
 # function largest() {
 #   du -h . | grep ^[0-9.][0-9.]G;
