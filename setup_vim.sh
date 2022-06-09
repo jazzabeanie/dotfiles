@@ -19,3 +19,5 @@ git clone git@github.com:svermeulen/vim-cutlass.git ~/.vim/bundle/vim-cutlass
 git clone git@github.com:svermeulen/vim-yoink.git ~/.vim/bundle/vim-yoink
 # https://github.com/vim-autoformat/vim-autoformat?
   # do I also need https://github.com/hhatto/autopep8 then?
+# vim-prettier (for auto formatting javascript, css, html, etc)
+# NERDTree, or alternativly https://github.com/tmux-plugins/tmux-sidebar

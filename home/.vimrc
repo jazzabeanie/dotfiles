@@ -283,6 +283,10 @@ nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(Yo
 " the action so Yoink doesn't realise something has just been pasted.
 " xnoremap d dP
 
+" NERDTree
+nnoremap <leader>nt :NERDTreeFocus<CR>
+let NERDTreeCustomOpenArgs = {'file':{'where':'p','keepopen':0}} " when pressing <CR> in NERDTree, open the file and close NERDTree
+ 
 " }}}
 
 " Autogroup commands ---------- {{{

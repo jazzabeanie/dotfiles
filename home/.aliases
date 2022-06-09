@@ -26,8 +26,9 @@ function cd() {
   if [ $# -eq 0 ]; then 
 		new_directory=${HOME};
 	fi;
-	builtin cd "${new_directory}" && ls -lah
+	builtin cd "${new_directory}" && ls -lhtr  --time-style long-iso | tac | cat -n | tac | sed -s 's/^\s*\([0-9]*\)\s*\(.*\)/[\1]  \2 [\1]/'g # works with lf function
 }
+
 # ## This is the equivalent for zoxide:
 # TODO: make this work:
 # function z() {
@@ -252,3 +253,68 @@ else
   pbcopy $@
 fi
 }
+
+function lf() {
+    # https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
+    if [ "x${1}" == "x" ]
+    then
+        n=1 
+    else
+        n="${1}"
+    fi  
+    ls -rt1 | tail -n ${n} | head -n 1
+}
+# works with function above and only after the command at the end of the cd function
+
+function cd-or-vim() {
+  if [ -d "$1" ]
+  then 
+    echo $ is a directory
+    cd $1
+  else
+    echo $1 is a file
+    vim $1
+  fi
+}
+
+
+alias 1='cd-or-vim $(lf 1)'
+alias 2='cd-or-vim $(lf 2)'
+alias 3='cd-or-vim $(lf 3)'
+alias 4='cd-or-vim $(lf 4)'
+alias 5='cd-or-vim $(lf 5)'
+alias 6='cd-or-vim $(lf 6)'
+alias 7='cd-or-vim $(lf 7)'
+alias 8='cd-or-vim $(lf 8)'
+alias 9='cd-or-vim $(lf 9)'
+alias 10='cd-or-vim $(lf 10)'
+alias 11='cd-or-vim $(lf 11)'
+alias 12='cd-or-vim $(lf 12)'
+alias 13='cd-or-vim $(lf 13)'
+alias 14='cd-or-vim $(lf 14)'
+alias 15='cd-or-vim $(lf 15)'
+alias 16='cd-or-vim $(lf 16)'
+alias 17='cd-or-vim $(lf 17)'
+alias 18='cd-or-vim $(lf 18)'
+alias 19='cd-or-vim $(lf 19)'
+alias 20='cd-or-vim $(lf 20)'
+alias 21='cd-or-vim $(lf 21)'
+alias 22='cd-or-vim $(lf 22)'
+alias 23='cd-or-vim $(lf 23)'
+alias 24='cd-or-vim $(lf 24)'
+alias 25='cd-or-vim $(lf 25)'
+alias 26='cd-or-vim $(lf 26)'
+alias 27='cd-or-vim $(lf 27)'
+alias 28='cd-or-vim $(lf 28)'
+alias 29='cd-or-vim $(lf 29)'
+alias 30='cd-or-vim $(lf 30)'
+alias 31='cd-or-vim $(lf 31)'
+alias 32='cd-or-vim $(lf 32)'
+alias 33='cd-or-vim $(lf 33)'
+alias 34='cd-or-vim $(lf 34)'
+alias 35='cd-or-vim $(lf 35)'
+alias 36='cd-or-vim $(lf 36)'
+alias 37='cd-or-vim $(lf 37)'
+alias 38='cd-or-vim $(lf 38)'
+alias 39='cd-or-vim $(lf 39)'
+alias 40='cd-or-vim $(lf 40)'
