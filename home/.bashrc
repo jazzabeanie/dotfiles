@@ -8,6 +8,21 @@ export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m
 set -o emacs 
 export TERM=xterm-256color
 
+# https://superuser.com/questions/1601543/ctrl-x-e-without-executing-command-immediately/1601690#1601690
+edit_wo_executing() {
+    local editor="${EDITOR:-vim}"
+    tmpf="$(mktemp)"
+    printf '%s\n' "$READLINE_LINE" > "$tmpf"
+    "$editor" "$tmpf"
+    READLINE_LINE="$(<"$tmpf")"
+    READLINE_POINT="${#READLINE_LINE}"
+    rm "$tmpf"
+}
+# This changes the keybinding to open the readline in vim
+bind -x '"\C-e":edit_wo_executing'
+bind -m vi-command '"v": ignore' # https://unix.stackexchange.com/questions/653739/how-do-i-disable-esc-v-in-bash-opening-the-previous-command-in-an-editor
+
+
 # only applicable to OSX
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then
 #  . $(brew --prefix)/etc/bash_completion
