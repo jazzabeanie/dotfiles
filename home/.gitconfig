@@ -25,6 +25,7 @@
     editor = vi --noplugin
     autocrlf = false
     safecrlf = true
+	  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
     default=simple
@@ -48,4 +49,6 @@
 # [mergetool "vimdiff"]
 #   cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
 [credential]
-	helper = cache
+	  helper = cache
+[interactive]
+	  diffFilter = diff-so-fancy --patch

@@ -72,3 +72,4 @@ touch ~/.gitconfig.local
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - https://www.mowglii.com/itsycal/
 - 1Password
+- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux

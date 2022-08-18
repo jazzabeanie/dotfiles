@@ -33,6 +33,7 @@ export CLICOLOR=1 # make ls command display colors by defult (like with -N argum
 
 if [ "$(uname -s)" = "Linux" ]; then
   reverse-mouse 
+  alias open='xdg-open'
 fi
 
 # alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
@@ -207,5 +208,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-tmux attach -t base || tmux new -s base
