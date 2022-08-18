@@ -73,3 +73,4 @@ touch ~/.gitconfig.local
 - https://www.mowglii.com/itsycal/
 - 1Password
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux
+- [lsd](https://github.com/Peltoche/lsd) - you can use snap to install if on Linux
