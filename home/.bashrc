@@ -88,7 +88,7 @@ fi
 # 
 # ## Command Line
 # #alias l.='ls -d .[^.]*'
-alias l='ls -alhGtr' # long, most recent first, colour
+alias l='ls -alhtr' # long, most recent first, colour
 alias e='vim'
 # #alias ll='ls -Fol'
 # alias lt='ls -alhtr' # list, most recent first #disabled because this conflicts with localtunnel

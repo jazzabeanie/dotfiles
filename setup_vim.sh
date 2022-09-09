@@ -2,6 +2,9 @@ mkdir ~/.vim
 mkdir ~/.vim/autoload
 mkdir ~/.vim/bundle
 mkdir ~/.vim/colors
+mkdir ~/.vim/after
+mkdir ~/.vim/after/syntax
+ln -f -s ~/.dotfiles/home/python.vim ~/.vim/after/syntax
 curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim -o ~/.vim/autoload/pathogen.vim
 curl https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim -o ~/.vim/colors/zenburn.vim
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
@@ -17,6 +20,7 @@ git clone https://github.com/godlygeek/tabular.git ~/.vim/bundle/tabular
 git clone https://github.com/plasticboy/vim-markdown.git ~/.vim/bundle/vim-markdown
 git clone git@github.com:svermeulen/vim-cutlass.git ~/.vim/bundle/vim-cutlass
 git clone git@github.com:svermeulen/vim-yoink.git ~/.vim/bundle/vim-yoink
+git clone git@github.com:dense-analysis/ale.git ~/.vim/bundle/ale
 # https://github.com/vim-autoformat/vim-autoformat?
   # do I also need https://github.com/hhatto/autopep8 then?
 # vim-prettier (for auto formatting javascript, css, html, etc)

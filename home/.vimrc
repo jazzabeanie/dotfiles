@@ -20,7 +20,7 @@ endif
 " colors zenburn
 " colors badwolf
 " colors vividchalk
-set background=dark
+set background=light
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2
@@ -39,6 +39,8 @@ set colorcolumn=80
 set textwidth=0
 set wrap
 set linebreak
+set showbreak=↪
+set breakindent
 set backspace=indent,eol,start
 set noswapfile
 set fileformat=unix
@@ -64,6 +66,18 @@ endif
 
 " So that delete operations gets put into clipboard history. Required for cut / move command from cutlass plugin (which I was using at some point if using).
 let g:yoinkIncludeDeleteOperations=1 
+
+" ALE settings:
+" let g:ale_linters = {'html': ['htmlhint']}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'html': ['prettier'],
+\}
+" make ALE take precendence over gitgutter: https://github.com/dense-analysis/ale/issues/569#issuecomment-534975062
+let g:ale_sign_priority = 11
+let g:gitgutter_sign_priority=5
+let g:syntastic_sign_priority=10
 
 " }}}
 
@@ -369,6 +383,7 @@ augroup END
 " Python -------------------{{{
 augroup filetype_python
   autocmd!
+  autocmd FileType python set wrap
   autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>
   " AIMS commend to quickly deploy the update_sites lambda:
   autocmd FileType python nnoremap <buffer> <localleader>D :! sam build && sam deploy<CR>
@@ -377,9 +392,9 @@ augroup filetype_python
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
   " sets foldable sections to code blocks:
   autocmd FileType python setlocal foldmethod=indent
-  " autocmd FileType python let g:pymode_lint_ignore="E116"
+  " autocmd FileType python let g:pymode_lint_ignore='E501' " seems to disable all error
   autocmd BufWritePre *.py :%s/\s\+$//e
-  " autocmd BufWritePost *.py :PymodeLint
+  autocmd BufWritePost *.py :PymodeLint
 augroup END
 " }}}
 "
@@ -415,6 +430,8 @@ augroup filetype_html
   vnoremap <localleader>B <esc>`>a</strong><esc>`<i<strong><esc>
   " fold tags with `\f`
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+  " does this fold method conflict with the <localleader>f command above?
+  autocmd FileType html setlocal foldmethod=indent
   " TODO: find an html plugin to autocomplete tags
 augroup END
 " }}}
