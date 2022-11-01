@@ -2,13 +2,13 @@
 execute pathogen#infect()
 " I think these are optional:
 set nocompatible
-filetype plugin indent on
+filetype plugin indent on " also required for python-mode
 " }}}
 
 " Basic Settings --------------------- {{{
 " if settings are not behaving as expected, use `:verbose set setting?`
 syntax on
-let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules|cdk.out)$'
 if executable('ag')
   " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
   let g:ackprg = 'ag --vimgrep'
@@ -392,7 +392,7 @@ augroup filetype_python
   let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
   " sets foldable sections to code blocks:
   autocmd FileType python setlocal foldmethod=indent
-  " autocmd FileType python let g:pymode_lint_ignore='E501' " seems to disable all error
+  autocmd FileType python let g:pymode_lint_ignore=['E501']
   autocmd BufWritePre *.py :%s/\s\+$//e
   autocmd BufWritePost *.py :PymodeLint
 augroup END

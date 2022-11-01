@@ -7,6 +7,7 @@ export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m
 # This emacs may be getting overwritten by inputrc. Not sure:
 set -o emacs 
 export TERM=xterm-256color
+stty stop "" # dissables CTRL-S, which I somtimes press accidentally in vim and seems to make it hang unless CTRL-Q is pressed: https://superuser.com/questions/1390977/pressing-ctrl-s-by-mistake-while-using-vim
 
 # https://superuser.com/questions/1601543/ctrl-x-e-without-executing-command-immediately/1601690#1601690
 edit_wo_executing() {
@@ -22,6 +23,16 @@ edit_wo_executing() {
 bind -x '"\C-e":edit_wo_executing'
 bind -m vi-command '"v": ignore' # https://unix.stackexchange.com/questions/653739/how-do-i-disable-esc-v-in-bash-opening-the-previous-command-in-an-editor
 
+# Set McFly to use light colour scheme
+export MCFLY_LIGHT=TRUE
+export MCFLY_RESULTS_SORT=LAST_RUN
+
+# # The problem with this code is that it messes up reverse search (and also McFly)
+# # Make each tmxu pane have its own history: https://stackoverflow.com/questions/55816863/how-can-i-make-all-tmux-panes-have-their-own-unique-shell-history
+# if [[ $TMUX_PANE ]]; then
+#     HISTFILE=$HOME/.bash_history_tmux_${TMUX_PANE:1}
+# fi
+# # Maybe try these solutions: https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
 
 # only applicable to OSX
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -88,6 +99,8 @@ fi
 # 
 # ## Command Line
 # #alias l.='ls -d .[^.]*'
+alias cp='cp -i'
+alias mv='mv -i'
 alias l='ls -alhtr' # long, most recent first, colour
 alias e='vim'
 # #alias ll='ls -Fol'
