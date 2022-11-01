@@ -7,7 +7,7 @@ ln -f -s ~/.dotfiles/home/.bin ~/.bin
 ln -f -s ~/.dotfiles/home/.gitconfig ~/.gitconfig
 ln -f -s ~/.dotfiles/home/.gitignore ~/.gitignore
 ln -f -s ~/.dotfiles/home/.inputrc ~/.inputrc
-ln -f -s ~/.dotfiles/home/.tmux.conf ~/.conf
+ln -f -s ~/.dotfiles/home/.tmux.conf ~/.tmux.conf
 ln -f -s ~/.dotfiles/home/.vimrc ~/.vimrc
 ln -f -s ~/.dotfiles/home/ssh_config ~/.ssh/config
 ln -f -s ~/.dotfiles/home/.direnvrc ~/.direnvrc

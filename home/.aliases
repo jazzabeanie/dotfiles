@@ -249,7 +249,7 @@ function song-dl {
   # if (( $# == 0 )); then
 }
 
-function reverse-mouse {
+function reverse-mouse {  # This is only for linux mint
   xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1
   xinput set-prop pointer:"PixArt Dell MS116 USB Optical Mouse" "libinput Natural Scrolling Enabled" 1
   xinput set-prop pointer:"PixArt Microsoft USB Optical Mouse" "libinput Natural Scrolling Enabled" 1

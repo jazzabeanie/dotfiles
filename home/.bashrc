@@ -42,10 +42,10 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
-if [ "$(uname -s)" = "Linux" ]; then
-  reverse-mouse 
-  alias open='xdg-open'
-fi
+# if [ "$(uname -s)" = "Linux" ]; then
+#   reverse-mouse 
+#   alias open='xdg-open'
+# fi
 
 # alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
 

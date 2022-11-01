@@ -19,13 +19,17 @@ OS X:
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 7. Install cheat https://github.com/cheat/cheat
 
-Linux Mint:
+Linux:
 
 - Add ssh key to github
+  - may also need to start the agent and add them there before it will work
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- run `setxkbmap -option ctrl:nocaps`
-  - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
+- Swap CAPS and Ctrl, either:
+  - run `setxkbmap -option ctrl:nocaps`
+    - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
+  - Modify `/usr/share/X11/xkb/symbols/pc`
+    - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
 - reverse scroll direction
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
   - gnome 
