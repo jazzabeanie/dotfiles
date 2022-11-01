@@ -10,3 +10,4 @@ ln -f -s ~/.dotfiles/home/.inputrc ~/.inputrc
 ln -f -s ~/.dotfiles/home/.tmux.conf ~/.conf
 ln -f -s ~/.dotfiles/home/.vimrc ~/.vimrc
 ln -f -s ~/.dotfiles/home/ssh_config ~/.ssh/config
+ln -f -s ~/.dotfiles/home/.direnvrc ~/.direnvrc
