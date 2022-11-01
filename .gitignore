@@ -1,5 +1,7 @@
 .swp
 psql-data_platform
+psql-reefcloud
+psql-reefcloud-ssh
 get-ec2-details
 run_pgadmin
 add_ssh_to_bastion
