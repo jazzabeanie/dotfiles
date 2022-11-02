@@ -4,3 +4,5 @@ snap install cheat  # cheat - https://github.com/cheat/cheat
 snap install fx # https://github.com/antonmedv/fx
 snap install slack
 snap install teams
+snap install diff-so-fancy
+snap install lsd

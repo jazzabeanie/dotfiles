@@ -5,6 +5,7 @@
 
 curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
 chmod 755 ~/bin/vcprompt
+# In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 sudo apt install tmux
 sudo apt install silversearcher-ag
 # should I instll this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
