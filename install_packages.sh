@@ -23,15 +23,6 @@ sudo apt install visidata # terminal interface for tabular data
 
 # pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/
 
-# # pyenv:
-# # doubl check here before installing: https://github.com/pyenv/pyenv-installer
-# sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
-#   libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-#   libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # pyenv requirements as per https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-# curl https://pyenv.run | bash
-# # might have to add this to .bashrc:
-# #   export PATH="$HOME/.pyenv/bin:$PATH"
-# #   eval "$(pyenv init --path)"
-# #   eval "$(pyenv virtualenv-init -)"
+# Conda: https://docs.conda.io/en/latest/miniconda.html
 
 
