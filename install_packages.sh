@@ -14,7 +14,7 @@ sudo apt install vim-gtk3
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
 sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)
-sudo apt install visidata # terminal interface for tabular data
+# visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
 # lsd? - https://github.com/Peltoche/lsd
 # I had to play with permissions to get this to work

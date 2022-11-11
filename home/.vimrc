@@ -17,6 +17,7 @@ if executable('ag')
   cnoreabbrev Ag Ack
   cnoreabbrev AG Ack
 endif
+colors solarized
 " colors zenburn
 " colors badwolf
 " colors vividchalk

@@ -6,3 +6,4 @@ snap install slack
 snap install teams
 snap install diff-so-fancy
 snap install lsd
+snap install direnv

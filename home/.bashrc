@@ -7,7 +7,7 @@ export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m
 # This emacs may be getting overwritten by inputrc. Not sure:
 set -o emacs 
 export TERM=xterm-256color
-stty stop "" # dissables CTRL-S, which I somtimes press accidentally in vim and seems to make it hang unless CTRL-Q is pressed: https://superuser.com/questions/1390977/pressing-ctrl-s-by-mistake-while-using-vim
+# stty stop "" # dissables CTRL-S, which I somtimes press accidentally in vim and seems to make it hang unless CTRL-Q is pressed: https://superuser.com/questions/1390977/pressing-ctrl-s-by-mistake-while-using-vim
 
 # https://superuser.com/questions/1601543/ctrl-x-e-without-executing-command-immediately/1601690#1601690
 edit_wo_executing() {
@@ -42,10 +42,10 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
-# if [ "$(uname -s)" = "Linux" ]; then
-#   reverse-mouse 
-#   alias open='xdg-open'
-# fi
+if [ "$(uname -s)" = "Linux" ]; then
+  # reverse-mouse  # This is for linux minut. For Ubuntu you can do this permenantly in settings
+  alias open='xdg-open'
+fi
 
 # alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
 
@@ -201,7 +201,7 @@ eval "$(direnv hook bash)"
 eval "$(zoxide init bash)"
 eval "$(mcfly init bash)"
 export PATH=$HOME/local/bin:$PATH
-hist import
+# hist import
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
