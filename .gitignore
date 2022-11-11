@@ -7,3 +7,5 @@ run_pgadmin
 add_ssh_to_bastion
 git-smudge-clean-filter.sh
 git-smudge-clean-filter
+connect
+portforward

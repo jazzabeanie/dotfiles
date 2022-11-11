@@ -3,5 +3,7 @@ Host *
  # UseKeychain yes
  IdentityFile ~/.ssh/id_rsa
 
-host i-* mi-*
+  Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  User ssm-user
+
