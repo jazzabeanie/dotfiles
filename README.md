@@ -28,8 +28,10 @@ Linux:
 - Swap CAPS and Ctrl, either:
   - run `setxkbmap -option ctrl:nocaps`
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
-  - Modify `/usr/share/X11/xkb/symbols/pc`
+  - Ubuntu:
     - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
+      - install `sudo apt-get install gnome-tweak-tool`
+      - open Tweaks -> Keyboard & Mouse -> Additional Layout options
 - reverse scroll direction
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
   - gnome 
