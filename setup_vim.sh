@@ -18,7 +18,7 @@ git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
 git clone --recurse-submodules https://github.com/python-mode/python-mode ~/.vim/bundle/python-mode
 git clone https://github.com/godlygeek/tabular.git ~/.vim/bundle/tabular
 git clone https://github.com/plasticboy/vim-markdown.git ~/.vim/bundle/vim-markdown
-git clone git@github.com:svermeulen/vim-cutlass.git ~/.vim/bundle/vim-cutlass
+# git clone git@github.com:svermeulen/vim-cutlass.git ~/.vim/bundle/vim-cutlass
 git clone git@github.com:svermeulen/vim-yoink.git ~/.vim/bundle/vim-yoink
 git clone git@github.com:dense-analysis/ale.git ~/.vim/bundle/ale
 # https://github.com/vim-autoformat/vim-autoformat?

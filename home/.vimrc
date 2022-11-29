@@ -66,7 +66,7 @@ else
 endif
 
 " So that delete operations gets put into clipboard history. Required for cut / move command from cutlass plugin (which I was using at some point if using).
-let g:yoinkIncludeDeleteOperations=1 
+" let g:yoinkIncludeDeleteOperations=1 
 
 " ALE settings:
 " let g:ale_linters = {'html': ['htmlhint']}
@@ -289,8 +289,8 @@ nmap gP <plug>(YoinkPaste_gP)
 " Keeping autoformat stuff together:
 let g:yoinkAutoFormatPaste=1
 nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
-" Allows yoink to be used in cojunction with ctrlp, but using p and P to cycle
-" the register stack:
+" Allows yoink to be used in cojunction with ctrlp, but using p and P (instead
+" of <c-p> and <c-P> to cycle the register stack:
 nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
 nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
 " Note: yoink doesn't work when pasting from visual mode. Could I make it work
