@@ -220,10 +220,11 @@ function desksync {
   rsync -e 'ssh -p 2222' --size-only -r ~/Desktop $1:/sdcard/
 }
 
-function spleeter {
-  if (( $# == 0 )); then
+function spleeter-help {
+  # if (( $# == 0 )); then
     echo "I like to use spleeter like so:"
-    echo "spleeter separate -i INPUT -p spleeter:5stems -o OUTPUT"
+    echo "spleeter separate -p spleeter:5stems --codec m4a -o OUTPUT_PATH INPUT_FILES"
+    echo "(it will create a folder in the OUTPUT_DIRECTORY to save the stems)"
     echo ""
     echo "Here are the stem options:"
     echo "  Vocals (singing voice) / accompaniment separation (2 stems)"
@@ -232,8 +233,8 @@ function spleeter {
     echo ""
     echo "Normal program output follows:"
     echo ""
-  fi
-  /Users/jaredjohnston/opt/miniconda3/bin/spleeter "$@"
+  # fi
+  # /Users/jaredjohnston/opt/miniconda3/bin/spleeter "$@"
 }
 
 function lsvim {
@@ -261,6 +262,16 @@ if [ "$(uname -s)" = "Linux" ]; then
 else
   pbcopy $@
 fi
+}
+
+function download_music {
+  echo "Downloading 10 songs, sleeping in between, with command:"
+  echo "pipenv run python /Users/jaredjohnston/Workspace/music_downloader/downloader.py --limit 10 --sleep ~/Music/dj/"
+  echo "chaning to tool directory"
+  cd /Users/jaredjohnston/Workspace/music_downloader
+  pipenv run python /Users/jaredjohnston/Workspace/music_downloader/downloader.py --limit 10 --sleep ~/Music/dj/
+  echo "changing back"
+  cd -
 }
 
 function lf() {
