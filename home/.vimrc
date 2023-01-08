@@ -544,7 +544,7 @@ noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 " TODO: look into another option that shows context for matches, making the
 " need to centre after matching redundant.
-" try: set scrolloff=5
+set scrolloff=5 " did this break something? I remember having it enabled once before, so why was not enabled?
 "
 "
 " check this out: https://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
