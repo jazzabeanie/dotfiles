@@ -301,6 +301,9 @@ nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(Yo
 " NERDTree
 nnoremap <leader>nt :NERDTreeFocus<CR>
 let NERDTreeCustomOpenArgs = {'file':{'where':'p','keepopen':0}} " when pressing <CR> in NERDTree, open the file and close NERDTree
+
+" Vim Codex
+nnoremap <leader>c <Esc>:CreateCompletionLine<CR>
  
 " }}}
 

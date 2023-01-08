@@ -275,6 +275,11 @@ function download_music {
   cd -
 }
 
+function reef {
+  cd /home/jaredjohnston/Workspace/reefcloud-metrics
+  tmux new -s reefcloud
+}
+
 function lf() {
     # https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
     # This is a dependency of the navagation shortcuts below (alias 1='cd-or-vim $(lf 1)')
