@@ -8,7 +8,9 @@ filetype plugin indent on " also required for python-mode
 " Basic Settings --------------------- {{{
 " if settings are not behaving as expected, use `:verbose set setting?`
 syntax on
-let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules|cdk.out)$'
+" let g:ctrlp_custom_ignore = '\v[\/]\.(compiled|node_modules|cdk.out|conda-env)$'
+let g:ctrlp_custom_ignore = {'dir':  'conda-env$\|node_modules$\|compiled$\|cdk.out$' }
+  " can also ignore files like so: 'file': '\.exe$\|\.so$\|\.dat$'
 if executable('ag')
   " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
   let g:ackprg = 'ag --vimgrep'
