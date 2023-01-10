@@ -1,9 +1,8 @@
 #!/bin/bash
 
-echo "use \`untar\` to unzip .tar.gz"
-# echo "use \`desksync\` to sync the desktop to the Samsung s7 edge"
-echo "\`sha256 FILE\` to generate a sha256 hash of a file"
-echo "run \`ssh -p 4810 10.1.1.11\` to connect to Lenovo x201. Run ifconfig on the lenovo to check the IP. edit /etc/ssh/sshd_config to see the port and other settings"
+echo "Some useful custom functions:"
+echo "  untar to unzip a *.tar.gz file"
+echo "  sha256 to create a hash of a file"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s - interactivly switch between sessions"
@@ -30,6 +29,18 @@ function cd() {
   builtin cd "${new_directory}" && ls -lhtr | tac | cat -n | tac | sed 's/^[[:space:]]*\([0-9]*\)[[:space:]]*\(.*\)/[\1]  \2 [\1]/'g # works with lf function
 }
 
+# ## This is the equivalent for zoxide:
+# TODO: make this work:
+# function z() {
+#   new_directory="$*";
+# 	builtin z "${new_directory}" && ls -lah
+# }
+
+function largest() {
+  du -h . | grep ^[0-9.][0-9.]G;
+  du -h . | grep ^[5-9][0-9][0-9.]M
+}
+
 function ca() {
   conda_directory="$1";
   if [ $# -eq 0 ]; then 
@@ -38,13 +49,6 @@ function ca() {
   # cd ${conda_directory}
   conda activate "${conda_directory}"/
 }
-
-# ## This is the equivalent for zoxide:
-# TODO: make this work:
-# function z() {
-#   new_directory="$*";
-# 	builtin z "${new_directory}" && ls -lah
-# }
 
 ## This changed directories to desktop
 function desk() {
@@ -57,23 +61,6 @@ function mark {
 
 function trash {
         mv -fv $1 ~/.Trash
-}
-function whatatune {
-~/Dropbox/Music/whatatune/Bash/downloadtags.sh
-}
-
-function playdesk() {
-        #This function will play music files on the desktop. Or, more specifically, it will play a list of the files matched by the regular expression [.]m
-        cd ~/Desktop/
-        playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX) #{} expand the variable so the path of TMPDIR is actually used. #where is this file stored??
-        ls | grep [.]m > $playlist
-        while read SONG
-        do
-                echo ""
-                echo "playing $SONG"
-                ffplay -showmode 1 -window_title "Desktop Playlist" -autoexit "$SONG"
-        done < $playlist
-        #for i in ./*.m4a; do ffplay -nodisp -autoexit "$i"; done #this is the original one liner I wanted to create. The only probably was that it won't play mp3s.
 }
 
 function playmusic() {
@@ -154,12 +141,6 @@ function ffmpeg-separate {
   ffmpeg-trim "$1" "$2"
 }
 
-function p-sync {
-    # leave trailing / on the source to copy only the contents, not the source folder itself.
-    rsync -v --size-only -r ~/Downloads/p/ /Volumes/Elements/
-    # rsync -v --size-only -r ~/Downloads/p/ /Volumes/c_issue/Video/p/
-}
-
 function p-dl {
     # takes one argument - URL
     youtube-dl -o -no-mtime "./%(title)s.%(ext)s" $1
@@ -172,25 +153,6 @@ function g() {
       fi
       # ls -lah
 }
-
-# jesi commands
-function jesit {
-  if [[ $# -eq 0 ]]; then
-    echo "jesit will run 'npm test -- $1', you must pass it the name of a test file to run."
-  else
-    # runs jesi tests on specific file passed in 
-    gnome-terminal -x bash -c "cd ~/Workspace/JESI/jesi-functional-tests; npm test -- $1; read -p 'Press [Enter] key to quit...'"
-  fi
-}
-
-function t {
-  if [[ -z "$CURRENT_TEST" ]]; then
-    read -p "Which file do you want to test? " CURRENT_TEST
-  else
-    echo "CURRENT_TEST is set to $CURRENT_TEST"
-  fi
-  jesit $CURRENT_TEST
-} 
 
 function untar {
   if (( $# == 0 )); then
@@ -208,17 +170,6 @@ function sha256 {
     return
   fi
   openssl dgst -sha256 "$@"
-}
-
-function desksync {
-  if (( $# == 0 )); then
-    echo "desksync takes 1 argument - the host running the server to sync to."
-    echo 'it will run `rsync --size-only -r ~/Desktop HOST:/sdcard/`'
-    echo 'and save to Main Storage/Desktop on the Samsung'
-    return
-  fi
-  # should I have this function take another argument in case I want to copy a different source?
-  rsync -e 'ssh -p 2222' --size-only -r ~/Desktop $1:/sdcard/
 }
 
 function spleeter-help {
@@ -242,22 +193,7 @@ function lsvim {
   ls -lah | vim -
 }
 
-function song-dl {
-  echo "warning: this function doesn't support relative directories currently."
-  echo "If no output was provided, it will download to ~/Workspace/play_music."
-  echo "If a relative was provided, it will be relative to this directory."
-  echo ""
-  (builtin cd ~/Workspace/play_music/ && pipenv run python download_song.py "$@")
-  # if (( $# == 0 )); then
-}
-
-function reverse-mouse {  # This is only for linux mint
-  xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1
-  xinput set-prop pointer:"PixArt Dell MS116 USB Optical Mouse" "libinput Natural Scrolling Enabled" 1
-  xinput set-prop pointer:"PixArt Microsoft USB Optical Mouse" "libinput Natural Scrolling Enabled" 1
-}
-
-function pbcopy {
+function pbcopy { # Makes pbcopy work on linux
 if [ "$(uname -s)" = "Linux" ]; then
   xargs echo -n $@ | xclip -sel clip # Remove trailing newline then copy
 else
@@ -274,6 +210,8 @@ function download_music {
   echo "changing back"
   cd -
 }
+
+# alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
 
 function reef {
   cd /home/jaredjohnston/Workspace/reefcloud-metrics

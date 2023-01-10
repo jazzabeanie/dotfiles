@@ -19,6 +19,7 @@ sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)
 # lsd? - https://github.com/Peltoche/lsd
 # I had to play with permissions to get this to work
   # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
+sudo apt install zsh
 
 
 # pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/

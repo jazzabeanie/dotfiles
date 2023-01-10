@@ -9,8 +9,7 @@ Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/e
 OS X:
 
 1. Install Homebrew.
-2. Install Ansible (`brew install ansible`)
-3. Install `xcode-select --install`
+3. Install `xcode-select --install` (if required. It maybe installed with Homebrew)
   - this should install git. Check with `git --version`
 4. Change CAPS to Ctrl
 5. Enable touch to click and 3 finger drag
@@ -18,6 +17,8 @@ OS X:
 6. Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 7. Install cheat https://github.com/cheat/cheat
+8. Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
+9. Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Linux:
 
@@ -42,6 +43,8 @@ Linux:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
+- Make Zsh the default
+- Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Random Linux box:
 

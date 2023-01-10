@@ -1,9 +1,6 @@
 export EDITOR="vim"
-#export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
-export GOPATH=~/Workspace/go
-export PATH="~/.bin:/usr/local/sbin:/usr/local/bin:$PATH:$GOPATH/bin:~/.local/bin"
-export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m] ")\[\033[1;34m\]\$ \[\033[0m\] \n→ '
+# export PS1='\[\033[0;36m\]\t\[\e[0m\] \w \[\033[0;32m\]$(vcprompt -f "[%n:%b%u%m] ")\[\033[1;34m\]\$ \[\033[0m\] \n→ '
 # This emacs may be getting overwritten by inputrc. Not sure:
 set -o emacs 
 export TERM=xterm-256color
@@ -34,11 +31,6 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 # fi
 # # Maybe try these solutions: https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
 
-# only applicable to OSX
-#if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#  . $(brew --prefix)/etc/bash_completion
-#fi
-
 source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
@@ -46,10 +38,6 @@ if [ "$(uname -s)" = "Linux" ]; then
   # reverse-mouse  # This is for linux minut. For Ubuntu you can do this permenantly in settings
   alias open='xdg-open'
 fi
-
-# alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
-
-#complete -W "$(teamocil --list)" teamocil # this file was migrated from the original .bashrc and was created when installing teamocil. See https://github.com/remiprev/teamocil/blob/master/README.md
 
 ##### This is from the old PS1 (prompt) setup
 # # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
@@ -89,51 +77,30 @@ fi
 # }
 
 
-# ###### this is the old aliases file that was reference from the original bashrc file
-# ## Finder
-# #alias o='open . &'
-# 
-# ## Processes
-# #alias tu='top -o cpu' #cpu
-# #alias tm='top -o vsize' #memory
-# 
-# ## Command Line
-# #alias l.='ls -d .[^.]*'
+###### this is the old aliases file that was reference from the original bashrc file
+## Finder
+#alias o='open . &'
+
+## Processes
+alias tu='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+
+## Command Line
+#alias l.='ls -d .[^.]*'
 alias cp='cp -i'
 alias mv='mv -i'
 alias l='ls -alhtr' # long, most recent first, colour
 alias e='vim'
-# #alias ll='ls -Fol'
-# alias lt='ls -alhtr' # list, most recent first #disabled because this conflicts with localtunnel
+#alias ll='ls -Fol'
 alias la='ls -lah'
-# #alias ..='cd ..'
-# #alias s='cd ..'
-# #alias cdd='cd -'
+#alias cdd='cd -'
 alias cdw='cd ~/Workspace'
 alias cdm='cd /home/jaredjohnston/Workspace/reefcloud-metrics'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
-# #alias cdgo='cd ~/Workspace/go'
-# #alias cdwp='cd ~/Workspace/personal'
-# #alias cdwc='cd ~/Workspace/cards'
-# #alias cdwaj='cd ~/Workspace/antipodeanlabs_jenkins'
-# #alias cdwac='cd ~/Workspace/antipodeanlabs_chef'
-# #alias cdt='cd ~/Tools'
-# #alias cdte='cd ~/Temp'
-# #alias cdtmp='cd ~/Temp'
-# #alias cddwn='cd ~/Downloads'
-# #alias f='fg'
 alias h='cd ~/'
 alias syncdesk=desksync
 alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
-# #alias md='mkdir -p'
-# #alias rmd='rm -rf'
-# #alias rk='rake'
-# #alias rkdb='rake db:migrate db:test:prepare'
-# #alias r='rails'
-# #alias g='generate'
-# #alias be='bundle exec '
-# #alias bs='bundle exec rspec '
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -146,33 +113,7 @@ alias ..........="cd ../../../../../../../../.."
 alias ...........="cd ../../../../../../../../../.."
 alias ............="cd ../../../../../../../../../../.."
 alias .............="cd ../../../../../../../../../../../.."
-# 
-# function largest() {
-#   du -h . | grep ^[0-9.][0-9.]G;
-#   du -h . | grep ^[5-9][0-9][0-9.]M
-# }
-# 
-# #function take() {
-# #  mkdir -p $1
-# #  cd $1
-# #}
-# 
-# #function stun() {
-# #  ssh -D 9000 $1
-# #}
-# 
-# #alias vi='vim -N' # I believe this setting is redundant because of the "set nocompatible" line in the .vimrc file.
-# 
-# ## Aliases
-# #alias reload='source ~/Workspace/dotfiles/bash/aliases'
-# #alias ea='vim -N ~/Workspace/dotfiles/bash/aliases && reload' # edit and reload
-# #alias ca='cat ~/Workspace/dotfiles/bash/aliases'
-# #alias eh='sudo vim -N /etc/hosts'
-# 
-# #function ep() {
-# #  echo "$*" | pbcopy
-# #}
-# 
+
 # #alias rmsf="mv ~/Library/Safari ~/Desktop/Safari-`date +%Y%m%d%H%M%S`; \
 # #rm -Rf ~/Library/Caches/Apple\ -\ Safari\ -\ Safari\ Extensions\ Gallery; \
 # #rm -Rf ~/Library/Caches/Metadata/Safari; \
@@ -201,8 +142,8 @@ eval "$(mcfly init bash)"
 export PATH=$HOME/local/bin:$PATH
 # hist import
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# # Generated for envman. Do not edit. I have commented out because I don't think I use envman
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 
 # >>> conda initialize >>>
