@@ -9,6 +9,7 @@ Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/e
 OS X:
 
 1. Install Homebrew.
+2. TODO: turn ansible homebrew tasks into a script to download.
 3. Install `xcode-select --install` (if required. It maybe installed with Homebrew)
   - this should install git. Check with `git --version`
 4. Change CAPS to Ctrl
