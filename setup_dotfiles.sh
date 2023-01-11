@@ -1,4 +1,4 @@
-mv ~/.bashrc ~/.bashrc_backup
+# mv ~/.bashrc ~/.bashrc_backup
 ln -f -s ~/.dotfiles/home/.aliases ~/.aliases
 ln -f -s ~/.dotfiles/home/.bash_profile ~/.bash_profile
 ln -f -s ~/.dotfiles/home/.bashrc ~/.bashrc
@@ -11,3 +11,4 @@ ln -f -s ~/.dotfiles/home/.tmux.conf ~/.tmux.conf
 ln -f -s ~/.dotfiles/home/.vimrc ~/.vimrc
 ln -f -s ~/.dotfiles/home/ssh_config ~/.ssh/config
 ln -f -s ~/.dotfiles/home/.direnvrc ~/.direnvrc
+ln -f -s ~/.dotfiles/home/.zshrc ~/.zshrc

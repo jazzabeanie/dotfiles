@@ -43,7 +43,8 @@ Linux:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
-- Make Zsh the default
+- Make Zsh the default shell `chsh -s $(which zsh)`
+- install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Random Linux box:
