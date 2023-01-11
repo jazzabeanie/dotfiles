@@ -116,3 +116,6 @@ export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executa
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
 export PATH="~/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
+
+eval "$(direnv hook zsh)"
+eval "$(mcfly init zsh)"
