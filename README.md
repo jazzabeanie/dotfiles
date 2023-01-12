@@ -50,8 +50,9 @@ Linux:
   - `install_packages.sh`
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
-- install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
-- install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
+- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
+  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
+  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Random Linux box:
