@@ -35,6 +35,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
+                            # https://github.com/romkatv/powerlevel10k/blob/master/README.md#what-do-different-symbols-in-git-status-mean
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol

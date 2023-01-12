@@ -21,6 +21,8 @@ echo "  :break-pane - break the current pane out into it's own window"
 echo "  <prefix>, - rename current window"
 echo "  <prefix>{ - swap current pane with another (useful if you want to move a particular pane as <prefix>CTRL+o rearranges everything)"
 echo "    alternatively <prefix>q to see pane numbers then <prefix>:swap-pane -s 3 -t 5"
+echo "  <prefix><HOME> - swap current window with one on the left."
+echo "  <prefix><END> - swap current window with one on the right."
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
