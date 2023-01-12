@@ -1,22 +1,5 @@
 #!/bin/bash
 
-echo "Some useful custom functions:"
-echo "  untar to unzip a *.tar.gz file"
-echo "  sha256 to create a hash of a file"
-echo ""
-echo "If you are in tmux, here are some useful commands:"
-echo "  <prefix>s - interactivly switch between sessions"
-echo "  <prefix>z - zoom in to current windows"
-echo "  <prefix>( and <previx>) - move to previous or next session"
-echo "  <prefix>p - chane to previous window"
-echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
-echo "  <prefix>c - create new window in current session"
-echo "  <prefix>w - choose window from list"
-echo "  :break-pane - break the current pane out into it's own window"
-echo "  <prefix>, - rename current window"
-echo "  <prefix>{ - swap current pane with another (useful if you want to move a particular pane as <prefix>CTRL+o rearranges everything)"
-echo "    alternatively <prefix>q to see pane numbers then <prefix>:swap-pane -s 3 -t 5"
-
 # to use visidata as the pager app in psql, export this before running psql `export PAGER='vd --filetype=tsv --delimiter="|" --undo=true --header=1 -'`
 
 ## Processes

@@ -8,18 +8,22 @@ Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/e
 
 OS X:
 
-1. Install Homebrew.
-2. TODO: turn ansible homebrew tasks into a script to download.
-3. Install `xcode-select --install` (if required. It maybe installed with Homebrew)
+- Install Homebrew.
+- Install `xcode-select --install` (if required. It maybe installed with Homebrew)
   - this should install git. Check with `git --version`
-4. Change CAPS to Ctrl
-5. Enable touch to click and 3 finger drag
+- Change CAPS to Ctrl
+- Enable touch to click and 3 finger drag
   - do this in Accessability
-6. Setup git SSH keys
+- Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-7. Install cheat https://github.com/cheat/cheat
-8. Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
-9. Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - `setup_vim.sh`
+  - TODO: turn ansible homebrew tasks into a script to download.
+- install [oh-my-zsh](https://ohmyz.sh/#install)
+- Install cheat https://github.com/cheat/cheat
+- Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
+- Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Linux:
 
@@ -46,6 +50,8 @@ Linux:
   - `install_packages.sh`
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
+- install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
+- install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 
 Random Linux box:

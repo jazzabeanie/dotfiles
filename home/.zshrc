@@ -1,3 +1,27 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+echo "Some useful custom functions:"
+echo "  untar to unzip a *.tar.gz file"
+echo "  sha256 to create a hash of a file"
+echo ""
+echo "If you are in tmux, here are some useful commands:"
+echo "  <prefix>s - interactivly switch between sessions"
+echo "  <prefix>z - zoom in to current windows"
+echo "  <prefix>( and <previx>) - move to previous or next session"
+echo "  <prefix>p - chane to previous window"
+echo "  <prefix>P - chane to previous pane (set in ~/.tmux.conf)"
+echo "  <prefix>c - create new window in current session"
+echo "  <prefix>w - choose window from list"
+echo "  :break-pane - break the current pane out into it's own window"
+echo "  <prefix>, - rename current window"
+echo "  <prefix>{ - swap current pane with another (useful if you want to move a particular pane as <prefix>CTRL+o rearranges everything)"
+echo "    alternatively <prefix>q to see pane numbers then <prefix>:swap-pane -s 3 -t 5"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +32,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -87,6 +111,7 @@ export EDITOR="vim"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.aliases
 
 # I followed this guide: https://scriptingosx.com/2019/06/moving-to-zsh-part-3-shell-options/
 # run `man zshoptions` to see what each option does
@@ -109,8 +134,6 @@ setopt HIST_VERIFY  # allows you to edit before running when using `!!`
 setopt CORRECT
 setopt CORRECT_ALL
 
-source ~/.aliases
-
 export PATH="$PATH:~/.local/bin"  # path for zoxide?
 export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executables there, so I will keep it in the path.
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
@@ -119,3 +142,6 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this
 
 eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
