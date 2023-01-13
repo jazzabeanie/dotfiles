@@ -141,14 +141,15 @@ setopt HIST_VERIFY  # allows you to edit before running when using `!!`
 setopt CORRECT
 setopt CORRECT_ALL
 
-export PATH="$PATH:~/.local/bin"  # path for zoxide?
+export PATH="$PATH:/home/jaredjohnston/.local/bin"  # path for zoxide?
 export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executables there, so I will keep it in the path.
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
-export PATH="~/.bin:$PATH"  # this is where I keep some scripts
+export PATH="/home/jaredjohnston/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 
 eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
+eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

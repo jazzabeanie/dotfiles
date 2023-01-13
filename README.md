@@ -28,6 +28,8 @@ OS X:
 - Install cheat https://github.com/cheat/cheat
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
+- Install [bat](https://github.com/sharkdp/bat)?
+- Install 1password
 
 Linux:
 
@@ -58,6 +60,7 @@ Linux:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
+- Install [bat](https://github.com/sharkdp/bat)
 
 Random Linux box:
 
