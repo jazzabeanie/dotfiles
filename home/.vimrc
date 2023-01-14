@@ -23,7 +23,7 @@ colors solarized
 " colors zenburn
 " colors badwolf
 " colors vividchalk
-set background=light
+set background=dark
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2

@@ -33,4 +33,5 @@ brew install --cask transmission
 brew install --cask vlc
 brew install --cask rectangle
 brew install --cask dropbox
+brew install --cask remarkable
 # brew install --cask itsycal
