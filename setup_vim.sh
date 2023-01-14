@@ -7,6 +7,7 @@ mkdir ~/.vim/after/syntax
 ln -f -s ~/.dotfiles/home/python.vim ~/.vim/after/syntax
 curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim -o ~/.vim/autoload/pathogen.vim
 curl https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim -o ~/.vim/colors/zenburn.vim
+curl -fLo ~/.vim/colors/solarized.vim --create-dirs https://raw.githubusercontent.com/ericbn/vim-solarized/master/colors/solarized.vim
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/rkulla/pydiction.git ~/.vim/bundle/pydiciton
 git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
@@ -25,3 +26,4 @@ git clone git@github.com:dense-analysis/ale.git ~/.vim/bundle/ale
   # do I also need https://github.com/hhatto/autopep8 then?
 # vim-prettier (for auto formatting javascript, css, html, etc)
 # NERDTree, or alternativly https://github.com/tmux-plugins/tmux-sidebar
+git clone git@github.com:jazzabeanie/werewolf.vim.git ~/.vim/bundle/warewolf.vim

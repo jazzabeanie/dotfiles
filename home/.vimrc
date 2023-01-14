@@ -82,6 +82,13 @@ let g:ale_sign_priority = 11
 let g:gitgutter_sign_priority=5
 let g:syntastic_sign_priority=10
 
+" Warewolf plugin setttings (changes color scheme based on time of day)
+" https://github.com/jonstoler/werewolf.vim
+" default 8, use 24 hour format
+let g:werewolf_day_start = 7
+" default 20, 24 hour format
+let g:werewolf_day_end = 18
+
 " }}}
 
 " Statusline and cursor ------------- {{{
