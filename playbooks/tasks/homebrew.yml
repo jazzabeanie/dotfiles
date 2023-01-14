@@ -48,6 +48,10 @@
     - x264
     - xvid
     - direnv
+    - diff-so-fancy
 
 - name: Install openssh with Homebrew
   homebrew: name=openssh state=latest install_options=with-keychain-support
+
+# brew tap cantino/mcfly
+# brew install cantino/mcfly/mcfly

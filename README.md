@@ -1,10 +1,23 @@
 # dotfiles
 
-## Update:
-
 Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/en/getstarted/
 
 ## Prerequisites
+
+Do I still need to do this?
+```
+touch ~/.gitconfig.local
+# input your personal GitHub details into .gitconfig.local:
+##################################
+#[github]
+#    user = GitHubUserName
+#[user]
+#    name = Your Name
+#    email = youremail@gmail.com
+##################################
+```
+
+## Installing
 
 OS X:
 
@@ -16,10 +29,11 @@ OS X:
   - do this in Accessability
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+- `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
 - run scirpts:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
-  - TODO: turn ansible homebrew tasks into a script to download.
+  - `install_homebrew_packages.sh`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
@@ -70,25 +84,6 @@ Random Linux box:
   - `sudo chmod 755 quick_setup.sh`
   - `~/quick_setup.sh`
   - `source ~/.bashrc`
-
-## Installing
-```
-cd ~
-git clone git@github.com:jazzabeanie/dotfiles.git .dotfiles
-cd ~/.dotfiles
-# you may need to change the Makefile first
-make
-
-touch ~/.gitconfig.local
-# input your personal GitHub details into .gitconfig.local:
-##################################
-#[github]
-#    user = GitHubUserName
-#[user]
-#    name = Your Name
-#    email = youremail@gmail.com
-##################################
-```
 
 # read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
 
