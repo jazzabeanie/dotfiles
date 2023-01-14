@@ -44,6 +44,7 @@ OS X:
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)?
 - Install 1password
+- Install [pastebot](https://tapbots.net/pastebot2/Pastebot.dmg)
 
 Linux:
 
