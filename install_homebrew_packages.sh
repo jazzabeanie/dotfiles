@@ -28,10 +28,11 @@ brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
 
 # brew install --cask google-chrome
-# brew install --cask firefox
+brew install --cask firefox
 brew install --cask transmission
 brew install --cask vlc
 brew install --cask rectangle
 brew install --cask dropbox
 brew install --cask remarkable
+brew install --cask iterm2
 # brew install --cask itsycal

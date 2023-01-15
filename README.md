@@ -34,6 +34,8 @@ OS X:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_homebrew_packages.sh`
+- Install iTerm2
+  - [Set shortcut Command-Ctrl-T to launch new terminal](https://www.computerhope.com/issues/ch002051.htm) (make sure there are no spaces in the name of the automator script
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
