@@ -26,4 +26,4 @@ git clone git@github.com:dense-analysis/ale.git ~/.vim/bundle/ale
   # do I also need https://github.com/hhatto/autopep8 then?
 # vim-prettier (for auto formatting javascript, css, html, etc)
 # NERDTree, or alternativly https://github.com/tmux-plugins/tmux-sidebar
-git clone git@github.com:jazzabeanie/werewolf.vim.git ~/.vim/bundle/warewolf.vim
+git clone git@github.com:jazzabeanie/werewolf.vim.git ~/.vim/bundle/warewolf.vim  # may also need to change branch to get my changes
