@@ -23,7 +23,13 @@ colors solarized
 " colors zenburn
 " colors badwolf
 " colors vividchalk
-set background=dark
+let hour = strftime("%H") 
+" Not sure if this will work with themes other than solarized
+if 6 <= hour && hour < 18
+  set background=light
+else 
+  set background=dark
+endif
 behave xterm
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set laststatus=2

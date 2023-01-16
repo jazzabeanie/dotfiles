@@ -137,7 +137,7 @@ export NVM_DIR="/home/jaredjohnston/.nvm"
 
 eval "$(direnv hook bash)"
 
-eval "$(zoxide init bash)"
+# eval "$(zoxide init bash)"
 eval "$(mcfly init bash)"
 export PATH=$HOME/local/bin:$PATH
 # hist import
