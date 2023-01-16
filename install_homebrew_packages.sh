@@ -23,6 +23,7 @@ brew install x264
 brew install xvid
 brew install direnv
 brew install diff-so-fancy
+brew install cheat
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
