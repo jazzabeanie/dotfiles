@@ -42,6 +42,7 @@ OS X:
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - Install cheat https://github.com/cheat/cheat
+  - install personal cheat - see github?
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)?
