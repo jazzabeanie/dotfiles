@@ -8,6 +8,8 @@ fi
 echo "Some useful custom functions:"
 echo "  untar to unzip a *.tar.gz file"
 echo "  sha256 to create a hash of a file"
+echo "  pwdf to print the path of the front most finder window"
+echo "  cdf to change to directory of front most finder window"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
