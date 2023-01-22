@@ -42,12 +42,17 @@ OS X:
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - Install cheat https://github.com/cheat/cheat
-  - install personal cheat - see github?
+  - install personal cheat - just change the repo for the community cheat sheet. I think on first run cheat will clone the community cheat sheet if you want it to. So you could probably set up the community cheat sheet before runnning to make it easier.
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)?
 - Install 1password
 - Install [pastebot](https://tapbots.net/pastebot2/Pastebot.dmg)
+- Install [Mountain Duck(https://mountainduck.io/)
+  - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
+  - Connect to S3 bucket
+    - Create a new IAM User and generate the keys to use in Mountain Duck.
+      - IAM User should have the `S3-drive-sync` policy attached for it to work. I may even need to attach the `jazzabeanie-personal-storage-AllAccess` policy to get it connect initially and then change to the other policy after that. Not sure.
 
 Linux:
 
@@ -80,6 +85,8 @@ Linux:
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)
+- setup link to S3 bucket.
+  - how? Duck? https://duck.sh/
 
 Random Linux box:
 
