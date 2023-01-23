@@ -97,6 +97,7 @@ plugins=(
   zsh-autosuggestions
   web-search
   dirhistory
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,6 +110,10 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_AU.UTF-8
 
 export EDITOR="vim"
+
+# Enable vi mode
+bindkey -v
+# TODO: map H to home and L to end in normal mode. Need to find how to map in normal mode only and the commands for home and end and if there are any flags I need.
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
