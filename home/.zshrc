@@ -97,7 +97,7 @@ plugins=(
   zsh-autosuggestions
   web-search
   dirhistory
-  vi-mode
+  # try vi-mode or vi-mode-like-keys to get more vim functionality. May need to remove the bindkey stuff below.
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,7 +113,11 @@ export EDITOR="vim"
 
 # Enable vi mode
 bindkey -v
-# TODO: map H to home and L to end in normal mode. Need to find how to map in normal mode only and the commands for home and end and if there are any flags I need.
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M vicmd 'H' beginning-of-line
+bindkey -M vicmd 'L' end-of-line
+bindkey -M viins '^P' up-line-or-history
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
