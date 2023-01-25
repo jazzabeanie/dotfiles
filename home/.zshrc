@@ -167,16 +167,17 @@ eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# I think there is a conflict between /home and /Users between Ubuntu and MacOS. May need to run conda init until I get some consistent code sorted.
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/jaredjohnston/miniconda3/bin:$PATH"
+        export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
