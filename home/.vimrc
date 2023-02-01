@@ -567,4 +567,10 @@ set scrolloff=5 " did this break something? I remember having it enabled once be
 "
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
+
+if len(v:argv) == 2 && v:argv[1] == '-'
+  echo "write the current vim file to shell `:w ! sh`"
+  sleep 3 " to give time to see the command
+endif
+
 " }}}
