@@ -224,6 +224,8 @@ let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   " Setting linux specific settings:"
   set clipboard=unnamed
+  " copies the path of the current file to the clipboard
+  nnoremap <leader>yp :let @+ = expand("%:p:h")<cr>
   vnoremap <leader>y "+y
   vnoremap <leader>p "+p
   vnoremap <leader>P "+P
@@ -494,6 +496,12 @@ augroup filetype_markdown
   " `/[^\x00-\x7F]`
   " let g:vim_markdown_folding_disabled=1
   let g:vim_markdown_folding_style_pythonic = 1
+  set softtabstop=2 " This will deleted two space when I backspace on space characters. Related to settings below.
+  " the 3 settings that follow mean that spaces will always be used for tabs. See
+  " `:help tabstop` for more info
+  set shiftwidth=2
+  set expandtab
+  set tabstop=2
 augroup END
 " }}}
 
@@ -568,7 +576,8 @@ set scrolloff=5 " did this break something? I remember having it enabled once be
 "
 " TODO: set up Neomake: https://www.gregjs.com/vim/2015/linting-code-with-neovim-and-neomake-eslint-edition/
 
-if len(v:argv) == 2 && v:argv[1] == '-'
+" if len(v:argv) == 2 && v:argv[1] == '-'
+if argc() == 2 && argv(1) == '-'
   echo "write the current vim file to shell `:w ! sh`"
   sleep 3 " to give time to see the command
 endif

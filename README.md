@@ -77,6 +77,8 @@ Linux:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
+- setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.
+  - I'm looking at managing neovim config with https://www.lazyvim.org/
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)

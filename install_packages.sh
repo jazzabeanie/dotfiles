@@ -20,7 +20,10 @@ sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)
 # I had to play with permissions to get this to work
   # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
 sudo apt install zsh
-
+sudo apt-get install neovim
+sudo apt-get install python3-neovim
+sudo apt-get install fd-find
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/
 

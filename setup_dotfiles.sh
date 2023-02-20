@@ -13,4 +13,5 @@ ln -f -s ~/.dotfiles/home/ssh_config ~/.ssh/config
 ln -f -s ~/.dotfiles/home/.direnvrc ~/.direnvrc
 ln -f -s ~/.dotfiles/home/.zshrc ~/.zshrc
 ln -f -s ~/.dotfiles/home/.p10k.zsh ~/.p10k.zsh
+ln -f -s ~/.dotfiles/home/init.vim ~/.config/nvim/init.vim
 
