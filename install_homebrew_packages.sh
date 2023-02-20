@@ -24,6 +24,8 @@ brew install xvid
 brew install direnv
 brew install diff-so-fancy
 brew install cheat
+brew install ripgrep
+brew install jesseduffield/lazygit/lazygit
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly

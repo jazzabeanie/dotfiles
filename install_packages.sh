@@ -7,7 +7,8 @@ curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin
 chmod 755 ~/bin/vcprompt
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 sudo apt install tmux
-sudo apt install silversearcher-ag
+# sudo apt install silversearcher-ag  # superseded by ripgrep
+sudo apt-get install ripgrep
 # should I instll this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
   # sudo apt install python3-pip
 sudo apt install vim-gtk3

@@ -19,6 +19,7 @@ alias cdm='cd /home/jaredjohnston/Workspace/reefcloud-metrics'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
 alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
+alias lg='lazygit'
 
 if [ "$(uname -s)" = "Linux" ]; then
   alias open='xdg-open'

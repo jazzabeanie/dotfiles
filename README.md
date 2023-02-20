@@ -89,6 +89,7 @@ Linux:
 - Install [bat](https://github.com/sharkdp/bat)
 - setup link to S3 bucket.
   - how? Duck? https://duck.sh/
+- install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 
 Random Linux box:
 
