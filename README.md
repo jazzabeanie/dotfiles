@@ -104,6 +104,8 @@ Random Linux box:
 ## Other tasks (not scripted)
 - ffmpeg / ffplay / youtube-dl
 - Update ssh key on SimpleSSHD
+- install alacritty
+  - install colour themes https://github.com/alacritty/alacritty-theme (including solarized)
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - https://www.mowglii.com/itsycal/
 - 1Password
