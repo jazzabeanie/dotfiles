@@ -8,5 +8,4 @@ vim.o.packpath = vim.o.runtimepath
 -- Source ~/.vimrc
 vim.cmd('source ~/.vimrc')
 
-vim.keymap.set('n', '<space>w', '<cmd>write<cr>', {desc = 'Save'})
-
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save'})
