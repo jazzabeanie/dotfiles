@@ -159,6 +159,8 @@ export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, b
 export PATH="/home/jaredjohnston/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 
+export RIPGREP_CONFIG_PATH="/home/jaredjohnston/.config/ripgreprc"
+
 eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"

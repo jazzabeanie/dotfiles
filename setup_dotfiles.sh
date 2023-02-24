@@ -15,4 +15,6 @@ ln -f -s ~/.dotfiles/home/.zshrc ~/.zshrc
 ln -f -s ~/.dotfiles/home/.p10k.zsh ~/.p10k.zsh
 # Use LazyVim to manage config instead
 # ln -f -s ~/.dotfiles/home/init.vim ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/home/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/home/ripgreprc ~/.config/ripgreprc
 

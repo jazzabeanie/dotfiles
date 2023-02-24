@@ -79,11 +79,13 @@ Linux:
   - `install_packages.sh`
 - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
   - Setup [LazyVim](https://www.lazyvim.org/)
+    - install tree-sitter `sudo npm install -g tree-sitter-cli`
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
+- Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)
