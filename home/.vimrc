@@ -23,11 +23,11 @@ colors solarized
 " colors zenburn
 " colors badwolf
 " colors vividchalk
-let hour = strftime("%H") 
+let hour = strftime("%H")
 " Not sure if this will work with themes other than solarized
 if 6 <= hour && hour < 18
   set background=light
-else 
+else
   set background=dark
 endif
 behave xterm
