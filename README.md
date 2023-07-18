@@ -77,9 +77,15 @@ Linux:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
-- ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
-  - Setup [LazyVim](https://www.lazyvim.org/)
-    - install tree-sitter `sudo npm install -g tree-sitter-cli`
+- setup neovim:
+  - Figure out how to do this from scratch.
+  - Use my own config files: https://github.com/jazzabeanie/lazyvim-config
+  - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
+    - ~~Setup [LazyVim](https://www.lazyvim.org/)~~
+      - ~~install tree-sitter `sudo npm install -g tree-sitter-cli`~~
+      - ~~Not sure if I want to use LazyVim~~
+  - ~~Another option is https://github.com/jdhao/nvim-config~~
+    - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
