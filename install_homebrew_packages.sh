@@ -39,3 +39,4 @@ brew install --cask dropbox
 brew install --cask remarkable
 brew install --cask iterm2
 # brew install --cask itsycal
+brew install --cask miniconda
