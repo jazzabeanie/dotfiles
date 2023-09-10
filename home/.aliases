@@ -267,12 +267,24 @@ function lf() {
 # works with function above and only after the command at the end of the cd function
 
 function cd-or-vim() {
-	if [ -d "$1" ]; then
-		echo $ is a directory
-		cd $1
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+		echo "Usage: cd-or-vim <directory or file>"
+		return 1
+	fi
+
+	# FIXME: make this work if the directory has a space at the end of it.
+
+	# Combine all arguments into a single string
+	target="$*"
+
+	# Check if the target exists and is a directory
+	if [ -d "$target" ]; then
+		echo "$target is a directory"
+		cd "$target"
 	else
-		echo $1 is a file
-		e $1
+		echo "$target is a file"
+		vim "$target"
 	fi
 }
 
