@@ -220,19 +220,24 @@ source <(ng completion script)
 # which was already set. Otherwise, it should be equal to: /usr/local/Caskroom/miniconda/base
 # If this stops working, I may need to run conda init until I get some consistent code sorted.
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$CONDA_PREFIX/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "$CONDA_PREFIX/etc/profile.d/conda.sh" ]; then
-    . "$CONDA_PREFIX/etc/profile.d/conda.sh"
-  else
-    export PATH="$CONDA_PREFIX/bin:$PATH"
-  fi
+if [[ "$(uname)" == "Darwin" ]]; then
+    # macOS specific setup
+    echo TODO
+elif [[ "$(uname)" == "Linux" ]]; then
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
 fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
