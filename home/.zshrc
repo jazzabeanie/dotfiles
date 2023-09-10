@@ -211,23 +211,25 @@ eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# I think there is a conflict between /home and /Users between Ubuntu and MacOS. May need to run conda init until I get some consistent code sorted.
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+
+# <<< conda initialize <<<
+# I think there is a conflict between /home and /Users between Ubuntu and MacOS. I have used the CONDA_PREFIX 
+# which was already set. Otherwise, it should be equal to: /usr/local/Caskroom/miniconda/base
+# If this stops working, I may need to run conda init until I get some consistent code sorted.
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$CONDA_PREFIX/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
-    fi
+  if [ -f "$CONDA_PREFIX/etc/profile.d/conda.sh" ]; then
+    . "$CONDA_PREFIX/etc/profile.d/conda.sh"
+  else
+    export PATH="$CONDA_PREFIX/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
