@@ -221,8 +221,20 @@ source <(ng completion script)
 # If this stops working, I may need to run conda init until I get some consistent code sorted.
 # >>> conda initialize >>>
 if [[ "$(uname)" == "Darwin" ]]; then
-    # macOS specific setup
-    echo TODO
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+            . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+        else
+            export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
 elif [[ "$(uname)" == "Linux" ]]; then
     # !! Contents within this block are managed by 'conda init' !!
     __conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
