@@ -30,10 +30,6 @@ OS X:
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - `setup_vim.sh`
-  - `install_homebrew_packages.sh`
 - Install iTerm2
   - [Set shortcut Command-Ctrl-T to launch new terminal](https://www.computerhope.com/issues/ch002051.htm) (make sure there are no spaces in the name of the automator script
 - install [oh-my-zsh](https://ohmyz.sh/#install)
@@ -41,18 +37,26 @@ OS X:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-- Install cheat https://github.com/cheat/cheat
-  - install personal cheat - just change the repo for the community cheat sheet. I think on first run cheat will clone the community cheat sheet if you want it to. So you could probably set up the community cheat sheet before runnning to make it easier.
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - ~~`setup_vim.sh`~~
+    - setup neovim instead `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
+  - `install_homebrew_packages.sh`
+- sync my cheat fork
+  - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
+  - `cd ~/.config/cheat/cheatsheets/community/; g u`
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)?
 - Install 1password
 - Install [pastebot](https://tapbots.net/pastebot2/Pastebot.dmg)
 - Install [Mountain Duck(https://mountainduck.io/)
-  - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
+  - license is in email (and probably Joplin)
+  - Create a new third party Access Key  on AWS
   - Connect to S3 bucket
-    - Create a new IAM User and generate the keys to use in Mountain Duck.
-      - IAM User should have the `S3-drive-sync` policy attached for it to work. I may even need to attach the `jazzabeanie-personal-storage-AllAccess` policy to get it connect initially and then change to the other policy after that. Not sure.
+    - get access keys from AWS IAM
+    - Path: jazzabeanie-personal-storage
+  - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
 
 Linux:
 
@@ -78,7 +82,7 @@ Linux:
   - `setup_vim.sh`
   - `install_packages.sh`
 - setup neovim:
-  - Figure out how to do this from scratch.
+  - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
   - Use my own config files: https://github.com/jazzabeanie/lazyvim-config
   - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
     - ~~Setup [LazyVim](https://www.lazyvim.org/)~~

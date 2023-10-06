@@ -203,6 +203,8 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this
 export RIPGREP_CONFIG_PATH="/home/jaredjohnston/.config/ripgreprc"
 source ~/.config/.open_ai  # This script export the environment variable OPENAI_API_KEY for ChatGPT.nvim
 
+export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
+
 eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"

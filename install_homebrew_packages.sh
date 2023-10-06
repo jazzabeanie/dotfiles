@@ -23,9 +23,11 @@ brew install x264
 brew install xvid
 brew install direnv
 brew install diff-so-fancy
+git clone git@github.com:jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community
 brew install cheat
 brew install ripgrep
 brew install jesseduffield/lazygit/lazygit
+brew install neovim
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
