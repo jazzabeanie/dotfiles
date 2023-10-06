@@ -57,6 +57,8 @@ OS X:
     - get access keys from AWS IAM
     - Path: jazzabeanie-personal-storage
   - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
+- Install Joplin
+- Install some window manager? Or maybe I can use build in Mac commands
 
 Linux:
 
