@@ -56,6 +56,11 @@ OS X:
   - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
 - setup Joplin (should have been installed by homebrew)
   - TODO: write the details of the settings
+- consider installing [BCLM](https://github.com/zackelia/bclm) to limit max battery charge. Once installed:
+  - `sudo bclm write 77`
+  - `bclm read`
+  - make it persist with `sudo bclm persist`. Unpersist with `sudo bclm unpersist`
+
 
 Linux:
 
