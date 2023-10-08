@@ -12,7 +12,6 @@ brew install wget
 brew install fdk-aac
 brew install sdl  # required so that ffmpeg also installs ffplay
 brew install ffmpeg
-brew install youtube-dl
 brew install jpeg
 brew install lame
 brew install openjpeg
@@ -28,6 +27,7 @@ brew install ripgrep
 brew install jesseduffield/lazygit/lazygit
 brew install neovim
 brew install maccy
+brew install yt-dlp
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
@@ -44,3 +44,4 @@ brew install --cask iterm2
 # brew install --cask itsycal
 brew install --cask miniconda
 brew install --cask mountain-duck
+brew install --cask joplin

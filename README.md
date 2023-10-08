@@ -46,8 +46,6 @@ OS X:
   - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
   - `cd ~/.config/cheat/cheatsheets/community/; g u`
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
-- Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
-- Install [bat](https://github.com/sharkdp/bat)?
 - Install 1password
 - setup mountain duck (should have been installed by homebrew)
   - license is in email (and probably Joplin)
@@ -56,8 +54,8 @@ OS X:
     - get access keys from AWS IAM
     - Path: jazzabeanie-personal-storage
   - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
-- Install Joplin
-- Install some window manager? Or maybe I can use build in Mac commands
+- setup Joplin (should have been installed by homebrew)
+  - TODO: write the details of the settings
 
 Linux:
 
@@ -98,10 +96,8 @@ Linux:
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-- Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
-- Install [bat](https://github.com/sharkdp/bat)
 - setup link to S3 bucket.
-  - how? Duck? https://duck.sh/
+  - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 
 Random Linux box:
@@ -116,12 +112,10 @@ Random Linux box:
 
 ## Other tasks (not scripted)
 - ffmpeg / ffplay / youtube-dl
-- Update ssh key on SimpleSSHD
+- Update ssh key on [SimpleSSHD](http://www.galexander.org/software/simplesshd/) - only if using android phone
 - install alacritty
   - install colour themes https://github.com/alacritty/alacritty-theme (including solarized)
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
-- https://www.mowglii.com/itsycal/
-- 1Password
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux
 - [lsd](https://github.com/Peltoche/lsd) - you can use snap to install if on Linux
-- beets - https://beets.io/
+- beets - https://beets.io/ (is this required? zsh does a pretty good job)
