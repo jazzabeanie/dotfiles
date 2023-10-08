@@ -4,7 +4,6 @@ brew install coreutils
 brew install curl
 brew install git-extras
 brew install gnu-sed
-brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install rar
@@ -28,6 +27,7 @@ brew install cheat
 brew install ripgrep
 brew install jesseduffield/lazygit/lazygit
 brew install neovim
+brew install maccy
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
@@ -36,9 +36,11 @@ brew install cantino/mcfly/mcfly
 brew install --cask firefox
 brew install --cask transmission
 brew install --cask vlc
-brew install --cask rectangle
+# brew install --cask rectangle # trying phoenix instead
+brew install --cask phoenix # window manager
 brew install --cask dropbox
 brew install --cask remarkable
 brew install --cask iterm2
 # brew install --cask itsycal
 brew install --cask miniconda
+brew install --cask mountain-duck

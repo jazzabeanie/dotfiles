@@ -49,8 +49,7 @@ OS X:
 - Install teamocil? https://github.com/remiprev/teamocil/blob/master/README.md
 - Install [bat](https://github.com/sharkdp/bat)?
 - Install 1password
-- Install [pastebot](https://tapbots.net/pastebot2/Pastebot.dmg)
-- Install [Mountain Duck(https://mountainduck.io/)
+- setup mountain duck (should have been installed by homebrew)
   - license is in email (and probably Joplin)
   - Create a new third party Access Key  on AWS
   - Connect to S3 bucket
