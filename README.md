@@ -113,6 +113,18 @@ Random Linux box:
   - `~/quick_setup.sh`
   - `source ~/.bashrc`
 
+Windows:
+
+- Set charge limit on battery to 80%
+  - Dell Power Manager (should be already installed)
+- Change CAPS to Ctrl
+- Setup git SSH keys
+  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+- clone dotfiles?
+- set up WSL?
+- neovim?
+- tmux?
+
 # read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
 
 ## Other tasks (not scripted)
