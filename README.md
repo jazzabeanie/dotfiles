@@ -120,8 +120,28 @@ Windows:
 - Change CAPS to Ctrl
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-- clone dotfiles?
-- set up WSL?
+- install wsl: `wsl --install`
+- [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
+  - in cmd: `ipconfig/all`
+  - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
+  - add the following to `/etc/wsl.conf`:
+
+```
+[network]
+generateResolvConf = true
+```
+
+- install winget packages
+
+```
+winget install --id Git.Git -e --source winget --interactive
+winget install --id Joplin.Joplin -e --source winget --interactive
+```
+
+- clone dotfiles
+- run `./setup_dotfiles.sh`
+- run `./install_packages.sh`
+- install [oh-my-zsh](https://ohmyz.sh/)
 - neovim?
 - tmux?
 

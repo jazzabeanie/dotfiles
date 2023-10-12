@@ -194,13 +194,13 @@ setopt HIST_VERIFY  # allows you to edit before running when using `!!`
 setopt CORRECT
 setopt CORRECT_ALL
 
-export PATH="$PATH:/home/jaredjohnston/.local/bin"  # path for zoxide?
+export PATH="$PATH:/home/$USER/.local/bin"  # path for zoxide?
 export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executables there, so I will keep it in the path.
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
-export PATH="/home/jaredjohnston/.bin:$PATH"  # this is where I keep some scripts
+export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 
-export RIPGREP_CONFIG_PATH="/home/jaredjohnston/.config/ripgreprc"
+export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 source ~/.config/.open_ai  # This script export the environment variable OPENAI_API_KEY for ChatGPT.nvim
 
 export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
@@ -239,14 +239,14 @@ if [[ "$(uname)" == "Darwin" ]]; then
     # <<< conda initialize <<<
 elif [[ "$(uname)" == "Linux" ]]; then
     # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    __conda_setup="$('/home/$USER/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
-        if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
-            . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
+        if [ -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/$USER/miniconda3/etc/profile.d/conda.sh"
         else
-            export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
+            export PATH="/home/$USER/miniconda3/bin:$PATH"
         fi
     fi
     unset __conda_setup
