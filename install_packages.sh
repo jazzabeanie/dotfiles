@@ -1,4 +1,3 @@
-# sudo apt install vim-gtk3 # TODO: move this into the snaps install script
 # sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.pref.backup
 # sudo apt update
 # now restart then run `sudo apt install snapd`
@@ -6,12 +5,14 @@
 # curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
 # chmod 755 ~/bin/vcprompt
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
+sudo apt install neovim
 sudo apt install tmux
 # sudo apt install silversearcher-ag  # superseded by ripgrep
 sudo apt-get install ripgrep
+sudo apt install direnv
+sudo apt install zoxide
 # should I instll this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
   # sudo apt install python3-pip
-# sudo apt install vim-gtk3 # not sure why I had installed this
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
 sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)

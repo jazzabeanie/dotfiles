@@ -117,14 +117,14 @@ Windows:
 
 - Set charge limit on battery to 80%
   - Dell Power Manager (should be already installed)
-- Change CAPS to Ctrl
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 - install wsl: `wsl --install`
-- [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
-  - in cmd: `ipconfig/all`
-  - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
-  - add the following to `/etc/wsl.conf`:
+  - [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
+    - in cmd: `ipconfig/all`
+    - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
+    - add the following to `/etc/wsl.conf`:
+      - TODO: confirm that this actually works. on 18/10/2023 I chnaged nameserver to 10.10.32.50. Need to check if it is still that.
 
 ```
 [network]
@@ -136,14 +136,27 @@ generateResolvConf = true
 ```
 winget install --id Git.Git -e --source winget --interactive
 winget install --id Joplin.Joplin -e --source winget --interactive
+winget install --id Neovim.Neovim -e --source winget
+winget install Microsoft.PowerToys -s winget
 ```
 
 - clone dotfiles
-- run `./setup_dotfiles.sh`
-- run `./install_packages.sh`
-- install [oh-my-zsh](https://ohmyz.sh/)
-- neovim?
-- tmux?
+- Change CAPS to Ctrl (using PowerToys)
+- in WSL:
+  - run `./setup_dotfiles.sh`
+  - run `./install_packages.sh`
+  - install [oh-my-zsh](https://ohmyz.sh/)
+    - also install Powerlevel10k, and zsh-autosuggestions (instructions above)
+  - install [nvm](https://github.com/nvm-sh/nvm)
+    - then install node `nvim install node`
+  - install [neovim following AppImage instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+    - May also need to install [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
+    - `ln -s nvim.appimage ./nvim`
+    - install nvim config (see details above)
+- install KeePass?
+- install [lazygit](https://github.com/jesseduffield/lazygit#installation)
+- install [McFly](https://github.com/cantino/mcfly)
+- change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 
 # read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
 
