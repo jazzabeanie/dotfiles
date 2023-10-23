@@ -157,8 +157,7 @@ winget install Microsoft.PowerToys -s winget
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
 - install [McFly](https://github.com/cantino/mcfly)
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
-
-# read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
+- install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
 
 ## Other tasks (not scripted)
 - ffmpeg / ffplay / youtube-dl

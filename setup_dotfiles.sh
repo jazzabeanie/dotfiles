@@ -20,5 +20,7 @@ mkdir ~/.config/alacritty
 ln -f -s ~/.dotfiles/home/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -f -s ~/.dotfiles/home/ripgreprc ~/.config/ripgreprc
 ln -f -s ~/.dotfiles/home/.phoenix.js ~/.phoenix.js
+mkdir ~/.config/vifm
+ln -f -s ~/.dotfiles/home/vifmrc ~/.config/vifm/vifmrc
 
 mkdir ~/Temp

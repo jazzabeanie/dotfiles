@@ -16,6 +16,7 @@ sudo apt install zoxide
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
 sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)
+sudo apt install libncursesw5-dev # required for vifm: https://github.com/vifm/vifm/blob/master/INSTALL
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
 # lsd? - https://github.com/Peltoche/lsd
