@@ -119,6 +119,13 @@ Windows:
   - Dell Power Manager (should be already installed)
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+  - need to manually add the key to the ssh agent every reboot for some reason. FIXME.
+
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
 - install wsl: `wsl --install`
   - [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
     - in cmd: `ipconfig/all`
