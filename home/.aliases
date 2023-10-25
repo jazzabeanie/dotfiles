@@ -88,7 +88,8 @@ function mark {
 ## when I want to remember a directory, I can just type, e.g. `mark there` then to change back to it I type `cd $there`
 
 function trash {
-	mv -fv $1 ~/.Trash
+  gio trash $1 # moves it to .local/share/Trash/files
+  # https://superuser.com/questions/1706520/deleting-files-and-emptying-trash-in-wsl
 }
 
 function playmusic() {

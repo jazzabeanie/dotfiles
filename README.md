@@ -122,9 +122,10 @@ Windows:
 - install wsl: `wsl --install`
   - [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
     - in cmd: `ipconfig/all`
+      - usually 10.10.32.50 in the office
     - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
     - add the following to `/etc/wsl.conf`:
-      - TODO: confirm that this actually works. on 18/10/2023 I chnaged nameserver to 10.10.32.50. Need to check if it is still that.
+      - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Could set it to false, and then have some other script write the config file?
 
 ```
 [network]
@@ -153,11 +154,29 @@ winget install Microsoft.PowerToys -s winget
     - May also need to install [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
     - `ln -s nvim.appimage ./nvim`
     - install nvim config (see details above)
-- install KeePass?
+    - run `:CheckHealth` to make sure nvim is working
+  - install [nnn](https://github.com/jarun/nnn):
+    - download the [latest release](https://github.com/jarun/nnn/releases/latest)
+    - follow these install instructions: https://www.youtube.com/embed/-knZwdd1ScU
+      - untar, cd into dir, run `sudo make O_NERD=1`
+      - run `mv .nnn /usr/local/bin`
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
+- install KeePass?
 - install [McFly](https://github.com/cantino/mcfly)
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 - install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
+- make xdg-open use powershell:
+
+```
+sudo tee /usr/local/bin/xdg-open <<EOF
+#!/bin/sh
+
+powershell.exe -c start "'\$@'"
+EOF
+sudo chmod +x /usr/local/bin/xdg-open
+```
+
+# read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
 
 ## Other tasks (not scripted)
 - ffmpeg / ffplay / youtube-dl
