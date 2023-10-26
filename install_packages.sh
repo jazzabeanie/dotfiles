@@ -37,4 +37,7 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 # Conda: https://docs.conda.io/en/latest/miniconda.html
 
-
+# diff-so-fancy
+sudo add-apt-repository ppa:aos1/diff-so-fancy
+sudo apt update
+sudo apt install diff-so-fancy
