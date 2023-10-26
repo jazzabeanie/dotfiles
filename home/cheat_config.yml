@@ -1,4 +1,6 @@
 ---
+# this config file location is held in an environment variable set by .zshrc
+
 # The editor to use with 'cheat -e <sheet>'. Defaults to $EDITOR or $VISUAL.
 editor: nvim
 

@@ -44,7 +44,8 @@ OS X:
   - `install_homebrew_packages.sh`
 - sync my cheat fork
   - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
-  - `cd ~/.config/cheat/cheatsheets/community/; g u`
+  - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
+  - the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install 1password
 - setup mountain duck (should have been installed by homebrew)
@@ -146,6 +147,7 @@ winget install --id Git.Git -e --source winget --interactive
 winget install --id Joplin.Joplin -e --source winget --interactive
 winget install --id Neovim.Neovim -e --source winget
 winget install Microsoft.PowerToys -s winget
+# QGIS?
 ```
 
 - clone dotfiles
@@ -167,6 +169,8 @@ winget install Microsoft.PowerToys -s winget
     - follow these install instructions: https://www.youtube.com/embed/-knZwdd1ScU
       - untar, cd into dir, run `sudo make O_NERD=1`
       - run `mv .nnn /usr/local/bin`
+  - [Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md)
+  - clone cheat sheet
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
 - install KeePass?
 - install [McFly](https://github.com/cantino/mcfly)
