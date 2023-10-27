@@ -22,5 +22,7 @@ ln -f -s ~/.dotfiles/home/ripgreprc ~/.config/ripgreprc
 ln -f -s ~/.dotfiles/home/.phoenix.js ~/.phoenix.js
 mkdir ~/.config/vifm
 ln -f -s ~/.dotfiles/home/vifmrc ~/.config/vifm/vifmrc
+mkdir ~/.config/ranger
+ln -f -s ~/.dotfiles/home/rc.conf ~/.config/ranger/rc.conf
 
 mkdir ~/Temp

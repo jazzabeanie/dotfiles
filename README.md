@@ -188,6 +188,7 @@ sudo chmod +x /usr/local/bin/xdg-open
 ```
 
 # read this page for information on setting up ansible playbooks: https://www.digitalocean.com/community/tutorials/how-to-create-ansible-playbooks-to-automate-system-configuration-on-ubuntu
+- install [ranger](https://github.com/ranger/ranger)?
 
 ## Other tasks (not scripted)
 - ffmpeg / ffplay / youtube-dl
