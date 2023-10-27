@@ -24,5 +24,7 @@ mkdir ~/.config/vifm
 ln -f -s ~/.dotfiles/home/vifmrc ~/.config/vifm/vifmrc
 mkdir ~/.config/ranger
 ln -f -s ~/.dotfiles/home/rc.conf ~/.config/ranger/rc.conf
+mkdir ~/.config/cheat
+ln -f -s ~/.dotfiles/home/cheat_config.yml ~/.config/cheat/conf.yml
 
 mkdir ~/Temp
