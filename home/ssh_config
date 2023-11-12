@@ -1,10 +1,23 @@
+# Host *
+#  AddKeysToAgent yes
+#  IgnoreUnknown UseKeychain
+#  UseKeychain yes
+#  IdentityFile ~/.ssh/id_ed25519
+# 
+#   Host i-* mi-*
+#   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+#   User ssm-user
+# 
+# Host github-aims
+#   Hostname github.com
+#   AddKeysToAgent yes
+#   UseKeychain yes
+#   IdentityFile ~/.ssh/id_ed25519_aims
+
+# Not sure why, but the settings above don't always work. I will just have to manually change the IdentityFile when I need to use personal
+
 Host *
  AddKeysToAgent yes
  IgnoreUnknown UseKeychain
  UseKeychain yes
- IdentityFile ~/.ssh/id_ed25519
-
-  Host i-* mi-*
-  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
-  User ssm-user
-
+ IdentityFile ~/.ssh/id_ed25519_aims

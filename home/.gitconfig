@@ -33,7 +33,7 @@
 [include]
     path = ~/.gitconfig.local
 [user]
-    email = jazzab@gmail.com
+    email = j.johnston@aims.gov.au
     name = Jared Johnston
 [merge]
     # basically it shows three windows when you run `git mergetool`: LOCAL,
