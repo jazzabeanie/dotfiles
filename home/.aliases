@@ -309,6 +309,14 @@ vicd()
     cd "$dst"
 }
 
+tn() {
+	if (($# == 0)); then
+		echo "tn takes 1 argument: the name of the new tmux session to create"
+		return
+	fi
+  tmux new -s "$@"
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
