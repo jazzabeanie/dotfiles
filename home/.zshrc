@@ -201,7 +201,6 @@ export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
-source ~/.config/.open_ai  # This script export the environment variable OPENAI_API_KEY for ChatGPT.nvim
 
 export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
 

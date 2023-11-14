@@ -130,7 +130,7 @@ ssh-add ~/.ssh/id_ed25519
 - install wsl: `wsl --install`
   - [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
     - in cmd: `ipconfig/all`
-      - usually 10.10.32.50 in the office
+      - usually `10.10.32.50` in the office
     - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
     - add the following to `/etc/wsl.conf`:
       - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Could set it to false, and then have some other script write the config file?
