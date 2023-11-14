@@ -317,6 +317,18 @@ tn() {
   tmux new -s "$@"
 }
 
+transcribe() {
+  echo "This creates a bunch of files in the current directory. Better to change to /tmp first"  # FIXME
+  # You can call this function with a specific model like `transcribe tiny` to use the 
+  # tiny model, or simply transcribe to use the default base model.
+  model=${1:-base}  # Default to 'base' if no argument is provided
+  
+  # for MacOS, use `ffmpeg -f avfoundation -i ":<audio_device_index>" -acodec mp3 /tmp/audio_to_transcribe.mp3`
+  # you will need to find the audio device index somehow
+  ffmpeg -f alsa -i default -acodec mp3 /tmp/audio_to_transcribe.mp3
+  whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
