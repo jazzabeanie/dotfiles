@@ -298,7 +298,7 @@ function check-json() {
 	cat $1 | python3 -c "import sys,json;json.loads(sys.stdin.read());print('OK')"
 }
 
-vicd()
+function vicd()
 {
     # https://beepscore.com/website/2020/05/09/how-to-change-directory-quickly-with-vifm.html 
     local dst="$(command vifm --choose-dir - . ~)"
@@ -309,15 +309,16 @@ vicd()
     cd "$dst"
 }
 
-tn() {
+function tn() {
 	if (($# == 0)); then
-		echo "tn takes 1 argument: the name of the new tmux session to create"
+    local dir_name=$(basename "$PWD")
+		tmux new -s "$dir_name"
 		return
 	fi
   tmux new -s "$@"
 }
 
-transcribe() {
+function transcribe() {
   echo "This creates a bunch of files in the current directory. Better to change to /tmp first"  # FIXME
   # You can call this function with a specific model like `transcribe tiny` to use the 
   # tiny model, or simply transcribe to use the default base model.
