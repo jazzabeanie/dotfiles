@@ -120,8 +120,7 @@ Windows:
   - Dell Power Manager (should be already installed)
 - Setup git SSH keys
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-  - need to manually add the key to the ssh agent every reboot for some reason. FIXME.
-
+  - need to manually add the key to the ssh agent every reboot for some reason.
 ```
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
@@ -133,13 +132,8 @@ ssh-add ~/.ssh/id_ed25519
       - usually `10.10.32.50` in the office
     - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
     - add the following to `/etc/wsl.conf`:
-      - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Could set it to false, and then have some other script write the config file?
-
+      - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`
 ```
-[network]
-generateResolvConf = true
-```
-
 - install winget packages
 
 ```
