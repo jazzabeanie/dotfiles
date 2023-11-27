@@ -45,3 +45,4 @@ brew install --cask iterm2
 brew install --cask miniconda
 brew install --cask mountain-duck
 brew install --cask joplin
+brew install --cask remarkable
