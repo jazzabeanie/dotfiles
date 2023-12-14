@@ -318,6 +318,13 @@ function tn() {
   tmux new -s "$@"
 }
 
+function ta() {
+	if (($# == 0)); then
+		tmux a
+	fi
+  tmux a "$@"
+}
+
 function transcribe() {
   echo "This creates a bunch of files in the current directory. Better to change to /tmp first"  # FIXME
   # You can call this function with a specific model like `transcribe tiny` to use the 
