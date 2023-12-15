@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Loop through each subdirectory in the current directory
+for dir in */ ; do
+    # Check if the directory is a Git repository
+    if [ -d "$dir/.git" ]; then
+        # Move into the directory
+        cd "$dir"
+        # Check for uncommitted changes
+        if ! git diff --quiet || ! git diff --staged --quiet; then
+            # Print the directory name if there are uncommitted changes
+            echo "Uncommitted changes in: $dir"
+        fi
+        # Move back to the parent directory
+        cd ..
+    fi
+done
