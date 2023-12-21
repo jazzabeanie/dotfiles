@@ -145,6 +145,7 @@ Linux:
   size=2
   ```
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
+- install [docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and either, leave it requiring `sudo` for every command, or create a new user, add it to the docker group, then change to that user when you want to do docker stuff.
 
 Random Linux box:
 
