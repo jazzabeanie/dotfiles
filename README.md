@@ -105,6 +105,7 @@ Linux:
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
+- install [gron](https://github.com/TomNomNom/gron)
 
 Random Linux box:
 

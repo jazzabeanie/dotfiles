@@ -28,6 +28,7 @@ brew install jesseduffield/lazygit/lazygit
 brew install neovim
 brew install maccy
 brew install yt-dlp
+brew install gron
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
