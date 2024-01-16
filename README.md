@@ -161,14 +161,19 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-- install wsl: `wsl --install`
-  - [Fix the DNS](https://stackoverflow.com/questions/62314789/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)
-    - in cmd: `ipconfig/all`
-      - usually `10.10.32.50` in the office
-    - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
-    - add the following to `/etc/wsl.conf`:
-      - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`
+- This should fix any DNS issues: Create a file called `.wslconfig` under `C:\Users\%USERPROFILE%` with this contents:
 ```
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+```
+- install wsl: `wsl --install`
+  - ~~[Fix the DNS](https://stackoverflow.com/questions/62314790/no-internet-connection-on-wsl-ubuntu-windows-subsystem-for-linux)~~  This should be solved by the `.wslconfig` file created above.
+    - ~~in cmd: `ipconfig/all`~~
+      - ~~usually `10.10.32.50` in the office~~
+    - ~~update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)~~
+    - ~~add the following to `/etc/wsl.conf`:~~
+      - ~~`true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`~~
 - install winget packages
 
 ```
