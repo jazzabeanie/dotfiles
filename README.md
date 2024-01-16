@@ -106,6 +106,7 @@ Linux:
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 - install [gron](https://github.com/TomNomNom/gron)
+- install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 
 Random Linux box:
 
@@ -166,6 +167,7 @@ winget install Microsoft.PowerToys -s winget
       - run `mv .nnn /usr/local/bin`
   - [Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md)
   - clone cheat sheet
+- install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
 - install KeePass?
 - install [McFly](https://github.com/cantino/mcfly)

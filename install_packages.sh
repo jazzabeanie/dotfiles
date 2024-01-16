@@ -11,8 +11,9 @@ sudo apt install tmux
 sudo apt-get install ripgrep
 sudo apt install direnv
 sudo apt install zoxide
-# should I instll this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
+# should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
   # sudo apt install python3-pip
+  # Instead use the get-pip.py script on the docs: https://pip.pypa.io/en/stable/installation/
 sudo apt install xclip # This is to make tmux copy to system clipboard
 sudo apt install jq # lightweight and flexible command-line JSON processor
 sudo apt install xsel # helps vim access clipboard (referred to in .vimrc)
