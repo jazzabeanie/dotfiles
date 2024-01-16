@@ -146,6 +146,7 @@ Linux:
   2\Remove=true
   size=2
   ```
+- install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 
 Random Linux box:
 
