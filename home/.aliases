@@ -311,11 +311,24 @@ function vicd()
 
 function tn() {
 	if (($# == 0)); then
-    local dir_name=$(basename "$PWD")
-		tmux new -s "$dir_name"
-		return
-	fi
-  tmux new -s "$@"
+    local DIR_NAME=$(basename "$PWD")
+    local SESSIONNAME=$(echo $DIR_NAME | sed -e 's/\./_/g')
+  else
+    local SESSIONNAME="$@"
+  fi
+
+  tmux has-session -t $SESSIONNAME &> /dev/null
+
+  if [ $? != 0 ] 
+  then
+      echo "Creating new session $SESSIONNAME"
+      tmux new -s $SESSIONNAME -n README -d
+      tmux send-keys -t $SESSIONNAME "e README.md" C-m
+      # Read more about scripting a tmux session: https://superuser.com/questions/440015/restore-tmux-session-after-reboot
+  else
+      echo "Attaching to session $SESSIONNAME"
+  fi
+  tmux attach -t $SESSIONNAME
 }
 
 function ta() {
