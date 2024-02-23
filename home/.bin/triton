@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+set timeout -1
+set command "source ~/.jj_bashrc"
+
+spawn ssh -t -i /tmp/triton_ed25519.pem reefatlas@triton
+expect "$ "
+send "$command\r"
+interact
+
