@@ -26,7 +26,6 @@ alias savekey='keepassxc-cli attachment-export /home/jaredjohnston/RDP_share/e-A
 alias dils='docker image ls'
 # alias disk='' # TODO: implement du -sk * | sort -nr | cut -f2 | xargs -d "\n" du -sh  > diskuse.txt
 alias analyse_disk='ncdu'
-alias triton='ssh -t -i /tmp/triton_ed25519.pem reefatlas@triton "source ~/.jj_bashrc; exec \$SHELL"'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
