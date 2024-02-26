@@ -15,16 +15,17 @@ ln -f -s ~/.dotfiles/home/.zshrc ~/.zshrc
 ln -f -s ~/.dotfiles/home/.p10k.zsh ~/.p10k.zsh
 # Use LazyVim to manage config instead
 # ln -f -s ~/.dotfiles/home/init.vim ~/.config/nvim/init.vim
-mkdir ~/.config
-mkdir ~/.config/alacritty
+mkdir -p ~/.config
+mkdir -p ~/.config/alacritty
 ln -f -s ~/.dotfiles/home/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -f -s ~/.dotfiles/home/ripgreprc ~/.config/ripgreprc
 ln -f -s ~/.dotfiles/home/.phoenix.js ~/.phoenix.js
-mkdir ~/.config/vifm
+mkdir -p ~/.config/vifm
 ln -f -s ~/.dotfiles/home/vifmrc ~/.config/vifm/vifmrc
-mkdir ~/.config/ranger
+mkdir -p ~/.config/ranger
 ln -f -s ~/.dotfiles/home/rc.conf ~/.config/ranger/rc.conf
-mkdir ~/.config/cheat
+mkdir -p ~/.config/cheat
 ln -f -s ~/.dotfiles/home/cheat_config.yml ~/.config/cheat/conf.yml
 
-mkdir ~/Temp
+mkdir -p ~/Temp
+mkdir -p ~/Workspace

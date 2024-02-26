@@ -74,7 +74,7 @@ Linux:
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
   - Ubuntu:
     - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
-      - install `sudo apt-get install gnome-tweak-tool`
+      - install `sudo apt-get install gnome-tweaks`
       - open Tweaks -> Keyboard & Mouse -> Additional Layout options
 - reverse scroll direction
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
@@ -82,6 +82,7 @@ Linux:
     - `xinput --list` to get ID of the mouse. 
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
+- run `sudo apt install curl`
 - run scirpts:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
