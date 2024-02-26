@@ -2,6 +2,9 @@
 # sudo apt update
 # now restart then run `sudo apt install snapd`
 
+sudo add-apt-repository ppa:aos1/diff-so-fancy
+sudo add-apt-repository ppa:phoerious/keepassxc
+sudo apt update
 # curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
 # chmod 755 ~/bin/vcprompt
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
@@ -22,6 +25,7 @@ sudo apt install --yes build-essential
 sudo apt install --yes zip
 sudo apt install --yes libreadline-dev # required for `make` to work I think (did before building nnn from source anyway)
 sudo apt install --yes pkg-config # required for `make` to work I think (did before building nnn from source anyway)
+sudo apt install --yes keepassxc
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
@@ -39,6 +43,4 @@ ln -s $(which fdfind) ~/.local/bin/fd
 # Conda: https://docs.conda.io/en/latest/miniconda.html
 
 # diff-so-fancy
-sudo add-apt-repository ppa:aos1/diff-so-fancy
-sudo apt update
 sudo apt install --yes diff-so-fancy
