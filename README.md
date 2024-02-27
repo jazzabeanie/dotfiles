@@ -107,6 +107,9 @@ Linux:
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 - install [gron](https://github.com/TomNomNom/gron)
+  - download [latest verion](https://github.com/tomnomnom/gron/releases)
+  - extract with `tar -xvzf /tmp/gron.tgz`
+  - move to /usr/local/bin: `sudo mv /tmp/gron.tgz /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 
 Random Linux box:
