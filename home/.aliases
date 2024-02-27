@@ -309,6 +309,16 @@ function vicd()
     cd "$dst"
 }
 
+function tn-start() {
+  if [[ -f "README.md" ]]; then
+    e "README.md"
+  elif [[ -f "TODO.md" ]]; then
+    e "TODO.md"
+  else
+    cd .
+  fi
+}
+
 function tn() {
 	if (($# == 0)); then
     local DIR_NAME=$(basename "$PWD")
@@ -323,7 +333,7 @@ function tn() {
   then
       echo "Creating new session $SESSIONNAME"
       tmux new -s $SESSIONNAME -n README -d
-      tmux send-keys -t $SESSIONNAME "e README.md" C-m
+      tmux send-keys -t $SESSIONNAME "tn-start" C-m
       # Read more about scripting a tmux session: https://superuser.com/questions/440015/restore-tmux-session-after-reboot
   else
       echo "Attaching to session $SESSIONNAME"
