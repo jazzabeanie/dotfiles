@@ -29,3 +29,4 @@ ln -f -s ~/.dotfiles/home/cheat_config.yml ~/.config/cheat/conf.yml
 
 mkdir -p ~/Temp
 mkdir -p ~/Workspace
+git clone git@github.com:jjohnston-aims/TODO.git ~/TODO
