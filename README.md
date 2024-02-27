@@ -82,14 +82,16 @@ Linux:
     - `xinput --list` to get ID of the mouse. 
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
+    - Make this run on startup by adding to `~/.profile`?
 - run `sudo apt install curl`
+- install [homebrew](https://brew.sh/)
 - run scirpts:
   - `setup_dotfiles.sh`
   - `setup_vim.sh`
   - `install_packages.sh`
 - setup neovim:
   - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
-  - Use my own config files: https://github.com/jazzabeanie/lazyvim-config
+  - `brew install neovim`
   - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
     - ~~Setup [LazyVim](https://www.lazyvim.org/)~~
       - ~~install tree-sitter `sudo npm install -g tree-sitter-cli`~~
@@ -111,6 +113,7 @@ Linux:
   - extract with `tar -xvzf /tmp/gron.tgz`
   - move to /usr/local/bin: `sudo mv /tmp/gron.tgz /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
+- install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 
 Random Linux box:
 
@@ -159,7 +162,8 @@ winget install Microsoft.PowerToys -s winget
     - also install Powerlevel10k, and zsh-autosuggestions (instructions above)
   - install [nvm](https://github.com/nvm-sh/nvm)
     - then install node `nvim install node`
-  - install [neovim following AppImage instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+  - ~~install [neovim following AppImage instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)~~
+    - maybe it's better to install with [homebrew[(https://docs.brew.sh/Homebrew-on-Linux)
     - May also need to install [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
     - `ln -s nvim.appimage ./nvim`
     - install nvim config (see details above)
