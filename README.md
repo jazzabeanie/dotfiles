@@ -89,6 +89,12 @@ Linux:
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
     - Make this run on startup by adding to `~/.profile`?
+- run `sudo apt install curl`
+- install [homebrew](https://brew.sh/)
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - `setup_vim.sh`
+  - `install_packages.sh`
 - install node (required for neovim):
   - install [nvm](https://github.com/nvm-sh/nvm)
   - `nvm install --lts`
