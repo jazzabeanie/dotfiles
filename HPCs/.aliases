@@ -1,0 +1,407 @@
+#!/bin/bash
+
+# to use visidata as the pager app in psql, export this before running psql `export PAGER='vd --filetype=tsv --delimiter="|" --undo=true --header=1 -'`
+
+## Processes
+alias tu='top -o cpu'   #cpu
+alias tm='top -o vsize' #memory
+
+## Command Line
+#alias l.='ls -d .[^.]*'
+alias cp='cp -i'
+alias mv='mv -i'
+alias l='ls -alhtr' # long, most recent first, colour
+alias e='nvim'
+#alias ll='ls -Fol'
+alias la='ls -lah'
+alias cdw='cd ~/Workspace'
+alias cdm='cd /home/jaredjohnston/Workspace/reefcloud-metrics'
+alias tailf='tail -f'
+alias cdev='cd ~/.dotfiles/home'
+alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
+alias lg='lazygit'
+# alias keepass='~/.bin/KeePassXC.AppImage'
+alias keepass='keepassxc'
+alias savekey='keepassxc-cli attachment-export /home/jaredjohnston/RDP_share/e-Atlas-project_v2_master.kdbx /Servers/Triton/SSH\ -\ keys triton_ed25519.pem /tmp/triton_ed25519.pem'
+alias dils='docker image ls'
+alias analyse_disk='ncdu'
+
+if [ "$(uname -s)" = "Linux" ]; then
+	alias open='xdg-open'
+fi
+
+function cd() {
+	# This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
+	# It also shows how which number to use for the lf function
+	new_directory="$*"
+	if [ $# -eq 0 ]; then # This may be redundant with zsh / oh-my-zsh
+		new_directory=${HOME}
+	fi
+	# TODO: make this keep colours
+	builtin cd "${new_directory}" && ls -lhtr | tac | cat -n | tac | sed 's/^[[:space:]]*\([0-9]*\)[[:space:]]*\(.*\)/[\1]  \2 [\1]/'g # works with lf function
+	# builtin cd "${new_directory}" && ls -lahtr
+}
+
+# ## This is the equivalent for zoxide:
+# TODO: make this work:
+# function z() {
+#   new_directory="$*";
+# 	builtin z "${new_directory}" && ls -lah
+# }
+
+function largest() {
+	du -h . | grep ^[0-9.][0-9.]G
+	du -h . | grep ^[5-9][0-9][0-9.]M
+}
+
+# https://scriptingosx.com/2017/02/terminal-finder-interaction/
+# prints the path of the front Finder window. Desktop if no window open
+function pwdf() {
+	osascript <<EOS
+        tell application "Finder"
+            if (count of Finder windows) is 0 then
+                set dir to (desktop as alias)
+            else
+                set dir to ((target of Finder window 1) as alias)
+            end if
+            return POSIX path of dir
+        end tell
+EOS
+}
+
+# changes directory to frontmost Finder window
+alias cdf='pwdf; cd "$(pwdf)"'
+
+function ca() {
+	conda_directory="$1"
+	if [ $# -eq 0 ]; then
+		conda_directory=conda-env
+	fi
+	# cd ${conda_directory}
+	conda activate "${conda_directory}"/
+}
+
+## This changed directories to desktop
+function desk() {
+	cd ~/Desktop/
+}
+function mark {
+	export $1=$(pwd)
+}
+## when I want to remember a directory, I can just type, e.g. `mark there` then to change back to it I type `cd $there`
+
+function trash {
+  gio trash $1 # moves it to .local/share/Trash/files
+  # https://superuser.com/questions/1706520/deleting-files-and-emptying-trash-in-wsl
+}
+
+function playmusic() {
+	#This function will play music files in the current folder. Or, more specifically, it will play a list of the files matched by the regular expression [.]m
+	playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX) #{} expand the variable so the path of TMPDIR is actually used. #where is this file stored??
+	ls | grep [.]m >$playlist
+	while read SONG; do
+		echo ""
+		echo "playing $SONG"
+		ffplay -showmode 1 -window_title "Desktop Playlist" -autoexit "$SONG"
+	done <$playlist
+	#for i in ./*.m4a; do ffplay -nodisp -autoexit "$i"; done #this is the original one liner I wanted to create. The only probably was that it won't play mp3s.
+}
+
+function playvids() {
+	#This function will play videos recursivly
+	playlist=$(mktemp ${TMPDIR:-/tmp}/files.XXXXXX)
+	ls | grep [.]m >$playlist
+	while read VIDEO; do
+		echo ""
+		echo "playing $VIDEO"
+		ffplay -showmode 0 -window_title "Video Playlist" -autoexit "$VIDEO"
+	done <$playlist
+}
+
+function ffmpeg-trim {
+	if (($# < 2)) || (($# > 4)); then
+		echo "ffmpeg-trim takes at least 2 arguments:"
+		echo "1.    input file"
+		echo "2.    start time"
+		echo "[3].  finish time. if not provided, will trim to the end."
+		echo "[4].  timmed filename. if not provided, original will be overwritten"
+		echo ""
+		echo "Time can be privded as number of seconds, or [HH:]MM:SS."
+		echo "Seconds expressed as a decimal are suppored in both cases"
+		echo "See 'man ffmpeg-utils' and search for 'Time duration' for more info"
+		return
+	elif (($# < 4)); then
+		# read -rsp $"No output filename give, original file will be overwritten.\nBackup will be created at /tmp\nPress any key to contines...\n" -n1 key
+		cp --remove-destination ./$1 /tmp
+	fi
+	if (($# == 2)); then
+		ffmpeg -i "$1" -ss $2 -c copy "$1" #FIXME: I don't think this is working. test it.
+	elif (($# == 3)); then
+		ffmpeg -i "$1" -ss $2 -c copy -to $3 "$1"
+	elif (($# == 4)); then
+		ffmpeg -i "$1" -ss $2 -c copy -to $3 "$4"
+	fi
+}
+
+function ffmpeg-separate {
+	if (($# != 3)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "ffmpeg-separate takes 3 arguments:"
+		echo "1. input file"
+		echo "2. the timestamp to separate to (starting from 0)"
+		echo "3. the name of the output file"
+		echo "The original file will be trimmed. A backup will be put in /tmp"
+		return
+	fi
+	if [ -f ./$1 ]; then
+		cp --remove-destination "$1" /tmp
+	fi
+	if [ -f ./$3 ]; then
+		echo "$3 exists. Delete and continue?[Y/n]"
+		read answer
+		if [ "$answer" = "Y" ]; then
+			cp --remove-destination "$3" /tmp
+			rm ./$3
+		else
+			echo "script cancelled"
+			return
+		fi
+	fi
+	ffmpeg-trim "$1" 0 "$2" "$3"
+	ffmpeg-trim "$1" "$2"
+}
+
+function p-dl {
+	# takes one argument - URL
+	youtube-dl -o -no-mtime "./%(title)s.%(ext)s" $1
+}
+
+function g() {
+	git "$@"
+	if ! [[ $1 == "st" || $1 == "status" || $1 == "u" ]]; then
+		git status
+	fi
+	# ls -lah
+}
+
+function untar {
+	if (($# == 0)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "untar takes 1 argument: the *.tar.gz file to unzip"
+		return
+	fi
+	tar -xvzf "$@"
+}
+
+function sha256 {
+	if (($# == 0)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "sha256 takes 1 argument: the file to hash"
+		return
+	fi
+	openssl dgst -sha256 "$@"
+}
+
+function spleeter-help {
+	# if (( $# == 0 )); then
+	echo "I like to use spleeter like so:"
+	echo "spleeter separate -p spleeter:5stems --codec m4a -o OUTPUT_PATH INPUT_FILES"
+	echo "(it will create a folder in the OUTPUT_DIRECTORY to save the stems)"
+	echo ""
+	echo "Here are the stem options:"
+	echo "  Vocals (singing voice) / accompaniment separation (2 stems)"
+	echo "  Vocals / drums / bass / other separation (4 stems)"
+	echo "  Vocals / drums / bass / piano / other separation (5 stems)"
+	echo ""
+	echo "Normal program output follows:"
+	echo ""
+	# fi
+	# /Users/jaredjohnston/opt/miniconda3/bin/spleeter "$@"
+}
+
+function lsvim {
+	ls -lah | vim -
+}
+
+function pbcopy { # Makes pbcopy work on linux
+	if [ "$(uname -s)" = "Linux" ]; then
+		xargs echo -n $@ | xclip -sel clip # Remove trailing newline then copy
+	else
+		pbcopy $@
+	fi
+}
+
+function download_music {
+	echo "Downloading 10 songs, sleeping in between, with command:"
+	echo "pipenv run python /Users/jaredjohnston/Workspace/music_downloader/downloader.py --limit 10 --sleep ~/Music/dj/"
+	echo "chaning to tool directory"
+	cd /Users/jaredjohnston/Workspace/music_downloader
+	pipenv run python /Users/jaredjohnston/Workspace/music_downloader/downloader.py --limit 10 --sleep ~/Music/dj/
+	echo "changing back"
+	cd -
+}
+
+# alias drivesync='rclone sync ~/GoogleDrive GoogleDrive:/' # Syncs ~/GoogleDrive to the remote
+
+function reef {
+	cd /home/jaredjohnston/Workspace/reefcloud-metrics
+	tmux new -s reefcloud
+}
+
+function lf() {
+	# https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
+	# This is a dependency of the navagation shortcuts below (alias 1='cd-or-vim $(lf 1)')
+	if [[ -z "${1}" ]]; then # checks if param 1 is empty
+		n=1
+	else
+		n="${1}"
+	fi
+	ls -rt1 | tail -n ${n} | head -n 1
+}
+# # this is the old bash function
+# function lf() {
+#     if [ "x${1}" == "x" ]  # checks if param 1 is empty
+#     then
+#         n=1
+#     else
+#         n="${1}"
+#     fi
+#     ls -rt1 | tail -n ${n} | head -n 1
+# }
+# works with function above and only after the command at the end of the cd function
+
+function cd-or-vim() {
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+		echo "Usage: cd-or-vim <directory or file>"
+		return 1
+	fi
+
+	# FIXME: make this work if the directory has a space at the end of it.
+
+	# Combine all arguments into a single string
+	target="$*"
+
+	# Check if the target exists and is a directory
+	if [ -d "$target" ]; then
+		echo "$target is a directory"
+		cd "$target"
+	else
+		echo "$target is a file"
+		vim "$target"
+	fi
+}
+
+function check-json() {
+	if (($# != 1)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "check-json takes 1 argument - the json file to parse"
+		return
+	fi
+	cat $1 | python3 -c "import sys,json;json.loads(sys.stdin.read());print('OK')"
+}
+
+function vicd()
+{
+    # https://beepscore.com/website/2020/05/09/how-to-change-directory-quickly-with-vifm.html 
+    local dst="$(command vifm --choose-dir - . ~)"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+
+function tn() {
+	if (($# == 0)); then
+    local DIR_NAME=$(basename "$PWD")
+    local SESSIONNAME=$(echo $DIR_NAME | sed -e 's/\./_/g')
+  else
+    local SESSIONNAME="$@"
+  fi
+
+  tmux has-session -t $SESSIONNAME &> /dev/null
+
+  if [ $? != 0 ] 
+  then
+      echo "Creating new session $SESSIONNAME"
+      tmux new -s $SESSIONNAME -n README -d
+      tmux send-keys -t $SESSIONNAME "e README.md" C-m
+      # Read more about scripting a tmux session: https://superuser.com/questions/440015/restore-tmux-session-after-reboot
+  else
+      echo "Attaching to session $SESSIONNAME"
+  fi
+  tmux attach -t $SESSIONNAME
+}
+
+function ta() {
+	if (($# == 0)); then
+		tmux a
+	fi
+  tmux a "$@"
+}
+
+function transcribe() {
+  echo "This creates a bunch of files in the current directory. Better to change to /tmp first"  # FIXME
+  # You can call this function with a specific model like `transcribe tiny` to use the 
+  # tiny model, or simply transcribe to use the default base model.
+  model=${1:-base}  # Default to 'base' if no argument is provided
+  
+  # for MacOS, use `ffmpeg -f avfoundation -i ":<audio_device_index>" -acodec mp3 /tmp/audio_to_transcribe.mp3`
+  # you will need to find the audio device index somehow
+  ffmpeg -f alsa -i default -acodec mp3 /tmp/audio_to_transcribe.mp3
+  whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
+}
+
+alias 1='cd-or-vim $(lf 1)'
+alias 2='cd-or-vim $(lf 2)'
+alias 3='cd-or-vim $(lf 3)'
+alias 4='cd-or-vim $(lf 4)'
+alias 5='cd-or-vim $(lf 5)'
+alias 6='cd-or-vim $(lf 6)'
+alias 7='cd-or-vim $(lf 7)'
+alias 8='cd-or-vim $(lf 8)'
+alias 9='cd-or-vim $(lf 9)'
+alias 10='cd-or-vim $(lf 10)'
+alias 11='cd-or-vim $(lf 11)'
+alias 12='cd-or-vim $(lf 12)'
+alias 13='cd-or-vim $(lf 13)'
+alias 14='cd-or-vim $(lf 14)'
+alias 15='cd-or-vim $(lf 15)'
+alias 16='cd-or-vim $(lf 16)'
+alias 17='cd-or-vim $(lf 17)'
+alias 18='cd-or-vim $(lf 18)'
+alias 19='cd-or-vim $(lf 19)'
+alias 20='cd-or-vim $(lf 20)'
+alias 21='cd-or-vim $(lf 21)'
+alias 22='cd-or-vim $(lf 22)'
+alias 23='cd-or-vim $(lf 23)'
+alias 24='cd-or-vim $(lf 24)'
+alias 25='cd-or-vim $(lf 25)'
+alias 26='cd-or-vim $(lf 26)'
+alias 27='cd-or-vim $(lf 27)'
+alias 28='cd-or-vim $(lf 28)'
+alias 29='cd-or-vim $(lf 29)'
+alias 30='cd-or-vim $(lf 30)'
+alias 31='cd-or-vim $(lf 31)'
+alias 32='cd-or-vim $(lf 32)'
+alias 33='cd-or-vim $(lf 33)'
+alias 34='cd-or-vim $(lf 34)'
+alias 35='cd-or-vim $(lf 35)'
+alias 36='cd-or-vim $(lf 36)'
+alias 37='cd-or-vim $(lf 37)'
+alias 38='cd-or-vim $(lf 38)'
+alias 39='cd-or-vim $(lf 39)'
+alias 40='cd-or-vim $(lf 40)'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+alias ..........="cd ../../../../../../../../.."
+alias ...........="cd ../../../../../../../../../.."
+alias ............="cd ../../../../../../../../../../.."
+alias .............="cd ../../../../../../../../../../../.."
