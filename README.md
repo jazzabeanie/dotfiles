@@ -114,6 +114,28 @@ Linux:
   - move to /usr/local/bin: `sudo mv /tmp/gron.tgz /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
+- Install [1Password](https://support.1password.com/install-linux/)
+  - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
+- setup CopyQ clipboard manager to ignore passwords:
+  
+  ```
+  [Commands]
+  1\Automatic=true
+  1\Command="
+      copyq ignore"
+  1\Icon=\xf069
+  1\Name=Ignore *1Password* windows
+  1\Remove=true
+  1\Window=.*1Password.*
+  2\Automatic=true
+  2\Command="
+      copyq ignore"
+  2\Icon=\xf069
+  2\Input=x-kde-passwordManagerHint
+  2\Name=Ignore Keepass window
+  2\Remove=true
+  size=2
+  ```
 
 Random Linux box:
 

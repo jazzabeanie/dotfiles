@@ -4,6 +4,7 @@
 
 sudo add-apt-repository ppa:aos1/diff-so-fancy
 sudo add-apt-repository ppa:phoerious/keepassxc
+sudo add-apt-repository ppa:hluk/copyq
 sudo apt update
 # curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
 # chmod 755 ~/bin/vcprompt
@@ -28,6 +29,9 @@ sudo apt install --yes zip
 sudo apt install --yes libreadline-dev # required for `make` to work I think (did before building nnn from source anyway)
 sudo apt install --yes pkg-config # required for `make` to work I think (did before building nnn from source anyway)
 sudo apt install --yes keepassxc
+sudo apt install --yes expect # required for ./home/.bin/triton. automates scripts for interactive stuff
+sudo apt install --yes ncdu # analyses disk usage by folder
+sudo apt install --yes copyq
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
