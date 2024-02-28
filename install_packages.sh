@@ -32,6 +32,7 @@ sudo apt install --yes keepassxc
 sudo apt install --yes expect # required for ./home/.bin/triton. automates scripts for interactive stuff
 sudo apt install --yes ncdu # analyses disk usage by folder
 sudo apt install --yes copyq
+sudo apt install --yes tree
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
