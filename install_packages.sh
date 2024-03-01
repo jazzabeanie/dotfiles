@@ -18,7 +18,7 @@ sudo apt install --yes zoxide
 # should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
   # sudo apt install python3-pip
   # Instead use the get-pip.py script on the docs: https://pip.pypa.io/en/stable/installation/
-sudo apt install libfuse2 # dependency of Joplin
+sudo apt install --yes libfuse2 # dependency of Joplin
 sudo apt install --yes xclip # This is to make tmux copy to system clipboardA
 sudo apt install --yes jq # lightweight and flexible command-line JSON processor
 sudo apt install --yes xsel # helps vim access clipboard (referred to in .vimrc)
@@ -33,6 +33,7 @@ sudo apt install --yes expect # required for ./home/.bin/triton. automates scrip
 sudo apt install --yes ncdu # analyses disk usage by folder
 sudo apt install --yes copyq
 sudo apt install --yes tree
+sudo apt install --yes gnome-tweaks
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)

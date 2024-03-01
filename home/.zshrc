@@ -203,6 +203,7 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
 export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
+export MCFLY_LIGHT=FALSE
 
 eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
@@ -211,9 +212,6 @@ eval "$(zoxide init zsh)"
 # Powerlevel10k settings:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 
 
 # <<< conda initialize <<<

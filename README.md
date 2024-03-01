@@ -65,16 +65,22 @@ OS X:
 
 Linux:
 
-- Add ssh key to github
-  - may also need to start the agent and add them there before it will work
+- SSH keys:
+  - Copy existing keys, or create new ssh key and add to github
+  - may also need to start the agent and add them there too.
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
+- run `sudo apt install curl`
+- install [homebrew](https://brew.sh/)
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - `setup_vim.sh`
+  - `install_packages.sh`
 - Swap CAPS and Ctrl, either:
   - run `setxkbmap -option ctrl:nocaps`
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
   - Ubuntu:
     - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
-      - install `sudo apt-get install gnome-tweaks`
       - open Tweaks -> Keyboard & Mouse -> Additional Layout options
 - reverse scroll direction
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
@@ -83,12 +89,10 @@ Linux:
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
     - Make this run on startup by adding to `~/.profile`?
-- run `sudo apt install curl`
-- install [homebrew](https://brew.sh/)
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - `setup_vim.sh`
-  - `install_packages.sh`
+- install node (required for neovim):
+  - install [nvm](https://github.com/nvm-sh/nvm)
+  - `nvm install --lts`
+  - `nvm use --lts`
 - setup neovim:
   - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
   - `brew install neovim`
