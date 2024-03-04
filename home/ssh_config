@@ -27,3 +27,7 @@ Host triton
   User reefatlas
   IdentityFile /tmp/triton_ed25519.pem
 
+Host HPC
+  HostName hpc-l001.aims.gov.au
+  User jjohnsto
+  IdentityFile /home/jjohnsto/.ssh/id_ed25519_3JYJLX3_HPC
