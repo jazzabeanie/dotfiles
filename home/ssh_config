@@ -20,7 +20,7 @@ Host *
  AddKeysToAgent yes
  IgnoreUnknown UseKeychain
  UseKeychain yes
- IdentityFile ~/.ssh/id_ed25519_aims
+ IdentityFile ~/.ssh/id_ed25519
  
 Host triton
   HostName 52.63.24.133
