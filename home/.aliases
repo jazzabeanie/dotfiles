@@ -10,7 +10,7 @@ alias tm='top -o vsize' #memory
 #alias l.='ls -d .[^.]*'
 alias cp='cp -i'
 alias mv='mv -i'
-alias l='ls -alhtr' # long, most recent first, colour
+alias l='ls -Flahrt' # long, most recent first, colour
 alias e='nvim'
 #alias ll='ls -Fol'
 alias la='ls -lah'
@@ -22,6 +22,8 @@ alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the t
 alias lg='lazygit'
 alias keepass='~/.bin/KeePassXC.AppImage'
 alias dils='docker image ls'
+# alias disk='' # TODO: implement du -sk * | sort -nr | cut -f2 | xargs -d "\n" du -sh  > diskuse.txt
+alias analyse_disk='ncdu'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
