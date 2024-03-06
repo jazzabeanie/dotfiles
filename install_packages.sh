@@ -11,8 +11,8 @@ sudo apt update
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 # sudo apt install --yes neovim # This doesn't install the latest version
 sudo apt install --yes tmux
-# sudo apt install silversearcher-ag  # superseded by ripgrep
 sudo apt install --yes ripgrep
+sudo apt install --yes cryptsetup
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
 # should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
