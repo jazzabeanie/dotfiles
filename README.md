@@ -101,7 +101,7 @@ Linux:
   - install [nvm](https://github.com/nvm-sh/nvm)
   - `nvm install --lts`
   - `nvm use --lts`
-- setup neovim:
+- setup neovim: # TODO: put into homebrew script
   - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
   - `brew install neovim`
   - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
@@ -206,8 +206,7 @@ winget install Microsoft.PowerToys -s winget
   - clone cheat sheet
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
-- install KeePass?
-- install [McFly](https://github.com/cantino/mcfly)
+- install [McFly](https://github.com/cantino/mcfly) TODO: put this into homebrew script
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 - install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
 - make xdg-open use powershell:
