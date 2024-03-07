@@ -68,20 +68,17 @@ Linux:
 - SSH keys:
   - Copy existing keys, or create new ssh key and add to github
   - may also need to start the agent and add them there too.
+    - `eval "$(ssh-agent -s)"`
+    - `ssh-add ~/.ssh/KEY_NAME`
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
 - run `sudo apt install curl`
-- install [homebrew](https://brew.sh/)
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - `setup_vim.sh`
-  - `install_packages.sh`
-- Swap CAPS and Ctrl, either:
-  - run `setxkbmap -option ctrl:nocaps`
-    - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
-  - Ubuntu:
-    - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
-      - open Tweaks -> Keyboard & Mouse -> Additional Layout options
+- Make Zsh the default shell `chsh -s $(which zsh)`
+- log out and log back in
+- install [oh-my-zsh](https://ohmyz.sh/#install)
+- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
+  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
+  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - reverse scroll direction
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
   - gnome 
@@ -89,6 +86,17 @@ Linux:
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
     - Make this run on startup by adding to `~/.profile`?
+- install [homebrew](https://brew.sh/)
+- run scirpts: (note, sudo not required)
+  - `./setup_dotfiles.sh`
+  - `./setup_vim.sh`
+  - `./install_packages.sh`
+- Swap CAPS and Ctrl, either:
+  - run `setxkbmap -option ctrl:nocaps`
+    - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
+  - Ubuntu:
+    - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
+      - open Tweaks -> Keyboard & Mouse -> Additional Layout options
 - install node (required for neovim):
   - install [nvm](https://github.com/nvm-sh/nvm)
   - `nvm install --lts`
@@ -102,11 +110,6 @@ Linux:
       - ~~Not sure if I want to use LazyVim~~
   - ~~Another option is https://github.com/jdhao/nvim-config~~
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
-- Make Zsh the default shell `chsh -s $(which zsh)`
-- install [oh-my-zsh](https://ohmyz.sh/#install)
-- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
-  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
-  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - setup link to S3 bucket.
