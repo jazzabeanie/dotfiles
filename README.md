@@ -116,9 +116,9 @@ Linux:
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 - install [gron](https://github.com/TomNomNom/gron)
-  - download [latest verion](https://github.com/tomnomnom/gron/releases)
+  - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
-  - move to /usr/local/bin: `sudo mv /tmp/gron.tgz /usr/local/bin`
+  - move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
