@@ -11,8 +11,8 @@ sudo apt update
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 # sudo apt install --yes neovim # This doesn't install the latest version
 sudo apt install --yes tmux
-# sudo apt install silversearcher-ag  # superseded by ripgrep
 sudo apt install --yes ripgrep
+sudo apt install --yes cryptsetup
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
 # should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
@@ -36,6 +36,7 @@ sudo apt install --yes tree
 sudo apt install --yes gnome-tweaks
 sudo apt install --yes keychain
 sudo apt install --yes bc # precision calculator
+sudo apt install --yes sshfs # let's me mount a remote folder locally
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)

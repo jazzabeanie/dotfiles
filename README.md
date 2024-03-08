@@ -68,9 +68,24 @@ Linux:
 - SSH keys:
   - Copy existing keys, or create new ssh key and add to github
   - may also need to start the agent and add them there too.
+    - `eval "$(ssh-agent -s)"`
+    - `ssh-add ~/.ssh/KEY_NAME`
 - install git `sudo apt install git`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
 - run `sudo apt install curl`
+- Make Zsh the default shell `chsh -s $(which zsh)`
+- log out and log back in
+- install [oh-my-zsh](https://ohmyz.sh/#install)
+- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
+  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
+  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
+- reverse scroll direction
+  - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
+  - gnome 
+    - `xinput --list` to get ID of the mouse. 
+    - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
+    - Add this to startup applications so that it runs every time.
+    - Make this run on startup by adding to `~/.profile`?
 - install [homebrew](https://brew.sh/)
 - run scirpts:
   - `setup_dotfiles.sh`
@@ -82,24 +97,11 @@ Linux:
   - Ubuntu:
     - https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
       - open Tweaks -> Keyboard & Mouse -> Additional Layout options
-- reverse scroll direction
-  - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
-  - gnome 
-    - `xinput --list` to get ID of the mouse. 
-    - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
-    - Add this to startup applications so that it runs every time.
-    - Make this run on startup by adding to `~/.profile`?
-- run `sudo apt install curl`
-- install [homebrew](https://brew.sh/)
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - `setup_vim.sh`
-  - `install_packages.sh`
 - install node (required for neovim):
   - install [nvm](https://github.com/nvm-sh/nvm)
   - `nvm install --lts`
   - `nvm use --lts`
-- setup neovim:
+- setup neovim: # TODO: put into homebrew script
   - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
   - `brew install neovim`
   - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
@@ -108,20 +110,15 @@ Linux:
       - ~~Not sure if I want to use LazyVim~~
   - ~~Another option is https://github.com/jdhao/nvim-config~~
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
-- Make Zsh the default shell `chsh -s $(which zsh)`
-- install [oh-my-zsh](https://ohmyz.sh/#install)
-- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
-  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
-  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
 - install [gron](https://github.com/TomNomNom/gron)
-  - download [latest verion](https://github.com/tomnomnom/gron/releases)
+  - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
-  - move to /usr/local/bin: `sudo mv /tmp/gron.tgz /usr/local/bin`
+  - move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
@@ -215,8 +212,7 @@ winget install Microsoft.PowerToys -s winget
   - clone cheat sheet
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
-- install KeePass?
-- install [McFly](https://github.com/cantino/mcfly)
+- install [McFly](https://github.com/cantino/mcfly) TODO: put this into homebrew script
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 - install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
 - make xdg-open use powershell:
