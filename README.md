@@ -120,6 +120,7 @@ Linux:
   - extract with `tar -xvzf /tmp/gron.tgz`
   - move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
+  - download the script to tmp, then run it with `python3 /tmp/get-pip.py`
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
