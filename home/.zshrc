@@ -199,6 +199,8 @@ export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executa
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
 export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
+export GOPATH=${HOME}/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
