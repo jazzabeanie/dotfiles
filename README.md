@@ -17,6 +17,9 @@ touch ~/.gitconfig.local
 ##################################
 ```
 
+Note: I have different names of ssh keys on different devices so I stopped tracking changes: `git update-index --assume-unchanged <file>`. To start tracking changes again: `git update-index --no-assume-unchanged <file>`
+
+
 ## Installing
 
 OS X:
