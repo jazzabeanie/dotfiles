@@ -114,6 +114,7 @@ Linux:
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
+  - `brew install jesseduffield/lazygit/lazygit`
 - install [gron](https://github.com/TomNomNom/gron)
   - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
@@ -168,6 +169,11 @@ foreach ($device in $devices) {
 }
 ```
 
+- Turn off tabs in alt-tab:
+  - Open Settings.
+  - Click on System.
+  - Click on Multitasking.
+  - etc.
 - install [1password](https://1password.com/downloads/windows/)
 - [install wsl[(https://learn.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
 - install ubuntu through Microsoft Store
@@ -188,7 +194,7 @@ ssh-add ~/.ssh/id_ed25519
     - update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)
     - add the following to `/etc/wsl.conf`:
       - `true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`
-```
+
 - install winget packages
 
 ```
