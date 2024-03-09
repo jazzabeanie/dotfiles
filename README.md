@@ -155,6 +155,22 @@ Random Linux box:
 
 Windows:
 
+- reverse mouse scroll:
+
+```
+$devices = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device Parameters" -ErrorAction SilentlyContinue | Where-Object { $_.FlipFlopWheel -ne $null }
+foreach ($device in $devices) {
+    # Reverse the scroll direction
+    if ($device.FlipFlopWheel -eq 1) {
+        Set-ItemProperty -Path $device.PSPath -Name "FlipFlopWheel" -Value 0
+    } else {
+        Set-ItemProperty -Path $device.PSPath -Name "FlipFlopWheel" -Value 1
+    }
+}
+```
+
+- install [1password](https://1password.com/downloads/windows/)
+- install ubuntu through Microsoft Store
 - Set charge limit on battery to 80%
   - Dell Power Manager (should be already installed)
 - Setup git SSH keys
