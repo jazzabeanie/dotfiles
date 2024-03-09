@@ -170,6 +170,7 @@ foreach ($device in $devices) {
 ```
 
 - install [1password](https://1password.com/downloads/windows/)
+- [install wsl[(https://learn.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
 - install ubuntu through Microsoft Store
 - Set charge limit on battery to 80%
   - Dell Power Manager (should be already installed)
