@@ -70,9 +70,8 @@ Linux:
   - may also need to start the agent and add them there too.
     - `eval "$(ssh-agent -s)"`
     - `ssh-add ~/.ssh/KEY_NAME`
-- install git `sudo apt install git`
+- install git `sudo apt install git curl zsh`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- run `sudo apt install curl`
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - log out and log back in
 - install [oh-my-zsh](https://ohmyz.sh/#install)
