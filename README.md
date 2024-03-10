@@ -17,9 +17,6 @@ touch ~/.gitconfig.local
 ##################################
 ```
 
-Note: I have different names of ssh keys on different devices so I stopped tracking changes: `git update-index --assume-unchanged <file>`. To start tracking changes again: `git update-index --no-assume-unchanged <file>`
-
-
 ## Installing
 
 OS X:
@@ -128,6 +125,10 @@ Linux:
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
 - setup CopyQ clipboard manager to ignore passwords:
+- sync my cheat fork
+  - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
+  - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
+  - the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets
   
   ```
   [Commands]
@@ -228,7 +229,7 @@ winget install Microsoft.PowerToys -s winget
     - follow these install instructions: https://www.youtube.com/embed/-knZwdd1ScU
       - untar, cd into dir, run `sudo make O_NERD=1`
       - run `mv .nnn /usr/local/bin`
-  - [Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md)
+  - [Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md) `brew install cheat`
   - clone cheat sheet
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)

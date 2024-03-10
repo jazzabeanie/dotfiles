@@ -202,7 +202,7 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
-export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
+# export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"  # instead, copy the file because the locations will be different on different systems
 export MCFLY_LIGHT=FALSE
 
 eval "$(direnv hook zsh)"
