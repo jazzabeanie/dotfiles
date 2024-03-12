@@ -237,6 +237,7 @@ winget install Microsoft.PowerToys -s winget
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 - install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
 - make xdg-open use powershell:
+- Figure out how to make pasting between Windows and vim in WSL.
 
 ```
 sudo tee /usr/local/bin/xdg-open <<EOF
