@@ -42,10 +42,11 @@ OS X:
   - ~~`setup_vim.sh`~~
     - setup neovim instead `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
   - `install_homebrew_packages.sh`
-- sync my cheat fork
-  - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
-  - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
-  - the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets
+- ~~sync my cheat fork~~
+  - ~~go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
+  - ~~`git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
+  - ~~the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets~~
+- use [cheat.sh](https://github.com/chubin/cheat.sh) instead
 - Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
 - Install 1password
 - setup mountain duck (should have been installed by homebrew)
@@ -210,8 +211,9 @@ winget install Microsoft.PowerToys -s winget
     - follow these install instructions: https://www.youtube.com/embed/-knZwdd1ScU
       - untar, cd into dir, run `sudo make O_NERD=1`
       - run `mv .nnn /usr/local/bin`
-  - [Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md)
-  - clone cheat sheet
+  - ~~[Install cheat](https://github.com/cheat/cheat/blob/master/INSTALLING.md)~~
+  - ~~clone cheat sheet~~
+  - use [cheat.sh](https://github.com/chubin/cheat.sh) instead
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [lazygit](https://github.com/jesseduffield/lazygit#installation)
 - install [McFly](https://github.com/cantino/mcfly) TODO: put this into homebrew script
