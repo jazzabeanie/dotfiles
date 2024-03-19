@@ -10,7 +10,8 @@ brew install rar
 brew install vim
 brew install wget
 brew install fdk-aac
-brew install sdl  # required so that ffmpeg also installs ffplay
+brew install sdl12-compat  # required so that ffmpeg also installs ffplay
+# brew install sdl  # renamed to sdl12-compat
 brew install ffmpeg
 brew install jpeg
 brew install lame
@@ -21,8 +22,8 @@ brew install x264
 brew install xvid
 brew install direnv
 brew install diff-so-fancy
-git clone git@github.com:jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community
-brew install cheat
+# git clone git@github.com:jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community
+# brew install cheat  # use cheat.sh instead
 brew install ripgrep
 brew install jesseduffield/lazygit/lazygit
 brew install neovim

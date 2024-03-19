@@ -26,10 +26,28 @@ alias savekey='keepassxc-cli attachment-export /home/jaredjohnston/RDP_share/e-A
 alias dils='docker image ls'
 # alias disk='' # TODO: implement du -sk * | sort -nr | cut -f2 | xargs -d "\n" du -sh  > diskuse.txt
 alias analyse_disk='ncdu'
+alias ghcs='gh copilot suggest'
+alias ghce='gh copilot explain'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
 fi
+
+function savekey() {
+  RDP_location="/home/jaredjohnston/RDP_share/e-Atlas-project_v2_master.kdbx"
+  WSL_location="/mnt/c/Users/jjohnsto/Documents/e-Atlas-project_v2_master.kdbx"
+  if [ -f $RDP_location ]; then
+    echo "found RDP_location: $RDP_location"
+    DB=$RDP_location
+  elif [ -f $WSL_location ]; then
+    echo "found WSL_location: $WSL_location"
+    DB=$WSL_location
+  else
+    echo "No database found"
+    return
+  fi
+  keepassxc-cli attachment-export $DB /Servers/Triton/SSH\ -\ keys triton_ed25519.pem /tmp/triton_ed25519.pem
+}
 
 function cd() {
 	# This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
@@ -362,6 +380,19 @@ function transcribe() {
   # you will need to find the audio device index somehow
   ffmpeg -f alsa -i default -acodec mp3 /tmp/audio_to_transcribe.mp3
   whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
+}
+
+function cheat() {
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+    echo '`cheat` is an alias for cheat.sh'
+		echo 'Usage: provide 1 ARGUMENT and that will be inserted into'
+		echo '`curl cheat.sh/ARGUMENT`'
+		return 1
+	fi
+  
+  echo "Opening cheat.sh/$1"
+  curl "https://cheat.sh/$1"
 }
 
 alias 1='cd-or-vim $(lf 1)'
