@@ -10,7 +10,8 @@ brew install rar
 brew install vim
 brew install wget
 brew install fdk-aac
-brew install sdl  # required so that ffmpeg also installs ffplay
+brew install sdl12-compat  # required so that ffmpeg also installs ffplay
+# brew install sdl  # renamed to sdl12-compat
 brew install ffmpeg
 brew install jpeg
 brew install lame

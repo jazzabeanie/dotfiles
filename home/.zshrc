@@ -47,10 +47,12 @@ echo "  untar to unzip a *.tar.gz file"
 echo "  sha256 to create a hash of a file"
 echo "  pwdf to print the path of the front most finder window"
 echo "  cdf to change to directory of front most finder window"
+echo "  jx to view json files"
+echo "  ncdu to analyze disk usage"
 echo "  awk \"{print \\\$COL_NUM}\" to get the column of some returned results" 
 echo "  \`| xargs SOME_COMMANDS\` to iterate over some results and execute comands on them"
-echo " combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
-echo " jx to view json files"
+echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
+echo "  ctrl+a : attach -c /some/directory to change the working directory of a tmux session"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
@@ -204,7 +206,7 @@ export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
-export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"
+# export CHEAT_CONFIG_PATH="~/.dotfiles/home/cheat_config.yml"  # instead, copy the file because the locations will be different on different systems
 export MCFLY_LIGHT=FALSE
 
 eval "$(direnv hook zsh)"

@@ -71,9 +71,8 @@ Linux:
   - may also need to start the agent and add them there too.
     - `eval "$(ssh-agent -s)"`
     - `ssh-add ~/.ssh/KEY_NAME`
-- install git `sudo apt install git`
+- install git `sudo apt install git curl zsh`
 - `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- run `sudo apt install curl`
 - Make Zsh the default shell `chsh -s $(which zsh)`
 - log out and log back in
 - install [oh-my-zsh](https://ohmyz.sh/#install)
@@ -116,6 +115,7 @@ Linux:
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
+  - `brew install jesseduffield/lazygit/lazygit`
 - install [gron](https://github.com/TomNomNom/gron)
   - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
@@ -126,6 +126,10 @@ Linux:
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
 - setup CopyQ clipboard manager to ignore passwords:
+- sync my cheat fork
+  - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
+  - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
+  - the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets
   
   ```
   [Commands]
@@ -147,6 +151,7 @@ Linux:
   ```
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
 - install [docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) and either, leave it requiring `sudo` for every command, or create a new user, add it to the docker group, then change to that user when you want to do docker stuff.
+- install [teams-for-linux](https://github.com/IsmaelMartinez/teams-for-linux)
 
 Random Linux box:
 
@@ -158,6 +163,28 @@ Random Linux box:
 
 Windows:
 
+- reverse mouse scroll:
+
+```
+$devices = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device Parameters" -ErrorAction SilentlyContinue | Where-Object { $_.FlipFlopWheel -ne $null }
+foreach ($device in $devices) {
+    # Reverse the scroll direction
+    if ($device.FlipFlopWheel -eq 1) {
+        Set-ItemProperty -Path $device.PSPath -Name "FlipFlopWheel" -Value 0
+    } else {
+        Set-ItemProperty -Path $device.PSPath -Name "FlipFlopWheel" -Value 1
+    }
+}
+```
+
+- Turn off tabs in alt-tab:
+  - Open Settings.
+  - Click on System.
+  - Click on Multitasking.
+  - etc.
+- install [1password](https://1password.com/downloads/windows/)
+- [install wsl[(https://learn.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+- install ubuntu through Microsoft Store
 - Set charge limit on battery to 80%
   - Dell Power Manager (should be already installed)
 - Setup git SSH keys
@@ -220,6 +247,7 @@ winget install Microsoft.PowerToys -s winget
 - change shortcuts of copy and paste in Windows Terminal to ctrl+shift+c and ctrl+shift+v (https://stackoverflow.com/questions/61824177/visual-block-mode-not-working-in-vim-with-c-v-on-wslwindows-10)
 - install [vifm](https://github.com/vifm/vifm/blob/master/INSTALL)?
 - make xdg-open use powershell:
+- Figure out how to make pasting between Windows and vim in WSL.
 
 ```
 sudo tee /usr/local/bin/xdg-open <<EOF
