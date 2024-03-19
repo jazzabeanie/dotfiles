@@ -9,3 +9,4 @@ git-smudge-clean-filter.sh
 git-smudge-clean-filter
 connect
 portforward
+.ssh/config
