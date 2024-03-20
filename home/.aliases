@@ -362,6 +362,19 @@ function transcribe() {
   whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
 }
 
+function cheat() {
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+    echo '`cheat` is an alias for cheat.sh'
+		echo 'Usage: provide 1 ARGUMENT and that will be inserted into'
+		echo '`curl cheat.sh/ARGUMENT`'
+		return 1
+	fi
+  
+  echo "Opening cheat.sh/$1"
+  curl "https://cheat.sh/$1"
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
