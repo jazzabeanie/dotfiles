@@ -150,6 +150,7 @@ Linux:
   size=2
   ```
 - install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
+- install [teams-for-linux](https://github.com/IsmaelMartinez/teams-for-linux)
 
 Random Linux box:
 
