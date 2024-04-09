@@ -206,6 +206,7 @@ dnsTunneling=true
     - ~~in cmd: `ipconfig/all`~~
       - ~~usually `10.10.32.50` in the office~~
     - ~~update `/etc/resolv.conf` with the correct nameserver ip address (look for the fields labeled "DNS SERVERS" in the step above)~~
+      - ~~you should be able to add multiple nameservers lines in `/etc/resolv.conf`~~ 
     - ~~add the following to `/etc/wsl.conf`:~~
       - ~~`true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`~~
 - install winget packages
