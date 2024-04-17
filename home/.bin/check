@@ -1,17 +1,43 @@
 #!/bin/bash
 
-# Loop through each subdirectory in the current directory
-for dir in */ ; do
-    # Check if the directory is a Git repository
-    if [ -d "$dir/.git" ]; then
-        # Move into the directory
-        cd "$dir"
-        # Check for uncommitted changes
-        if ! git diff --quiet || ! git diff --staged --quiet; then
-            # Print the directory name if there are uncommitted changes
-            echo "Uncommitted changes in: $dir"
+# ensure that locate can be used if plocate is installed
+if command -v locate >/dev/null 2>&1; then
+    echo "pass" >/dev/null
+elif command -v plocate >/dev/null 2>&1; then
+    alias locate=plocate
+fi
+
+# Check if locate is available
+if command -v locate >/dev/null 2>&1; then
+    # Loop through all git directories
+    for dir in $(locate -r '[.]git$' | # Find Git repositories
+                awk 'BEGIN{FS="/"; OFS="/"}{$NF=""; print $0}' | # Remove filename
+                awk '!/\/[.]/ {print $0}') # Exclude hidden directories
+    do
+        # Check if the directory is a Git repository
+        if [ -d "$dir/.git" ]; then
+            # Move into the directory
+            cd "$dir"
+            # Check for uncommitted changes
+            if ! git diff --quiet || ! git diff --staged --quiet; then
+                # Print the directory name if there are uncommitted changes
+                echo "Uncommitted changes in: $dir"
+            fi
         fi
-        # Move back to the parent directory
-        cd ..
-    fi
-done
+    done
+else
+    echo "looping only through subdirectories"
+    # Loop through each subdirectory in the current directory
+    for dir in */ ; do
+        # Check if the directory is a Git repository
+        if [ -d "$dir/.git" ]; then
+            # Move into the directory
+            cd "$dir"
+            # Check for uncommitted changes
+            if ! git diff --quiet || ! git diff --staged --quiet; then
+                # Print the directory name if there are uncommitted changes
+                echo "Uncommitted changes in: $dir"
+            fi
+        fi
+    done
+fi
