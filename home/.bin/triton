@@ -1,6 +1,7 @@
 #!/usr/bin/expect
 
 set timeout -1
+set command "source ~/user_dotfiles/jj_bashrc"
 
 # Check if an argument is provided
 if { $argc > 0 } {
