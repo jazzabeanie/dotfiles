@@ -37,6 +37,7 @@ sudo apt install --yes gnome-tweaks
 sudo apt install --yes keychain
 sudo apt install --yes bc # precision calculator
 sudo apt install --yes sshfs # let's me mount a remote folder locally
+sudo apt install --yes heif-gdk-pixbuf # HEIF codec
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
