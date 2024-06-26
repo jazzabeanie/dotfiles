@@ -28,26 +28,28 @@ alias dils='docker image ls'
 alias analyse_disk='ncdu'
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
+alias dcu='docker compose up'
+alias sc='sgpt --code'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
 fi
 
-function savekey() {
-  RDP_location="/home/jaredjohnston/RDP_share/e-Atlas-project_v2_master.kdbx"
-  WSL_location="/mnt/c/Users/jjohnsto/Documents/e-Atlas-project_v2_master.kdbx"
-  if [ -f $RDP_location ]; then
-    echo "found RDP_location: $RDP_location"
-    DB=$RDP_location
-  elif [ -f $WSL_location ]; then
-    echo "found WSL_location: $WSL_location"
-    DB=$WSL_location
-  else
-    echo "No database found"
-    return
-  fi
-  keepassxc-cli attachment-export $DB /Servers/Triton/SSH\ -\ keys triton_ed25519.pem /tmp/triton_ed25519.pem
-}
+# function savekey() {
+#   RDP_location="/home/jaredjohnston/RDP_share/e-Atlas-project_v2_master.kdbx"
+#   WSL_location="/mnt/c/Users/jjohnsto/Documents/e-Atlas-project_v2_master.kdbx"
+#   if [ -f $RDP_location ]; then
+#     echo "found RDP_location: $RDP_location"
+#     DB=$RDP_location
+#   elif [ -f $WSL_location ]; then
+#     echo "found WSL_location: $WSL_location"
+#     DB=$WSL_location
+#   else
+#     echo "No database found"
+#     return
+#   fi
+#   keepassxc-cli attachment-export $DB /Servers/Triton/SSH\ -\ keys triton_ed25519.pem /tmp/triton_ed25519.pem
+# }
 
 function cd() {
 	# This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
@@ -382,6 +384,16 @@ function transcribe() {
   whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
 }
 
+function capture_audio() {
+  if (($# == 0)); then
+    echo "Usage: capture_audio <output_mp3_filename>"
+    echo
+    echo "Requires ffmpeg and parec"
+    return 1
+  fi
+  parec -d alsa_output.pci-0000_00_1f.3.analog-stereo.monitor | ffmpeg -f s16le -ar 44100 -ac 2 -i - -codec:a libmp3lame -qscale:a 2 $1
+}
+
 function cheat() {
 	# Check if at least one argument is provided
 	if [ $# -eq 0 ]; then
@@ -393,6 +405,12 @@ function cheat() {
   
   echo "Opening cheat.sh/$1"
   curl "https://cheat.sh/$1"
+}
+
+function sqldeveloper() {
+  cd /opt/oracle/sqldeveloper
+  sdk use java 17.0.12-tem
+  ./sqldeveloper.sh
 }
 
 alias 1='cd-or-vim $(lf 1)'
