@@ -56,3 +56,5 @@
 	rebase = true
 [inti]
 	defaultBranch = main
+[init]
+	defaultBranch = main
