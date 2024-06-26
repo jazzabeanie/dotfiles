@@ -52,7 +52,10 @@ echo "  ncdu to analyze disk usage"
 echo "  awk \"{print \\\$COL_NUM}\" to get the column of some returned results" 
 echo "  \`| xargs SOME_COMMANDS\` to iterate over some results and execute comands on them"
 echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
+echo "  jx to view json files"
+echo "  sc as a alias to sgpt --code"
 echo "  ctrl+a : attach -c /some/directory to change the working directory of a tmux session"
+echo "  bat instead of cat"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
@@ -69,6 +72,7 @@ echo "                            - alternatively <prefix>q to see pane numbers 
 echo "  <prefix><HOME>          - swap current window with one on the left."
 echo "  <prefix><END>           - swap current window with one on the right."
 echo "  <prefix>a               - swap to previous window."
+echo "  <prefix>: \`attach -c /some/directory\` to change the working directory of a tmux session"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -140,8 +144,12 @@ plugins=(
   zsh-autosuggestions
   web-search
   dirhistory
+  fzf-tab # https://github.com/Aloxaf/fzf-tab
   # try vi-mode or vi-mode-like-keys to get more vim functionality. May need to remove the bindkey stuff below.
 )
+
+# Make fzf-tab use the tmux popup feature
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 source $ZSH/oh-my-zsh.sh
 
@@ -152,7 +160,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_AU.UTF-8
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Enable vi mode
 bindkey -v
@@ -160,7 +168,6 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 bindkey -M viins '^P' up-line-or-history
-
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -201,8 +208,7 @@ export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executa
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
 export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
-export GOPATH=${HOME}/go
-export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+export PATH="/opt/PanoplyJ:$PATH"
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
@@ -213,11 +219,14 @@ eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
-eval $(keychain --eval --agents ssh id_ed25519)  # To avoid having to enter my password on every git remote interaction
+eval $(keychain --eval --agents ssh id_ed25519 bitbucket_AIMS)  # To avoid having to enter my password on every git remote interaction
 
 # Powerlevel10k settings:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Make sure the default context is used to not accidentally break the swarm.
+docker context use default
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
@@ -259,12 +268,25 @@ elif [[ "$(uname)" == "Linux" ]]; then
     # <<< conda initialize <<<
 fi
 
+source <(fx --comp bash)  # gives autocomplete for fx
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 echo ""
 pwd
 cd .
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# Add GNU ARM Embedded toolchain to path, required for developing pebble firmware:
+export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
