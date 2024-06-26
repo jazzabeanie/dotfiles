@@ -203,6 +203,7 @@ export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
 export GOPATH=${HOME}/go
 export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+export PATH="/opt/PanoplyJ:$PATH"
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
@@ -268,3 +269,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo ""
 pwd
 cd .
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
