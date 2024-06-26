@@ -114,7 +114,7 @@ Linux:
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
-- install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu) (should I try homebrew for linux?)
+- install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu)
   - `brew install jesseduffield/lazygit/lazygit`
 - install [gron](https://github.com/TomNomNom/gron)
   - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
