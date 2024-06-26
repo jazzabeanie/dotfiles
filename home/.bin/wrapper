@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# https://unix.stackexchange.com/questions/260753/tmux-line-wrap-indicator
+# use like `wrapper python some_script_that_outputs_long_lines.py`
+
+cols=$(tput cols)
+colsi=$((cols + 1))
+wrap=$(tput setaf 002)'>>> '$(tput sgr0)  # Light grey color
+
+"$@" | while IFS='' read -r line; do
+    while [ ${#line} -gt ${#wrap} ]; do
+        printf "%s\n" "${line}" | cut -c-"${cols}"
+        line="${wrap}$(printf "%s" "${line}" | cut -c"${colsi}"-)"
+    done
+done

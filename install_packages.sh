@@ -12,7 +12,7 @@ sudo apt update
 # sudo apt install --yes neovim # This doesn't install the latest version
 sudo apt install --yes tmux
 sudo apt install --yes ripgrep
-sudo apt install --yes cryptsetup
+# sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
 # should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
@@ -38,13 +38,13 @@ sudo apt install --yes keychain
 sudo apt install --yes bc # precision calculator
 sudo apt install --yes sshfs # let's me mount a remote folder locally
 sudo apt install --yes heif-gdk-pixbuf # HEIF codec
+sudo apt install --yes flameshot # nice screenshot app
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
 # lsd? - https://github.com/Peltoche/lsd
 # I had to play with permissions to get this to work
   # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
-sudo apt install --yes zsh
 sudo apt-get install --yes fd-find
 mkdir -p ~/.local
 mkdir -p ~/.local/bin
