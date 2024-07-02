@@ -28,6 +28,8 @@ alias dils='docker image ls'
 alias analyse_disk='ncdu'
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
+alias dcu='docker compose up'
+alias sc='sgpt --code'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
@@ -380,6 +382,16 @@ function transcribe() {
   # you will need to find the audio device index somehow
   ffmpeg -f alsa -i default -acodec mp3 /tmp/audio_to_transcribe.mp3
   whisper /tmp/audio_to_transcribe.mp3 --model tiny --language en
+}
+
+function capture_audio() {
+  if (($# == 0)); then
+    echo "Usage: capture_audio <output_mp3_filename>"
+    echo
+    echo "Requires ffmpeg and parec"
+    return 1
+  fi
+  parec -d alsa_output.pci-0000_00_1f.3.analog-stereo.monitor | ffmpeg -f s16le -ar 44100 -ac 2 -i - -codec:a libmp3lame -qscale:a 2 $1
 }
 
 function cheat() {
