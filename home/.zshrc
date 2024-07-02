@@ -53,6 +53,9 @@ echo "  awk \"{print \\\$COL_NUM}\" to get the column of some returned results"
 echo "  \`| xargs SOME_COMMANDS\` to iterate over some results and execute comands on them"
 echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
 echo "  ctrl+a : attach -c /some/directory to change the working directory of a tmux session"
+echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
+echo "  jx to view json files"
+echo "  sc as a alias to sgpt --code"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
@@ -201,6 +204,7 @@ export PATH="/usr/local/bin:$PATH"  # this came from Stu. There are some executa
 export PATH="/usr/local/sbin:$PATH"  # this came from Stu. sbin folder exists, but is empty.
 export PATH="/home/$USER/.bin:$PATH"  # this is where I keep some scripts
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin # this was added as part of the postgress install: http://postgresapp.com/documentation/cli-tools.html
+export PATH="/opt/PanoplyJ:$PATH"
 
 export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 
@@ -252,11 +256,13 @@ elif [[ "$(uname)" == "Linux" ]]; then
     # <<< conda initialize <<<
 fi
 
+source <(fx --comp bash)  # gives autocomplete for fx
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 echo ""
 pwd
