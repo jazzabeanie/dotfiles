@@ -28,6 +28,7 @@ alias dils='docker image ls'
 alias analyse_disk='ncdu'
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
+alias dcu='docker compose up'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
