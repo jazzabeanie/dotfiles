@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+#!/usr/bin/expect -f
+
+set timeout -1
+# Check if TRITON_DEV is set
+if {[info exists env(TRITON_DEV)]} {
+    set server $env(TRITON_DEV)
+    puts "connecting to $server"
+} else {
+    puts "ERROR: need to set TRITON_DEV first"
+    exit 1
+}
+
+set command "source ~/user_dotfiles/jj_bashrc"
+
+spawn ssh -o StrictHostKeyChecking=no -t -i /tmp/triton_ed25519.pem reefatlas@$server
+expect {
+    "Are you sure you want to continue connecting.*" {
+        send "yes\r"
+    }
+    "$ " {
+        send "$command\r"
+    }
+}
+interact
