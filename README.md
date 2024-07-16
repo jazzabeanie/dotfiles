@@ -209,6 +209,7 @@ dnsTunneling=true
       - ~~you should be able to add multiple nameservers lines in `/etc/resolv.conf`~~ 
     - ~~add the following to `/etc/wsl.conf`:~~
       - ~~`true` means it will generate `/etc/resolv.conf`, but gives it the wrong nameserver so you have to change it manually every reboot. `false` means it will not generate the file and. Set it to false and copy the file `sudo cp ~/.dotfiles/set_nameserver.sh /etc/profile.d/set_nameserver.sh`~~
+    - I have created `fix-nameserver` to do this change. It needs to be copied into somewhere like `/usr/local/sbin/` for it to run with sudo.
 - install winget packages
 
 ```
