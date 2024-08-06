@@ -407,6 +407,12 @@ function cheat() {
   curl "https://cheat.sh/$1"
 }
 
+function sqldeveloper() {
+  cd /opt/oracle/sqldeveloper
+  sdk use java 17.0.12-tem
+  ./sqldeveloper.sh
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
