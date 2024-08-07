@@ -214,7 +214,7 @@ eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
-eval $(keychain --eval --agents ssh id_ed25519)  # To avoid having to enter my password on every git remote interaction
+eval $(keychain --eval --agents ssh id_ed25519 bitbucket_AIMS)  # To avoid having to enter my password on every git remote interaction
 
 # Powerlevel10k settings:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
