@@ -29,6 +29,7 @@ brew install neovim
 brew install maccy
 brew install yt-dlp
 brew install gron
+brew install fx # JSON viewer / interacter
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
