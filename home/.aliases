@@ -309,7 +309,11 @@ function cd-or-vim() {
 		cd "$target"
 	else
 		echo "$target is a file"
-		e "$target"
+    if [[ "$target" == *.csv || "$target" == *.xlsx ]]; then
+      vd "$target"
+    else;
+		  e "$target"
+    fi
 	fi
 }
 

@@ -30,6 +30,8 @@ brew install neovim
 brew install maccy
 brew install yt-dlp
 brew install gron
+brew install fx # JSON viewer / interacter
+brew install visidata # for viwing tabular data
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
