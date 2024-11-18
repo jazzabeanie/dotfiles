@@ -30,6 +30,7 @@ alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
 alias dcu='docker compose up'
 alias sc='sgpt --code'
+alias eatlas-site='aws ssm start-session --target i-05d3ade931b6a9292 --document-name SSM-UserConfig-jjohnston --profile eAtlas'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
@@ -309,7 +310,11 @@ function cd-or-vim() {
 		cd "$target"
 	else
 		echo "$target is a file"
-		e "$target"
+    if [[ "$target" == *.csv || "$target" == *.xlsx ]]; then
+      vd "$target"
+    else;
+		  e "$target"
+    fi
 	fi
 }
 
