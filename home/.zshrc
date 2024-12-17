@@ -55,6 +55,7 @@ echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3
 echo "  jx to view json files"
 echo "  sc as a alias to sgpt --code"
 echo "  ctrl+a : attach -c /some/directory to change the working directory of a tmux session"
+echo "  bat instead of cat"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
