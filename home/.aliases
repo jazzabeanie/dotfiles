@@ -24,6 +24,7 @@ alias keepass='~/.bin/KeePassXC.AppImage'
 alias dils='docker image ls'
 # alias disk='' # TODO: implement du -sk * | sort -nr | cut -f2 | xargs -d "\n" du -sh  > diskuse.txt
 alias analyse_disk='ncdu'
+alias cat='bat --paging=never' # https://github.com/sharkdp/bat
 alias dcu='docker compose up'
 alias sc='sgpt --code'
 
