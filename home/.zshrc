@@ -52,6 +52,7 @@ echo "  \`| xargs SOME_COMMANDS\` to iterate over some results and execute coman
 echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3}" | uniq | xargs docker rmi -f\`"
 echo "  jx to view json files"
 echo "  sc as a alias to sgpt --code"
+echo "  bat instead of cat"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
