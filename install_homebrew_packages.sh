@@ -31,6 +31,7 @@ brew install yt-dlp
 brew install gron
 brew install fx # JSON viewer / interacter
 brew install visidata # for viwing tabular data
+brew install fzf # fuzzy finder for terminal, required for fzf-lua in lazyvim
 
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
