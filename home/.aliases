@@ -28,6 +28,7 @@ alias dils='docker image ls'
 alias analyse_disk='ncdu'
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
+alias cat='bat --paging=never' # https://github.com/sharkdp/bat
 alias dcu='docker compose up'
 alias sc='sgpt --code'
 alias eatlas-site='aws ssm start-session --target i-05d3ade931b6a9292 --document-name SSM-UserConfig-jjohnston --profile eAtlas'
