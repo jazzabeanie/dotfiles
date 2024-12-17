@@ -142,8 +142,12 @@ plugins=(
   zsh-autosuggestions
   web-search
   dirhistory
+  fzf-tab # https://github.com/Aloxaf/fzf-tab
   # try vi-mode or vi-mode-like-keys to get more vim functionality. May need to remove the bindkey stuff below.
 )
+
+# Make fzf-tab use the tmux popup feature
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 source $ZSH/oh-my-zsh.sh
 
