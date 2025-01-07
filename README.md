@@ -37,6 +37,7 @@ OS X:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+- Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - run scirpts:
   - `setup_dotfiles.sh`
   - ~~`setup_vim.sh`~~
@@ -112,6 +113,7 @@ Linux:
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+- Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu)
