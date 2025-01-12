@@ -72,6 +72,7 @@ echo "                            - alternatively <prefix>q to see pane numbers 
 echo "  <prefix><HOME>          - swap current window with one on the left."
 echo "  <prefix><END>           - swap current window with one on the right."
 echo "  <prefix>a               - swap to previous window."
+echo "  <prefix>: \`attach -c /some/directory\` to change the working directory of a tmux session"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
