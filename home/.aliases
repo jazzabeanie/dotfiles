@@ -418,6 +418,15 @@ function sqldeveloper() {
   ./sqldeveloper.sh
 }
 
+function ssm() {
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+    echo '`ssm` is an alias for aws ssm start-session --target INSTANCE_ID'
+		return 1
+	fi
+  aws ssm start-session --target $1
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
