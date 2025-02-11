@@ -424,7 +424,7 @@ function sqldeveloper() {
 function ssm() {
 	# Check if at least one argument is provided
 	if [ $# -eq 0 ]; then
-    echo '`ssm` is an alias for aws ssm start-session --target INSTANCE_ID'
+    echo '`ssm` is an alias for aws ssm start-session --target INSTANCE_ID --document-name SSM-UserConfig-jjohnston'
 		return 1
 	fi
   aws ssm start-session --target $1
