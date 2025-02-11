@@ -339,6 +339,9 @@ function vicd()
 }
 
 function tn-start() {
+  if [[ -d "./conda-env" ]]; then
+    ca
+  fi
   if [[ -f "README.md" ]]; then
     e "README.md"
   elif [[ -f "TODO.md" ]]; then
