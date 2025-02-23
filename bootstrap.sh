@@ -41,13 +41,19 @@ if [ -f "install_packages.sh" ]; then
     ./install_packages.sh
 fi
 
-# 2. Install snaps
+# 2. Install Docker
+if [ -f "install_docker.sh" ]; then
+    echo -e "${BLUE}Running install_docker.sh...${NC}"
+    ./install_docker.sh
+fi
+
+# 3. Install snaps
 if [ -f "install_snaps.sh" ]; then
     echo -e "${BLUE}Running install_snaps.sh...${NC}"
     sudo ./install_snaps.sh
 fi
 
-# 3. Setup dotfiles symlinks
+# 4. Setup dotfiles symlinks
 if [ -f "setup_dotfiles.sh" ]; then
     echo -e "${BLUE}Running setup_dotfiles.sh...${NC}"
     ./setup_dotfiles.sh
