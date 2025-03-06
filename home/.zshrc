@@ -221,6 +221,12 @@ eval "$(zoxide init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Make sure the default context is used to not accidentally break the swarm.
+docker context use default
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
 
 # <<< conda initialize <<<
 # I think there is a conflict between /home and /Users between Ubuntu and MacOS. I have used the CONDA_PREFIX 
