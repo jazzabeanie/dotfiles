@@ -226,6 +226,9 @@ eval $(keychain --eval --agents ssh id_ed25519 bitbucket_AIMS)  # To avoid havin
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Make sure the default context is used to not accidentally break the swarm.
+docker context use default
+
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
