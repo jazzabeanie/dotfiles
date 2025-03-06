@@ -160,7 +160,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_AU.UTF-8
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Enable vi mode
 bindkey -v
@@ -169,6 +169,13 @@ bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 bindkey -M viins '^P' up-line-or-history
 
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+    # Check if /mnt/p is already mounted
+    if ! mountpoint -q /mnt/p; then
+        # Mount the P: drive to /mnt/p
+        sudo mount -t drvfs P: /mnt/p
+    fi
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -220,9 +227,17 @@ eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
+# eval $(keychain --eval --agents ssh id_ed25519)  # If you have password protected your ssh keys. To avoid having to enter my password on every git remote interaction
+
 # Powerlevel10k settings:
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Make sure the default context is used to not accidentally break the swarm.
+docker context use default
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
 
 
 # <<< conda initialize <<<
@@ -276,6 +291,9 @@ cd .
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# Add GNU ARM Embedded toolchain to path, required for developing pebble firmware:
+export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

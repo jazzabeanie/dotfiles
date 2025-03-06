@@ -37,7 +37,9 @@ OS X:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+  - `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - run scirpts:
   - `setup_dotfiles.sh`
   - ~~`setup_vim.sh`~~
@@ -87,11 +89,13 @@ Linux:
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
     - Make this run on startup by adding to `~/.profile`?
+  - Ubuntu 24 - See Mouse & Touchpad settings
 - install [homebrew](https://brew.sh/)
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - `setup_vim.sh`
-  - `install_packages.sh`
+- run scirpts: (note, sudo not required)
+  - `./setup_dotfiles.sh`
+  - `./setup_vim.sh`
+  - `./install_packages.sh`
+- manually install packages form `./install_homebrew_packages.sh` that aren't already installed from `./install_packages.sh`
 - Swap CAPS and Ctrl, either:
   - run `setxkbmap -option ctrl:nocaps`
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
@@ -113,6 +117,8 @@ Linux:
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+- Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew): `https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew`
 - Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
@@ -122,8 +128,10 @@ Linux:
   - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
   - move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`
-- install [pip](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.
-  - download the script to tmp, then run it with `python3 /tmp/get-pip.py`
+- install pip:
+  - ~~[install](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.~~
+  - ~~download the script to tmp, then run it with `python3 /tmp/get-pip.py`~~
+  - `sudo apt install python3-pip`
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
@@ -165,7 +173,8 @@ Random Linux box:
 
 Windows:
 
-- reverse mouse scroll:
+- ~~reverse mouse scroll:~~
+  - I think you can do this in native settings now.
 
 ```
 $devices = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device Parameters" -ErrorAction SilentlyContinue | Where-Object { $_.FlipFlopWheel -ne $null }
@@ -274,5 +283,4 @@ sudo chmod +x /usr/local/bin/xdg-open
   - install colour themes https://github.com/alacritty/alacritty-theme (including solarized)
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux
-- [lsd](https://github.com/Peltoche/lsd) - you can use snap to install if on Linux
 - beets - https://beets.io/ (is this required? zsh does a pretty good job)
