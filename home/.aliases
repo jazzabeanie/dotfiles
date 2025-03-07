@@ -427,7 +427,7 @@ function ssm() {
     echo '`ssm` is an alias for aws ssm start-session --target INSTANCE_ID --document-name SSM-UserConfig-jjohnston'
 		return 1
 	fi
-  aws ssm start-session --target $1
+  aws ssm start-session --target $1 --document-name SSM-UserConfig-jjohnston
 }
 
 alias 1='cd-or-vim $(lf 1)'
