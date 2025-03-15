@@ -157,7 +157,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_AU.UTF-8
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Enable vi mode
 bindkey -v
@@ -166,6 +166,10 @@ bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 bindkey -M viins '^P' up-line-or-history
 
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+    # Mount the P: drive to /mnt/p
+    sudo mount -t drvfs P: /mnt/p
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
