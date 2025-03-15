@@ -167,8 +167,11 @@ bindkey -M vicmd 'L' end-of-line
 bindkey -M viins '^P' up-line-or-history
 
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
-    # Mount the P: drive to /mnt/p
-    sudo mount -t drvfs P: /mnt/p
+    # Check if /mnt/p is already mounted
+    if ! mountpoint -q /mnt/p; then
+        # Mount the P: drive to /mnt/p
+        sudo mount -t drvfs P: /mnt/p
+    fi
 fi
 
 # Compilation flags
