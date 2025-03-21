@@ -1,0 +1,4 @@
+#!/bin/bash
+
+id=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=Pallas" "Name=instance-state-name,Values=running" --query "Reservations[*].Instances[*].InstanceId" --output text)
+aws ssm start-session --target $id --document-name SSM-UserConfig-jjohnston
