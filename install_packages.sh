@@ -12,7 +12,7 @@ sudo apt update
 # sudo apt install --yes neovim # This doesn't install the latest version
 sudo apt install --yes tmux
 sudo apt install --yes ripgrep
-sudo apt install --yes cryptsetup
+# sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
 # should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
@@ -45,7 +45,6 @@ sudo apt install --yes flameshot # nice screenshot app
 # lsd? - https://github.com/Peltoche/lsd
 # I had to play with permissions to get this to work
   # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
-sudo apt install --yes zsh
 sudo apt-get install --yes fd-find
 mkdir -p ~/.local
 mkdir -p ~/.local/bin
