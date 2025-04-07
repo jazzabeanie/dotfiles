@@ -93,6 +93,7 @@ Linux:
   - `./setup_dotfiles.sh`
   - `./setup_vim.sh`
   - `./install_packages.sh`
+- manually install packages form `./install_homebrew_packages.sh` that aren't already installed from `./install_packages.sh`
 - Swap CAPS and Ctrl, either:
   - run `setxkbmap -option ctrl:nocaps`
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
