@@ -276,5 +276,4 @@ sudo chmod +x /usr/local/bin/xdg-open
   - install colour themes https://github.com/alacritty/alacritty-theme (including solarized)
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux
-- [lsd](https://github.com/Peltoche/lsd) - you can use snap to install if on Linux
 - beets - https://beets.io/ (is this required? zsh does a pretty good job)
