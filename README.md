@@ -37,7 +37,9 @@ OS X:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+  - `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - run scirpts:
   - `setup_dotfiles.sh`
   - ~~`setup_vim.sh`~~
@@ -115,6 +117,7 @@ Linux:
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
 - Install [alacritty](https://github.com/alacritty/alacritty)
 - Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew): `https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew`
 - Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
 - setup link to S3 bucket.
@@ -168,7 +171,8 @@ Random Linux box:
 
 Windows:
 
-- reverse mouse scroll:
+- ~~reverse mouse scroll:~~
+  - I think you can do this in native settings now.
 
 ```
 $devices = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device Parameters" -ErrorAction SilentlyContinue | Where-Object { $_.FlipFlopWheel -ne $null }

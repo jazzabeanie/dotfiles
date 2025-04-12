@@ -10,6 +10,8 @@ sudo apt update
 # chmod 755 ~/bin/vcprompt
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 # sudo apt install --yes neovim # This doesn't install the latest version
+sudo apt install --yes curl
+sudo atp install --yes zsh
 sudo apt install --yes tmux
 sudo apt install --yes ripgrep
 # sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
