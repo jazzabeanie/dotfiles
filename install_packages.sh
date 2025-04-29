@@ -10,6 +10,8 @@ sudo apt update
 # chmod 755 ~/bin/vcprompt
 # In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
 # sudo apt install --yes neovim # This doesn't install the latest version
+sudo apt install --yes curl
+sudo atp install --yes zsh
 sudo apt install --yes tmux
 sudo apt install --yes ripgrep
 # sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
@@ -39,6 +41,7 @@ sudo apt install --yes bc # precision calculator
 sudo apt install --yes sshfs # let's me mount a remote folder locally
 sudo apt install --yes heif-gdk-pixbuf # HEIF codec
 sudo apt install --yes flameshot # nice screenshot app
+sudo apt install --yes lsd # ls improved
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
