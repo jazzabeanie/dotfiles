@@ -46,8 +46,8 @@
     prompt = false
     conflictstyle = diff3
 # Andre de Jager also has this in his .gitconfig because he uses neovim:
-# [mergetool "vimdiff"]
-#   cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
+[mergetool "vimdiff"]
+    cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
 [credential]
 	  helper = cache
 [interactive]
