@@ -287,6 +287,7 @@ cd .
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+export PATH=$PATH:/snap/bin
 
 # Add GNU ARM Embedded toolchain to path, required for developing pebble firmware:
 export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"
