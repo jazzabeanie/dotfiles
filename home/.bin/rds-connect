@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check required environment variables
+if [ -z "$AWS_PROFILE" ]; then
+  echo "AWS_PROFILE environment variable is not set, using default profile"
+fi
+if [ -z "$RDS_SECRET" ]; then
+  echo "Error: RDS_SECRET environment variable is not set"
+  exit 1
+fi
+# Check the port is being forwarded
+if ! pgrep -f "ssm.*AWS-StartPortForwardingSessionToRemoteHost.*5432" > /dev/null; then
+  echo "Error: Port forwarding to RDS doesn't appear to be active. See https://aimsgovau.sharepoint.com/sites/ADCTeam/SitePages/Connecting-to-an-RDS-Database.aspx"
+  exit 1
+fi
+
+USERNAME=$(aws secretsmanager get-secret-value --profile $AWS_PROFILE --secret-id $RDS_SECRET | jq -r '.SecretString' | jq -r '.username') 
+echo "Username is $USERNAME"
+
+PASSWORD=$(aws secretsmanager get-secret-value --profile $AWS_PROFILE --secret-id $RDS_SECRET | jq -r '.SecretString' | jq -r '.password')
+echo "Password is $PASSWORD"
+
+psql postgresql://$USERNAME:$PASSWORD@localhost:5432/postgres?sslmode=require

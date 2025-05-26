@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Check required environment variables
+if [ -z "$AWS_PROFILE" ]; then
+  echo "AWS_PROFILE environment variable is not set, using default profile"
+fi
+if [ -z "$BASTION_NAME" ]; then
+  echo "Error: BASTION_NAME environment variable is not set"
+  exit 1
+fi
+if [ -z "$RDS_SECRET" ]; then
+  echo "Error: RDS_SECRET environment variable is not set"
+  exit 1
+fi
+
+# Get connection details
+INSTANCE_ID=$(aws ec2 describe-instances --profile $AWS_PROFILE --filters Name=tag:Name,Values=$BASTION_NAME Name=instance-state-name,Values=running --query "Reservations[].Instances[?State.Name == 'running'].InstanceId[]" --output text) 
+echo "Current bastion is $INSTANCE_ID" 
+
+HOST=$(aws secretsmanager get-secret-value --profile $AWS_PROFILE --secret-id $RDS_SECRET | jq -r '.SecretString' | jq -r '.host') 
+echo "Current RDS is $HOST" 
+
+# Forward port
+aws ssm start-session --profile $AWS_PROFILE --target $INSTANCE_ID --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters host=$HOST,portNumber="5432",localPortNumber="5432"
