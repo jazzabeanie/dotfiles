@@ -53,6 +53,7 @@ echo "  combine the two above, eg \`docker image ls | grep cdk | awk "{print \$3
 echo "  jx to view json files"
 echo "  sc as a alias to sgpt --code"
 echo "  bat instead of cat"
+echo "  trash-put to move files to the trash instead of deleting them"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
