@@ -56,6 +56,7 @@ echo "  jx to view json files"
 echo "  sc as a alias to sgpt --code"
 echo "  ctrl+a : attach -c /some/directory to change the working directory of a tmux session"
 echo "  bat instead of cat"
+echo "  trash-put to move files to the trash instead of deleting them"
 echo ""
 echo "If you are in tmux, here are some useful commands:"
 echo "  <prefix>s               - interactivly switch between sessions"
@@ -283,6 +284,7 @@ cd .
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+export PATH=$PATH:/snap/bin
 
 # Add GNU ARM Embedded toolchain to path, required for developing pebble firmware:
 export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"

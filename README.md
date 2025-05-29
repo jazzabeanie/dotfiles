@@ -240,7 +240,7 @@ winget install Microsoft.PowerToys -s winget
   - install [oh-my-zsh](https://ohmyz.sh/)
     - also install Powerlevel10k, and zsh-autosuggestions (instructions above)
   - install [nvm](https://github.com/nvm-sh/nvm)
-    - then install node `nvim install node`
+    - then install node `nvm install node`
   - ~~install [neovim following AppImage instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)~~
     - maybe it's better to install with [homebrew[(https://docs.brew.sh/Homebrew-on-Linux)
     - May also need to install [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)

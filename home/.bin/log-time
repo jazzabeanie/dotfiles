@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Display help message
+show_help() {
+    echo "Usage: log-time <activity_description>"
+    echo "Logs the current time and activity to $HOME/TODO/timesheet.csv"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help    Display this help message and exit"
+}
+
+date=$(date +%Y%m%d%H%M)
+
+# Check if help requested or incorrect parameters
+if [[ "$1" == "-h" || "$1" == "--help" || $# -eq 0 || $# -gt 1 ]]; then
+    show_help
+    exit 1
+fi
+
+echo "$date,,,,$1" >> "$HOME/TODO/timesheet.csv"

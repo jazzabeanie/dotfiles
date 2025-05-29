@@ -42,6 +42,7 @@ sudo apt install --yes sshfs # let's me mount a remote folder locally
 sudo apt install --yes heif-gdk-pixbuf # HEIF codec
 sudo apt install --yes flameshot # nice screenshot app
 sudo apt install --yes lsd # ls improved
+sudo apt install --yes trash-cli # trash command line utility. Safer than rm
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
