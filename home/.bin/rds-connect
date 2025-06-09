@@ -20,4 +20,8 @@ echo "Username is $USERNAME"
 PASSWORD=$(aws secretsmanager get-secret-value --profile $AWS_PROFILE --secret-id $RDS_SECRET | jq -r '.SecretString' | jq -r '.password')
 echo "Password is $PASSWORD"
 
+export PAGER='vd -f csv'
+echo "run the following commands to make vididata work as the pager:"
+echo "\pset format csv"
+echo "\pset pager always"
 psql postgresql://$USERNAME:$PASSWORD@localhost:5432/postgres?sslmode=require
