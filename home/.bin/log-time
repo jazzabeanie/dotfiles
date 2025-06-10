@@ -9,7 +9,8 @@ show_help() {
     echo "  -h, --help    Display this help message and exit"
 }
 
-date=$(date +%Y%m%d%H%M)
+datetime=$(date +%Y%m%d%H%M)
+date=$(echo "$datetime" | cut -c1-8)
 
 # Check if help requested or incorrect parameters
 if [[ "$1" == "-h" || "$1" == "--help" || $# -eq 0 || $# -gt 1 ]]; then
@@ -17,4 +18,4 @@ if [[ "$1" == "-h" || "$1" == "--help" || $# -eq 0 || $# -gt 1 ]]; then
     exit 1
 fi
 
-echo "$date,,,,$1" >> "$HOME/TODO/timesheet.csv"
+echo "$datetime,$date,,,,$1" >> "$HOME/TODO/timesheet.csv"
