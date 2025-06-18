@@ -10,3 +10,4 @@ git-smudge-clean-filter
 connect
 portforward
 .ssh/config
+check-swarm
