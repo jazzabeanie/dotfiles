@@ -8,4 +8,5 @@ ssh adcdev01 "sudo salt -C 'adc-worker* or adc-manager* or adc-portainer*' --out
 
 echo ""
 echo "Checking the status of the ADC Swarm nodes"
-ssh adc-manager "docker service ls | grep '0/1'"
+# ssh adc-manager "docker service ls | grep '0/@'"
+ssh adc-manager 'docker service ls | awk "(NR == 1) || (\$4 ~ \"0.*\") {print \$2, \$4}" | column -t | grep -v "0/0"'
