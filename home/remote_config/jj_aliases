@@ -1,0 +1,252 @@
+#!/bin/bash
+
+# to use visidata as the pager app in psql, export this before running psql `export PAGER='vd --filetype=tsv --delimiter="|" --undo=true --header=1 -'`
+
+## Processes
+alias tu='top -o cpu'   #cpu
+alias tm='top -o vsize' #memory
+
+## Command Line
+#alias l.='ls -d .[^.]*'
+alias cp='cp -i'
+alias mv='mv -i'
+alias l='ls -alhtr' # long, most recent first, colour
+alias e='vim'
+#alias ll='ls -Fol'
+alias la='ls -lah'
+alias cdw='cd ~/Workspace'
+alias tailf='tail -f'
+alias cdev='cd ~/.dotfiles/home'
+alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
+alias lg='lazygit'
+alias keepass='~/.bin/KeePassXC.AppImage'
+alias dils='docker image ls'
+
+if [ "$(uname -s)" = "Linux" ]; then
+	alias open='xdg-open'
+fi
+
+function cd() {
+	# This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
+	# It also shows how which number to use for the lf function
+	new_directory="$*"
+	if [ $# -eq 0 ]; then # This may be redundant with zsh / oh-my-zsh
+		new_directory=${HOME}
+	fi
+	# TODO: make this keep colours
+	builtin cd "${new_directory}" && ls -lhtr | tac | cat -n | tac | sed 's/^[[:space:]]*\([0-9]*\)[[:space:]]*\(.*\)/[\1]  \2 [\1]/'g # works with lf function
+	# builtin cd "${new_directory}" && ls -lahtr
+}
+
+# ## This is the equivalent for zoxide:
+# TODO: make this work:
+# function z() {
+#   new_directory="$*";
+# 	builtin z "${new_directory}" && ls -lah
+# }
+
+function largest() {
+	du -h . | grep ^[0-9.][0-9.]G
+	du -h . | grep ^[5-9][0-9][0-9.]M
+}
+
+# https://scriptingosx.com/2017/02/terminal-finder-interaction/
+# prints the path of the front Finder window. Desktop if no window open
+function pwdf() {
+	osascript <<EOS
+        tell application "Finder"
+            if (count of Finder windows) is 0 then
+                set dir to (desktop as alias)
+            else
+                set dir to ((target of Finder window 1) as alias)
+            end if
+            return POSIX path of dir
+        end tell
+EOS
+}
+
+# changes directory to frontmost Finder window
+alias cdf='pwdf; cd "$(pwdf)"'
+
+function ca() {
+	conda_directory="$1"
+	if [ $# -eq 0 ]; then
+		conda_directory=conda-env
+	fi
+	# cd ${conda_directory}
+	conda activate "${conda_directory}"/
+}
+
+## This changed directories to desktop
+function desk() {
+	cd ~/Desktop/
+}
+function mark {
+	export $1=$(pwd)
+}
+## when I want to remember a directory, I can just type, e.g. `mark there` then to change back to it I type `cd $there`
+
+function trash {
+  gio trash $1 # moves it to .local/share/Trash/files
+  # https://superuser.com/questions/1706520/deleting-files-and-emptying-trash-in-wsl
+}
+
+function g() {
+	git "$@"
+	if ! [[ $1 == "st" || $1 == "status" || $1 == "u" ]]; then
+		git status
+	fi
+	# ls -lah
+}
+
+function untar {
+	if (($# == 0)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "untar takes 1 argument: the *.tar.gz file to unzip"
+		return
+	fi
+	tar -xvzf "$@"
+}
+
+function sha256 {
+	if (($# == 0)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "sha256 takes 1 argument: the file to hash"
+		return
+	fi
+	openssl dgst -sha256 "$@"
+}
+
+function lsvim {
+	ls -lah | vim -
+}
+
+function pbcopy { # Makes pbcopy work on linux
+	if [ "$(uname -s)" = "Linux" ]; then
+		xargs echo -n $@ | xclip -sel clip # Remove trailing newline then copy
+	else
+		pbcopy $@
+	fi
+}
+
+function lf() {
+	# https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
+	# This is a dependency of the navagation shortcuts below (alias 1='cd_or_vim $(lf 1)')
+	if [[ -z "${1}" ]]; then # checks if param 1 is empty
+		n=1
+	else
+		n="${1}"
+	fi
+	ls -rt1 | tail -n ${n} | head -n 1
+}
+
+function cd_or_vim() {
+	# Check if at least one argument is provided
+	if [ $# -eq 0 ]; then
+		echo "Usage: cd_or_vim <directory or file>"
+		return 1
+	fi
+
+	# FIXME: make this work if the directory has a space at the end of it.
+
+	# Combine all arguments into a single string
+	target="$*"
+
+	# Check if the target exists and is a directory
+	if [ -d "$target" ]; then
+		echo "$target is a directory"
+		cd "$target"
+	else
+		echo "$target is a file"
+		e "$target"
+	fi
+}
+
+function check_json() {
+	if (($# != 1)); then
+		# if [[ $# -eq 0 ]]; then
+		echo "check_json takes 1 argument - the json file to parse"
+		return
+	fi
+	cat $1 | python3 -c "import sys,json;json.loads(sys.stdin.read());print('OK')"
+}
+
+function vicd()
+{
+    # https://beepscore.com/website/2020/05/09/how-to-change-directory-quickly-with-vifm.html 
+    local dst="$(command vifm --choose-dir - . ~)"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+
+function tn() {
+	if (($# == 0)); then
+    local dir_name=$(basename "$PWD")
+		tmux new -s "$dir_name"
+		return
+	fi
+  tmux new -s "$@"
+}
+
+function ta() {
+	if (($# == 0)); then
+		tmux a
+	fi
+  tmux a "$@"
+}
+
+alias 1='cd_or_vim $(lf 1)'
+alias 2='cd_or_vim $(lf 2)'
+alias 3='cd_or_vim $(lf 3)'
+alias 4='cd_or_vim $(lf 4)'
+alias 5='cd_or_vim $(lf 5)'
+alias 6='cd_or_vim $(lf 6)'
+alias 7='cd_or_vim $(lf 7)'
+alias 8='cd_or_vim $(lf 8)'
+alias 9='cd_or_vim $(lf 9)'
+alias 10='cd_or_vim $(lf 10)'
+alias 11='cd_or_vim $(lf 11)'
+alias 12='cd_or_vim $(lf 12)'
+alias 13='cd_or_vim $(lf 13)'
+alias 14='cd_or_vim $(lf 14)'
+alias 15='cd_or_vim $(lf 15)'
+alias 16='cd_or_vim $(lf 16)'
+alias 17='cd_or_vim $(lf 17)'
+alias 18='cd_or_vim $(lf 18)'
+alias 19='cd_or_vim $(lf 19)'
+alias 20='cd_or_vim $(lf 20)'
+alias 21='cd_or_vim $(lf 21)'
+alias 22='cd_or_vim $(lf 22)'
+alias 23='cd_or_vim $(lf 23)'
+alias 24='cd_or_vim $(lf 24)'
+alias 25='cd_or_vim $(lf 25)'
+alias 26='cd_or_vim $(lf 26)'
+alias 27='cd_or_vim $(lf 27)'
+alias 28='cd_or_vim $(lf 28)'
+alias 29='cd_or_vim $(lf 29)'
+alias 30='cd_or_vim $(lf 30)'
+alias 31='cd_or_vim $(lf 31)'
+alias 32='cd_or_vim $(lf 32)'
+alias 33='cd_or_vim $(lf 33)'
+alias 34='cd_or_vim $(lf 34)'
+alias 35='cd_or_vim $(lf 35)'
+alias 36='cd_or_vim $(lf 36)'
+alias 37='cd_or_vim $(lf 37)'
+alias 38='cd_or_vim $(lf 38)'
+alias 39='cd_or_vim $(lf 39)'
+alias 40='cd_or_vim $(lf 40)'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+alias ..........="cd ../../../../../../../../.."
+alias ...........="cd ../../../../../../../../../.."
+alias ............="cd ../../../../../../../../../../.."
+alias .............="cd ../../../../../../../../../../../.."
