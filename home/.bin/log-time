@@ -2,20 +2,28 @@
 
 # Display help message
 show_help() {
-    echo "Usage: log-time <activity_description>"
+    echo "Usage: log-time <activity_description> [replacement_time]"
     echo "Logs the current time and activity to $HOME/TODO/timesheet.csv"
     echo ""
     echo "Options:"
     echo "  -h, --help    Display this help message and exit"
+    echo "  replacement_time    Optional time to replace end of timestamp (e.g. '05' replaces minutes)"
 }
 
 datetime=$(date +%Y%m%d%H%M)
 date=$(echo "$datetime" | cut -c1-8)
 
-# Check if help requested or incorrect parameters
-if [[ "$1" == "-h" || "$1" == "--help" || $# -eq 0 || $# -gt 1 ]]; then
+# Check if help requested
+if [[ "$1" == "-h" || "$1" == "--help" || $# -eq 0 ]]; then
     show_help
     exit 1
+fi
+
+# If a replacement string is provided, replace the end of datetime
+if [[ $# -eq 2 ]]; then
+    replacement_length=${#2}
+    datetime=${datetime:0:$((12-replacement_length))}${2}
+    date=$(echo "$datetime" | cut -c1-8)
 fi
 
 echo "$datetime,$date,,,,$1" >> "$HOME/TODO/timesheet.csv"
