@@ -1,0 +1,26 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+# Check if an argument is provided
+if { $argc > 0 } {
+    set arg [lindex $argv 0]
+    if { $arg == "01" } {
+        set server "adcdev01"
+    } elseif { $arg == "02" } {
+        set server "adcdev02"
+    } else {
+        puts "Invalid argument. Use '01' for adcdev01 or '02' for adcdev02."
+        exit 1
+    }
+} else {
+    puts "Please provide an argument: '01' for adcdev01 or '02' for adcdev02."
+    exit 1
+}
+
+set command "source ~/user_dotfiles/jj_bashrc"
+
+spawn ssh $server
+expect "$ "
+send "$command\r"
+interact
