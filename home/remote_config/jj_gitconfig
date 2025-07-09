@@ -1,0 +1,45 @@
+[alias]
+  aa = add --all
+  amend = commit --amend
+  b = !git branch && git status
+  ci = !git commit -v --author="Jared Johnston <jared@johnston.notreal>" && git status
+  co = !git checkout
+  di = !git diff && git status
+  dc = diff -- cached
+  ff = merge --ff-only
+  lo = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  lop = log master..$1 --pretty=format:%s
+  pom = push origin master
+  pullff = pull --ff-only
+  st = status
+  rb = !git rebase && git status
+  fe = !git fetch --all && git status
+  u = !git fetch && git rebase && git status
+  l = log --all --graph --abbrev-commit --date=local --date=iso-strict --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+ 
+[color]
+  ui = true
+
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = false
+  safecrlf = true
+
+[push]
+	default = matching
+[safe]
+	directory = /etc/nginx/sites-available
+	directory = /etc/apache2/sites-available
+	directory = /etc/varnish
+	directory = /home/reefatlas/nextcloud/nc/apps/sharealias
+	directory = /home/reefatlas/nextcloud/nc/apps/sharealiasui
+	directory = /home/reefatlas/nextcloud/nc/themes
+	directory = /home/reefatlas/e-atlas_site/maps/atlasmapper
+	directory = /home/reefatlas/amps_site/maps/atlasmapper
+	directory = /home/reefatlas/northwestatlas/maps/atlasmapper
+	directory = /home/reefatlas/ts.e-atlas/maps/atlasmapper
+	directory = /home/reefatlas/keycloak
+	directory = /home/reefatlas/nextcloud
+	directory = /etc/nginx
+[init]
+	defaultBranch = main
