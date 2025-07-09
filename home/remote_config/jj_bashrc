@@ -20,6 +20,8 @@ edit_wo_executing() {
 bind -x '"\C-e":edit_wo_executing'
 bind -m vi-command '"v": ignore' # https://unix.stackexchange.com/questions/653739/how-do-i-disable-esc-v-in-bash-opening-the-previous-command-in-an-editor
 
+export GIT_CONFIG="/home/reefatlas/user_dotfiles/jj_gitconfig"
+
 # Set McFly to use light colour scheme
 export MCFLY_LIGHT=TRUE
 export MCFLY_RESULTS_SORT=LAST_RUN
@@ -31,7 +33,7 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 # fi
 # # Maybe try these solutions: https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
 
-source /tmp/jj_aliases
+source ~/user_dotfiles/jj_aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
 if [ "$(uname -s)" = "Linux" ]; then
@@ -142,7 +144,7 @@ export NVM_DIR="/home/jaredjohnston/.nvm"
 export PATH=$HOME/local/bin:$PATH
 # hist import
 
-export MYVIMRC="/tmp/jj_vimrc"
+export MYVIMRC="~/user_dotfiles/jj_vimrc"
 export VIMINIT="source $MYVIMRC"
 
 # # Generated for envman. Do not edit. I have commented out because I don't think I use envman
