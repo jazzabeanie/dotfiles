@@ -15,6 +15,7 @@ alias e='vim'
 #alias ll='ls -Fol'
 alias la='ls -lah'
 alias cdw='cd ~/Workspace'
+alias cdm='cd /home/jaredjohnston/Workspace/reefcloud-metrics'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
 alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
@@ -131,7 +132,7 @@ function pbcopy { # Makes pbcopy work on linux
 
 function lf() {
 	# https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
-	# This is a dependency of the navagation shortcuts below (alias 1='cd_or_vim $(lf 1)')
+	# This is a dependency of the navagation shortcuts below (alias 1='cd-or-vim $(lf 1)')
 	if [[ -z "${1}" ]]; then # checks if param 1 is empty
 		n=1
 	else
@@ -140,10 +141,10 @@ function lf() {
 	ls -rt1 | tail -n ${n} | head -n 1
 }
 
-function cd_or_vim() {
+function cd-or-vim() {
 	# Check if at least one argument is provided
 	if [ $# -eq 0 ]; then
-		echo "Usage: cd_or_vim <directory or file>"
+		echo "Usage: cd-or-vim <directory or file>"
 		return 1
 	fi
 
@@ -162,10 +163,10 @@ function cd_or_vim() {
 	fi
 }
 
-function check_json() {
+function check-json() {
 	if (($# != 1)); then
 		# if [[ $# -eq 0 ]]; then
-		echo "check_json takes 1 argument - the json file to parse"
+		echo "check-json takes 1 argument - the json file to parse"
 		return
 	fi
 	cat $1 | python3 -c "import sys,json;json.loads(sys.stdin.read());print('OK')"
@@ -198,46 +199,46 @@ function ta() {
   tmux a "$@"
 }
 
-alias 1='cd_or_vim $(lf 1)'
-alias 2='cd_or_vim $(lf 2)'
-alias 3='cd_or_vim $(lf 3)'
-alias 4='cd_or_vim $(lf 4)'
-alias 5='cd_or_vim $(lf 5)'
-alias 6='cd_or_vim $(lf 6)'
-alias 7='cd_or_vim $(lf 7)'
-alias 8='cd_or_vim $(lf 8)'
-alias 9='cd_or_vim $(lf 9)'
-alias 10='cd_or_vim $(lf 10)'
-alias 11='cd_or_vim $(lf 11)'
-alias 12='cd_or_vim $(lf 12)'
-alias 13='cd_or_vim $(lf 13)'
-alias 14='cd_or_vim $(lf 14)'
-alias 15='cd_or_vim $(lf 15)'
-alias 16='cd_or_vim $(lf 16)'
-alias 17='cd_or_vim $(lf 17)'
-alias 18='cd_or_vim $(lf 18)'
-alias 19='cd_or_vim $(lf 19)'
-alias 20='cd_or_vim $(lf 20)'
-alias 21='cd_or_vim $(lf 21)'
-alias 22='cd_or_vim $(lf 22)'
-alias 23='cd_or_vim $(lf 23)'
-alias 24='cd_or_vim $(lf 24)'
-alias 25='cd_or_vim $(lf 25)'
-alias 26='cd_or_vim $(lf 26)'
-alias 27='cd_or_vim $(lf 27)'
-alias 28='cd_or_vim $(lf 28)'
-alias 29='cd_or_vim $(lf 29)'
-alias 30='cd_or_vim $(lf 30)'
-alias 31='cd_or_vim $(lf 31)'
-alias 32='cd_or_vim $(lf 32)'
-alias 33='cd_or_vim $(lf 33)'
-alias 34='cd_or_vim $(lf 34)'
-alias 35='cd_or_vim $(lf 35)'
-alias 36='cd_or_vim $(lf 36)'
-alias 37='cd_or_vim $(lf 37)'
-alias 38='cd_or_vim $(lf 38)'
-alias 39='cd_or_vim $(lf 39)'
-alias 40='cd_or_vim $(lf 40)'
+alias 1='cd-or-vim $(lf 1)'
+alias 2='cd-or-vim $(lf 2)'
+alias 3='cd-or-vim $(lf 3)'
+alias 4='cd-or-vim $(lf 4)'
+alias 5='cd-or-vim $(lf 5)'
+alias 6='cd-or-vim $(lf 6)'
+alias 7='cd-or-vim $(lf 7)'
+alias 8='cd-or-vim $(lf 8)'
+alias 9='cd-or-vim $(lf 9)'
+alias 10='cd-or-vim $(lf 10)'
+alias 11='cd-or-vim $(lf 11)'
+alias 12='cd-or-vim $(lf 12)'
+alias 13='cd-or-vim $(lf 13)'
+alias 14='cd-or-vim $(lf 14)'
+alias 15='cd-or-vim $(lf 15)'
+alias 16='cd-or-vim $(lf 16)'
+alias 17='cd-or-vim $(lf 17)'
+alias 18='cd-or-vim $(lf 18)'
+alias 19='cd-or-vim $(lf 19)'
+alias 20='cd-or-vim $(lf 20)'
+alias 21='cd-or-vim $(lf 21)'
+alias 22='cd-or-vim $(lf 22)'
+alias 23='cd-or-vim $(lf 23)'
+alias 24='cd-or-vim $(lf 24)'
+alias 25='cd-or-vim $(lf 25)'
+alias 26='cd-or-vim $(lf 26)'
+alias 27='cd-or-vim $(lf 27)'
+alias 28='cd-or-vim $(lf 28)'
+alias 29='cd-or-vim $(lf 29)'
+alias 30='cd-or-vim $(lf 30)'
+alias 31='cd-or-vim $(lf 31)'
+alias 32='cd-or-vim $(lf 32)'
+alias 33='cd-or-vim $(lf 33)'
+alias 34='cd-or-vim $(lf 34)'
+alias 35='cd-or-vim $(lf 35)'
+alias 36='cd-or-vim $(lf 36)'
+alias 37='cd-or-vim $(lf 37)'
+alias 38='cd-or-vim $(lf 38)'
+alias 39='cd-or-vim $(lf 39)'
+alias 40='cd-or-vim $(lf 40)'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
