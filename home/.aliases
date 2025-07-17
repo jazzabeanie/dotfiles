@@ -32,6 +32,7 @@ alias dcu='docker compose up'
 alias sc='sgpt --code'
 alias eatlas-site='aws ssm start-session --target i-05d3ade931b6a9292 --document-name SSM-UserConfig-jjohnston --profile eAtlas'
 alias chat='nvim --cmd "autocmd VimEnter * ++once lua vim.defer_fn(function() vim.cmd(\"CopilotChat\") vim.cmd(\"bd 1\") end, 100)"'
+alias tf='terraform'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	alias open='xdg-open'
@@ -108,6 +109,12 @@ function ca() {
 function desk() {
 	cd ~/Desktop/
 }
+
+# Go to my new temp directory
+function cdt() {
+  cd ~/../temp/
+}
+
 function mark {
 	export $1=$(pwd)
 }
