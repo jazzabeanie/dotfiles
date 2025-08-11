@@ -4,7 +4,7 @@ echo "You must be on vpn to run this script"
 
 echo ""
 echo "Checking the storage usage of the ADC Swarm nodes"
-ssh adcdev01 "sudo salt -C 'adc-worker* or adc-manager* or adc-portainer*' --out=txt cmd.run 'df -h / | awk \"NR==2 {print \\\$5}\"'"
+ssh adcdev01 "sudo salt -C 'adc-worker* or adc-workhorse or adc-manager* or adc-portainer*' --out=txt cmd.run 'df -h / | awk \"NR==2 {print \\\$5}\"'"
 
 echo ""
 echo "Checking the status of the ADC Swarm nodes"
