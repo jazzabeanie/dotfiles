@@ -1,4 +1,5 @@
 #!/bin/bash
+KNOWN_FILE=~/Temp/.known_swarm_services
 
 echo "You must be on vpn to run this script"
 
@@ -7,6 +8,34 @@ echo "Checking the storage usage of the ADC Swarm nodes"
 ssh adcdev01 "sudo salt -C 'adc-worker* or adc-workhorse* or adc-manager* or adc-portainer*' --out=txt cmd.run 'df -h / | awk \"NR==2 {print \\\$5}\"'"
 
 echo ""
-echo "Checking the status of the ADC Swarm nodes"
-# ssh adc-manager "docker service ls | grep '0/@'"
-ssh adc-manager 'docker service ls | awk "(NR == 1) || (\$4 ~ \"^0.*\") {print \$2, \$4}" | column -t | grep -v "0/0"'
+echo "Checking the status of the ADC Swarm nodes (if it hangs, enter the sudo password for the adcadmin user on adc-manager)"
+SERVICE_LS_OUTPUT=$(ssh -t adc-manager 'sudo docker service ls')
+# Print status (replicates previous awk/column/grep logic)
+echo "Services with 0 replicas or 0 running tasks:"
+echo "$SERVICE_LS_OUTPUT" | awk '(NR == 1) || ($4 ~ "^0.*") {print $2, $4}' | column -t | grep -v "0/0"
+# ssh -t adc-manager 'sudo docker service ls | awk "(NR == 1) || (\$4 ~ \"^0.*\") {print \$2, \$4}" | column -t | grep -v "0/0"'
+
+echo ""
+# Extract service names for comparison
+CURRENT_SERVICES=$(echo "$SERVICE_LS_OUTPUT" | awk 'NR>1 {print $2}')
+
+NEW_SERVICES=""
+while read -r svc; do
+    if ! grep -Fxq "$svc" "$KNOWN_FILE"; then
+        NEW_SERVICES+="$svc"$'\n'
+    fi
+done <<< "$CURRENT_SERVICES"
+
+if [ -n "$NEW_SERVICES" ]; then
+    echo "New services not in the known file:"
+    echo "$NEW_SERVICES"
+    read -p "Do you want to update $KNOWN_FILE? [y/N] " answer
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+         echo "$CURRENT_SERVICES" > "$KNOWN_FILE"
+         echo "File updated."
+    else
+         echo "File not updated."
+    fi
+else
+    echo "No new services found."
+fi
