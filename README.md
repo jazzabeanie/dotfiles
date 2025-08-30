@@ -37,13 +37,14 @@ Linux:
   - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
   - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
 - reverse scroll direction
+  - Ubuntu 24 - See Mouse & Touchpad settings
+    - or run `gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true`
   - xfce: **Mouse and Touchpad** -> **Reverse scroll direction**
-  - gnome 
-    - `xinput --list` to get ID of the mouse. 
+  - gnome
+    - `xinput --list` to get ID of the mouse.
     - `xinput set-prop pointer:"Logitech G300s Optical Gaming Mouse" "libinput Natural Scrolling Enabled" 1` to reverse the direction
     - Add this to startup applications so that it runs every time.
     - Make this run on startup by adding to `~/.profile`?
-  - Ubuntu 24 - See Mouse & Touchpad settings
 - install [homebrew](https://brew.sh/)
 - run scirpts: (note, sudo not required)
   - `./setup_dotfiles.sh`
@@ -78,10 +79,10 @@ Linux:
 - install diff-so-fancy
   - `curl -s https://api.github.com/repos/so-fancy/diff-so-fancy/releases/latest | jq -r '.assets[0].browser_download_url' | xargs wget -O ~/.local/bin/diff-so-fancy`
   - `sudo chmod a+x ~/.local/bin/diff-so-fancy`
-- install [gron](https://github.com/TomNomNom/gron)
-  - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
-  - extract with `tar -xvzf /tmp/gron.tgz`
-  - move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`
+- ~~install [gron](https://github.com/TomNomNom/gron)~~ this is done with apt now
+  - ~~download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`~~
+  - ~~extract with `tar -xvzf /tmp/gron.tgz`~~
+  - ~~move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`~~
 - install pip:
   - ~~[install](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.~~
   - ~~download the script to tmp, then run it with `python3 /tmp/get-pip.py`~~
