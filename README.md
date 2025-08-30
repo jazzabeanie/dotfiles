@@ -71,6 +71,7 @@ Linux:
 
 - SSH keys:
   - Copy existing keys, or create new ssh key and add to github
+    - `ssh-keygen -t ed25519 -C "your_email@example.com"`
   - may also need to start the agent and add them there too.
     - `eval "$(ssh-agent -s)"`
     - `ssh-add ~/.ssh/KEY_NAME`
