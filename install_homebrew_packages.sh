@@ -54,7 +54,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   brew install --cask vlc
 # For Ubuntu/Debian (using APT)
 elif [[ "$(uname)" == "Linux" ]]; then
-  # no linux only homebrew packages
+  echo "no linux only homebrew packages"
 fi
 
 # The rest for both systems:
