@@ -91,7 +91,11 @@ Linux:
   - pipx inject visidata dependency
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
-  - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
+  - check if Ctrl+Shift+Space shortcut does anything. If it open quick access, configure it to open 1password instead to enable clipboard ignoring below.
+- set CopyQ shortcut
+  - Settings - Keyboard Shortcuts -> Custom shortcut
+  - Use `Shift + Super + V` with command `copyq -e "toggle()"`
+  - https://askubuntu.com/questions/1344833/copyq-global-shortcut-not-working-on-ubuntu-21-04
 - setup CopyQ clipboard manager to ignore passwords:
   - Open the main window, then File -> Commands. Cope the content below, then click "Paste Commands"
   ```
@@ -112,7 +116,6 @@ Linux:
   2\Remove=true
   size=2
   ```
-  - https://askubuntu.com/questions/1344833/copyq-global-shortcut-not-working-on-ubuntu-21-04
 - ~~sync my cheat fork~~ use cheat alias now
   - ~~ go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
   - ~~ `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
