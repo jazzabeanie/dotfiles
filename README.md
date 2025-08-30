@@ -93,7 +93,7 @@ Linux:
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
 - setup CopyQ clipboard manager to ignore passwords:
-  - https://askubuntu.com/questions/1344833/copyq-global-shortcut-not-working-on-ubuntu-21-04
+  - Open the main window, then File -> Commands. Cope the content below, then click "Paste Commands"
   ```
   [Commands]
   1\Automatic=true
@@ -112,6 +112,7 @@ Linux:
   2\Remove=true
   size=2
   ```
+  - https://askubuntu.com/questions/1344833/copyq-global-shortcut-not-working-on-ubuntu-21-04
 - ~~sync my cheat fork~~ use cheat alias now
   - ~~ go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
   - ~~ `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
