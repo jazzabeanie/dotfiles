@@ -17,9 +17,9 @@ sudo apt install --yes ripgrep
 # sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
-# should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
-  # sudo apt install python3-pip
-  # Instead use the get-pip.py script on the docs: https://pip.pypa.io/en/stable/installation/
+sudo apt install --yes python3-pip
+sudo apt install --yes pipx
+pipx ensurepath
 sudo apt install --yes libfuse2 # dependency of Joplin
 sudo apt install --yes xclip # This is to make tmux copy to system clipboard
 sudo apt install --yes jq # lightweight and flexible command-line JSON processor
@@ -69,7 +69,7 @@ sudo apt install --yes ripgrep
 sudo apt install --yes neovim
 sudo apt install --yes yt-dlp
 sudo apt install --yes gron
-sudo apt install --yes visidata
+# sudo apt install --yes visidata  # use pipx instead (see readme)
 sudo apt install --yes fzf
 sudo apt install --yes bat
 

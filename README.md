@@ -83,10 +83,12 @@ Linux:
   - ~~download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`~~
   - ~~extract with `tar -xvzf /tmp/gron.tgz`~~
   - ~~move to /usr/local/bin: `sudo mv /tmp/gron /usr/local/bin`~~
-- install pip:
-  - ~~[install](https://pip.pypa.io/en/stable/installation/) with `get-pip.py` script.~~
-  - ~~download the script to tmp, then run it with `python3 /tmp/get-pip.py`~~
-  - `sudo apt install python3-pip`
+- ~~install pip:~~ this is part of install_packages now
+  - ~~`sudo apt install python3-pip`~~
+    - ~~documentation says this can lead to confusion as pip is modified to be better for Ubuntu however inconsistent with documentation. If I have problems with pip I may need to go to ubuntu community for support (but this has never happened in the past).~~
+- install visidata:
+  - pipx install visidata
+  - pipx inject visidata dependency
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
   - Also configure Ctrl+Shift+Space to open 1password instead of the quick access to enable password ignoring below.
@@ -110,11 +112,10 @@ Linux:
   2\Remove=true
   size=2
   ```
-- `snap install fx`
-- sync my cheat fork
-  - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
-  - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
-  - the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets
+- ~~sync my cheat fork~~ use cheat alias now
+  - ~~ go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
+  - ~~ `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
+  - ~~ the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets~~
 
 Random Linux box:
 
