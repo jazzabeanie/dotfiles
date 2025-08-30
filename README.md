@@ -19,53 +19,6 @@ touch ~/.gitconfig.local
 
 ## Installing
 
-OS X:
-
-- Install Homebrew.
-- Install `xcode-select --install` (if required. It maybe installed with Homebrew)
-  - this should install git. Check with `git --version`
-- Change CAPS to Ctrl
-- Enable touch to click and 3 finger drag
-  - do this in Accessability
-- Setup git SSH keys
-  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-- `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- Install iTerm2
-  - [Set shortcut Command-Ctrl-T to launch new terminal](https://www.computerhope.com/issues/ch002051.htm) (make sure there are no spaces in the name of the automator script
-- install [oh-my-zsh](https://ohmyz.sh/#install)
-- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
-  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
-  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
-- Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
-- Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
-  - `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
-- run scirpts:
-  - `setup_dotfiles.sh`
-  - ~~`setup_vim.sh`~~
-    - setup neovim instead `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
-  - `install_homebrew_packages.sh`
-- ~~sync my cheat fork~~
-  - ~~go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
-  - ~~`git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
-  - ~~the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets~~
-- use [cheat.sh](https://github.com/chubin/cheat.sh) instead
-- Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
-- Install 1password
-- setup mountain duck (should have been installed by homebrew)
-  - license is in email (and probably Joplin)
-  - Create a new third party Access Key  on AWS
-  - Connect to S3 bucket
-    - get access keys from AWS IAM
-    - Path: jazzabeanie-personal-storage
-  - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
-- setup Joplin (should have been installed by homebrew)
-  - TODO: write the details of the settings
-- consider installing [BCLM](https://github.com/zackelia/bclm) to limit max battery charge. Once installed:
-  - `sudo bclm write 77`
-  - `bclm read`
-  - make it persist with `sudo bclm persist`. Unpersist with `sudo bclm unpersist`
-
 
 Linux:
 
@@ -96,7 +49,7 @@ Linux:
   - `./setup_dotfiles.sh`
   - `./setup_vim.sh`
   - `./install_packages.sh`
-- manually install packages form `./install_homebrew_packages.sh` that aren't already installed from `./install_packages.sh`
+- Check the  `./install_homebrew_packages.sh` and see what needs to be added to `install_packages.sh`
 - Swap CAPS and Ctrl, either:
   - run `setxkbmap -option ctrl:nocaps`
     - make this permanent by going to **Session and Startup** -> **Application Autostart** -> **+** and add this command.
@@ -117,14 +70,14 @@ Linux:
   - ~~Another option is https://github.com/jdhao/nvim-config~~
     - ~~This [suggests installing nvim by getting the latest stable release](https://github.com/jdhao/nvim-config/blob/master/docs/README.md). This is because this setup only works with the latest version of nvim and tools like snap or apt won't have the latest vesion.~~
 - Install [alacritty](https://github.com/alacritty/alacritty)
-- Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
-- Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew): `https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew`
-- Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+- ~~Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew): `https://github.com/junegunn/fzf?tab=readme-ov-file#using-homebrew`~~ use homebrew script
 - setup link to S3 bucket.
   - I'm using mountainduck on MacOS
 - install [lazygit](https://github.com/jesseduffield/lazygit#ubuntu)
   - `brew install jesseduffield/lazygit/lazygit`
+- install diff-so-fancy
+  - `curl -s https://api.github.com/repos/so-fancy/diff-so-fancy/releases/latest | jq -r '.assets[0].browser_download_url' | xargs wget -O ~/.local/bin/diff-so-fancy`
+  - `sudo chmod a+x ~/.local/bin/diff-so-fancy`
 - install [gron](https://github.com/TomNomNom/gron)
   - download [latest verion](https://github.com/tomnomnom/gron/releases) to `/tmp/gron.tgz`
   - extract with `tar -xvzf /tmp/gron.tgz`
@@ -156,7 +109,7 @@ Linux:
   2\Remove=true
   size=2
   ```
-
+- `snap install fx`
 - sync my cheat fork
   - go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork
   - `git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`
@@ -278,3 +231,51 @@ sudo chmod +x /usr/local/bin/xdg-open
 - install [solarized terminal theme](http://ethanschoonover.com/solarized)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - you can use snap to install if on Linux
 - beets - https://beets.io/ (is this required? zsh does a pretty good job)
+
+OS X:
+
+- Install Homebrew.
+- Install `xcode-select --install` (if required. It maybe installed with Homebrew)
+  - this should install git. Check with `git --version`
+- Change CAPS to Ctrl
+- Enable touch to click and 3 finger drag
+  - do this in Accessability
+- Setup git SSH keys
+  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+- `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
+- Install iTerm2
+  - [Set shortcut Command-Ctrl-T to launch new terminal](https://www.computerhope.com/issues/ch002051.htm) (make sure there are no spaces in the name of the automator script
+- install [oh-my-zsh](https://ohmyz.sh/#install)
+- Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)
+  - install [nerd font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) which is recommended for Powerlevel10k
+  - install [Powerlevel10k](https://github.com/romkatv/powerlevel10k#installation)
+- Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+- Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+  - `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+- run scirpts:
+  - `setup_dotfiles.sh`
+  - ~~`setup_vim.sh`~~
+    - setup neovim instead `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
+  - `install_homebrew_packages.sh`
+- ~~sync my cheat fork~~
+  - ~~go to ()[https://github.com/jazzabeanie/cheatsheets] and sync fork~~
+  - ~~`git clone https://github.com/jazzabeanie/cheatsheets.git ~/.config/cheat/cheatsheets/community/`~~
+  - ~~the cheat config file (.dotfiles/home/cheat_config.yml) will need updating with the correct directory paths for the cheatsheets~~
+- use [cheat.sh](https://github.com/chubin/cheat.sh) instead
+- Install SteerMouse - https://plentycom.jp/en/steermouse/download.php
+- Install 1password
+- setup mountain duck (should have been installed by homebrew)
+  - license is in email (and probably Joplin)
+  - Create a new third party Access Key  on AWS
+  - Connect to S3 bucket
+    - get access keys from AWS IAM
+    - Path: jazzabeanie-personal-storage
+  - Read more at https://cyberduck.io/s3/, and https://docs.cyberduck.io/protocols/s3/#connecting
+- setup Joplin (should have been installed by homebrew)
+  - TODO: write the details of the settings
+- consider installing [BCLM](https://github.com/zackelia/bclm) to limit max battery charge. Once installed:
+  - `sudo bclm write 77`
+  - `bclm read`
+  - make it persist with `sudo bclm persist`. Unpersist with `sudo bclm unpersist`
+
