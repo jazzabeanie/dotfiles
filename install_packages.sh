@@ -2,7 +2,8 @@
 # sudo apt update
 # now restart then run `sudo apt install snapd`
 
-sudo add-apt-repository ppa:phoerious/keepassxc
+# sudo add-apt-repository ppa:phoerious/keepassxc
+# sudo apt install --yes keepassxc
 sudo add-apt-repository ppa:hluk/copyq
 sudo apt update
 # curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
@@ -20,7 +21,7 @@ sudo apt install --yes zoxide
   # sudo apt install python3-pip
   # Instead use the get-pip.py script on the docs: https://pip.pypa.io/en/stable/installation/
 sudo apt install --yes libfuse2 # dependency of Joplin
-sudo apt install --yes xclip # This is to make tmux copy to system clipboardA
+sudo apt install --yes xclip # This is to make tmux copy to system clipboard
 sudo apt install --yes jq # lightweight and flexible command-line JSON processor
 sudo apt install --yes xsel # helps vim access clipboard (referred to in .vimrc)
 sudo apt install --yes libncursesw5-dev # required for vifm: https://github.com/vifm/vifm/blob/master/INSTALL
@@ -29,7 +30,6 @@ sudo apt install --yes gcc # homebrew dependencies
 sudo apt install --yes zip
 sudo apt install --yes libreadline-dev # required for `make` to work I think (did before building nnn from source anyway)
 sudo apt install --yes pkg-config # required for `make` to work I think (did before building nnn from source anyway)
-sudo apt install --yes keepassxc
 sudo apt install --yes expect # required for ./home/.bin/triton. automates scripts for interactive stuff
 sudo apt install --yes ncdu # analyses disk usage by folder
 sudo apt install --yes copyq
@@ -50,6 +50,7 @@ sudo apt install --yes git-extras
 sudo apt install --yes unrar
 sudo apt install --yes vim
 sudo apt install --yes wget
+sudo apt install --yes ncdu
 
 # Media tools (FFMPEG and its dependencies)
 sudo apt install --yes libfdk-aac-dev
@@ -71,6 +72,7 @@ sudo apt install --yes gron
 sudo apt install --yes visidata
 sudo apt install --yes fzf
 sudo apt install --yes bat
+
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 

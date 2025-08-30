@@ -60,9 +60,9 @@ Linux:
   - install [nvm](https://github.com/nvm-sh/nvm)
   - `nvm install --lts`
   - `nvm use --lts`
-- setup neovim: # TODO: put into homebrew script
-  - `git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim`
-  - `brew install neovim`
+- ~~setup neovim:~~
+  - ~~`git clone git@github.com:jazzabeanie/lazyvim-config.git ~/.config/nvim` (this is part of homebrew script now)~~
+  - ~~`brew install neovim` (this is part of homebrew script now)~~
   - ~~setup neovim: open neovim and run `:h nvim-from-vim` then follow the instructions.~~
     - ~~Setup [LazyVim](https://www.lazyvim.org/)~~
       - ~~install tree-sitter `sudo npm install -g tree-sitter-cli`~~
