@@ -20,7 +20,7 @@ edit_wo_executing() {
 bind -x '"\C-e":edit_wo_executing'
 bind -m vi-command '"v": ignore' # https://unix.stackexchange.com/questions/653739/how-do-i-disable-esc-v-in-bash-opening-the-previous-command-in-an-editor
 
-export GIT_CONFIG="/home/reefatlas/user_dotfiles/jj_gitconfig"
+export GIT_CONFIG="~/.gitconfig"
 
 # Set McFly to use light colour scheme
 export MCFLY_LIGHT=TRUE
@@ -33,7 +33,7 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 # fi
 # # Maybe try these solutions: https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
 
-source ~/user_dotfiles/jj_aliases
+source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
 if [ "$(uname -s)" = "Linux" ]; then
@@ -97,7 +97,6 @@ alias e='vim'
 alias la='ls -lah'
 #alias cdd='cd -'
 alias cdw='cd ~/Workspace'
-alias cdm='cd /home/jaredjohnston/Workspace/reefcloud-metrics'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
 alias h='cd ~/'
@@ -133,7 +132,7 @@ alias .............="cd ../../../../../../../../../../../.."
 # #rm -Rf ~/Library/Saved\ Application\ State/com.apple.Safari.savedState"
 
 #I uninstalled nodejs from nvm and installed it from the official ubuntu repository because I need to do it for tern for vim.
-export NVM_DIR="/home/jaredjohnston/.nvm"
+export NVM_DIR="~/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 #[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion # this enables nvm completion
 
@@ -144,24 +143,5 @@ export NVM_DIR="/home/jaredjohnston/.nvm"
 export PATH=$HOME/local/bin:$PATH
 # hist import
 
-export MYVIMRC="~/user_dotfiles/jj_vimrc"
+export MYVIMRC="~/.vimrc"
 export VIMINIT="source $MYVIMRC"
-
-# # Generated for envman. Do not edit. I have commented out because I don't think I use envman
-# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jaredjohnston/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jaredjohnston/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jaredjohnston/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
