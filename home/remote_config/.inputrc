@@ -1,0 +1,46 @@
+$include /etc/inputrc
+set completion-ignore-case On
+set editing-mode vi set keymap vi-command
+
+# `man readline` shows all possible remap commands
+# see also: http://linux.about.com/library/cmd/blcmdl3_readline.htm
+
+$if mode=vi
+
+  set keymap vi-command
+  # these are for vi-command mode
+  Control-l: clear-screen
+  "H": vi-first-print
+  "L": end-of-line
+
+  set keymap vi-insert
+  # these are for vi-insert mode
+  Control-l: clear-screen
+  Control-p: previous-history
+  Control-j: menu-complete
+  Control-k: menu-complete-backward
+  "jk": vi-movement-mode
+$endif
+
+# Home / End (various terminals)
+"\e[1~": beginning-of-line
+"\e[H": beginning-of-line
+"\eOH": beginning-of-line
+"\e[4~": end-of-line
+"\e[F": end-of-line
+"\eOF": end-of-line
+
+# Insert / Delete / PageUp / PageDown
+"\e[2~": yank                # or: overwrite-mode
+"\e[3~": delete-char
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+
+# Ctrl+Arrow (word movement)
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word        # fallback some terms
+"\e[5D": backward-word
+"\e[1;5A": previous-history  # optional
+"\e[1;5B": next-history      # optional
+
