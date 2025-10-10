@@ -235,6 +235,9 @@ winget install Microsoft.PowerToys -s winget
 - clone dotfiles
 - Change CAPS to Ctrl (using PowerToys)
 - in WSL:
+  - install [win32yank](https://github.com/equalsraf/win32yank)
+    - download, unzip, and move to `~/.local/bin`
+    - sudo chmod +x `~/.local/bin/win32yank.exe`
   - run `./setup_dotfiles.sh`
   - run `./install_packages.sh`
   - install [oh-my-zsh](https://ohmyz.sh/)

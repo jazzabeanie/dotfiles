@@ -12,6 +12,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias l='lsd -Flahrt' # long, most recent first, colour
 alias e='nvim'
+alias vim='nvim'
 #alias ll='ls -Fol'
 alias la='lsd -lah'
 alias cdw='cd ~/Workspace'
