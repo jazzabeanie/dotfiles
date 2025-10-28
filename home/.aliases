@@ -113,7 +113,7 @@ function desk() {
 
 # Go to my new temp directory
 function cdt() {
-  cd ~/../temp/
+  cd ~/Temp/
 }
 
 function mark {

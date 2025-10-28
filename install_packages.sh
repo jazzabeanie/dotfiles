@@ -2,8 +2,8 @@
 # sudo apt update
 # now restart then run `sudo apt install snapd`
 
-sudo add-apt-repository ppa:aos1/diff-so-fancy
-sudo add-apt-repository ppa:phoerious/keepassxc
+# sudo add-apt-repository ppa:phoerious/keepassxc
+# sudo apt install --yes keepassxc
 sudo add-apt-repository ppa:hluk/copyq
 sudo apt update
 # curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
@@ -17,11 +17,11 @@ sudo apt install --yes ripgrep
 # sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
 sudo apt install --yes direnv
 sudo apt install --yes zoxide
-# should I install this way? Official docs says it leads to confusion: https://pip.pypa.io/en/stable/installation/
-  # sudo apt install python3-pip
-  # Instead use the get-pip.py script on the docs: https://pip.pypa.io/en/stable/installation/
+sudo apt install --yes python3-pip
+sudo apt install --yes pipx
+pipx ensurepath
 sudo apt install --yes libfuse2 # dependency of Joplin
-sudo apt install --yes xclip # This is to make tmux copy to system clipboardA
+sudo apt install --yes xclip # This is to make tmux copy to system clipboard
 sudo apt install --yes jq # lightweight and flexible command-line JSON processor
 sudo apt install --yes xsel # helps vim access clipboard (referred to in .vimrc)
 sudo apt install --yes libncursesw5-dev # required for vifm: https://github.com/vifm/vifm/blob/master/INSTALL
@@ -30,7 +30,6 @@ sudo apt install --yes gcc # homebrew dependencies
 sudo apt install --yes zip
 sudo apt install --yes libreadline-dev # required for `make` to work I think (did before building nnn from source anyway)
 sudo apt install --yes pkg-config # required for `make` to work I think (did before building nnn from source anyway)
-sudo apt install --yes keepassxc
 sudo apt install --yes expect # required for ./home/.bin/triton. automates scripts for interactive stuff
 sudo apt install --yes ncdu # analyses disk usage by folder
 sudo apt install --yes copyq
@@ -43,6 +42,39 @@ sudo apt install --yes heif-gdk-pixbuf # HEIF codec
 sudo apt install --yes flameshot # nice screenshot app
 sudo apt install --yes lsd # ls improved
 sudo apt install --yes trash-cli # trash command line utility. Safer than rm
+sudo apt install --yes gnome-tweak-tool 
+# sudo apt install --yes lazygit # Double check that this works now: https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation
+sudo apt install --yes bash
+sudo apt install --yes coreutils
+sudo apt install --yes git-extras
+sudo apt install --yes unrar
+sudo apt install --yes vim
+sudo apt install --yes wget
+sudo apt install --yes ncdu
+
+# Media tools (FFMPEG and its dependencies)
+sudo apt install --yes libfdk-aac-dev
+sudo apt install --yes libsdl2-dev
+sudo apt install --yes ffmpeg
+sudo apt install --yes libjpeg-turbo8-dev
+sudo apt install --yes libmp3lame-dev
+sudo apt install --yes libopenjp2-7-dev
+sudo apt install --yes libopus-dev
+sudo apt install --yes libx264-dev
+sudo apt install --yes libxvidcore-dev
+
+# Modern utilities
+sudo apt install --yes direnv
+sudo apt install --yes ripgrep
+sudo apt install --yes neovim
+sudo apt install --yes yt-dlp
+sudo apt install --yes gron
+# sudo apt install --yes visidata  # use pipx instead (see readme)
+sudo apt install --yes fzf
+sudo apt install --yes bat
+
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
 # https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
@@ -58,5 +90,3 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 # Conda: https://docs.conda.io/en/latest/miniconda.html
 
-# diff-so-fancy
-sudo apt install --yes diff-so-fancy
