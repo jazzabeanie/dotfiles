@@ -27,6 +27,9 @@ ln -f -s ~/.dotfiles/home/rc.conf ~/.config/ranger/rc.conf
 # mkdir -p ~/.config/cheat
 # ln -f -s ~/.dotfiles/home/cheat_config.yml ~/.config/cheat/conf.yml
 
-mkdir -p ~/Temp
+mkdir -p ~/.local/bin
+mkdir -p ~/temp
 mkdir -p ~/Workspace
 git clone git@github.com:jjohnston-aims/TODO.git ~/TODO
+git clone https://github.com/zsh-users/zsh-autosuggestions /home/jared/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/Aloxaf/fzf-tab /home/jared/.oh-my-zsh/custom/plugins/fzf-tab
