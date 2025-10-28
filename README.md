@@ -89,6 +89,20 @@ Linux:
 - install visidata:
   - pipx install visidata
   - pipx inject visidata dependency
+  - if in WSL, run this also:
+
+```
+sudo tee /usr/local/bin/wl-copy >/dev/null <<'EOF'
+#!/bin/sh
+cat | /mnt/c/Windows/System32/clip.exe
+EOF
+sudo tee /usr/local/bin/wl-paste >/dev/null <<'EOF'
+#!/bin/sh
+/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command Get-Clipboard
+EOF
+sudo chmod +x /usr/local/bin/wl-copy /usr/local/bin/wl-paste
+```
+
 - install [Joplin](https://joplinapp.org/help/install/): `wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash`
 - Install [1Password](https://support.1password.com/install-linux/)
   - check if Ctrl+Shift+Space shortcut does anything. If it open quick access, configure it to open 1password instead to enable clipboard ignoring below.
