@@ -52,11 +52,6 @@ export MCFLY_RESULTS_SORT=LAST_RUN
 source ~/.aliases
 export CLICOLOR=1 # make ls command display colors by defult (like with -N argument)
 
-if [ "$(uname -s)" = "Linux" ]; then
-  # reverse-mouse  # This is for linux minut. For Ubuntu you can do this permenantly in settings
-  alias open='xdg-open'
-fi
-
 ##### This is from the old PS1 (prompt) setup
 # # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # NO_COLOR='\e[0m'
@@ -95,10 +90,6 @@ fi
 # }
 
 
-###### this is the old aliases file that was reference from the original bashrc file
-## Finder
-#alias o='open . &'
-
 ## Processes
 alias tu='top -o cpu' #cpu
 alias tm='top -o vsize' #memory
@@ -116,36 +107,7 @@ alias cdw='cd ~/Workspace'
 alias tailf='tail -f'
 alias cdev='cd ~/.dotfiles/home'
 alias h='cd ~/'
-alias syncdesk=desksync
 alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the trailing one
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-alias .......="cd ../../../../../.."
-alias ........="cd ../../../../../../.."
-alias .........="cd ../../../../../../../.."
-alias ..........="cd ../../../../../../../../.."
-alias ...........="cd ../../../../../../../../../.."
-alias ............="cd ../../../../../../../../../../.."
-alias .............="cd ../../../../../../../../../../../.."
-
-# #alias rmsf="mv ~/Library/Safari ~/Desktop/Safari-`date +%Y%m%d%H%M%S`; \
-# #rm -Rf ~/Library/Caches/Apple\ -\ Safari\ -\ Safari\ Extensions\ Gallery; \
-# #rm -Rf ~/Library/Caches/Metadata/Safari; \
-# #rm -Rf ~/Library/Caches/com.apple.Safari; \
-# #rm -Rf ~/Library/Caches/com.apple.WebKit.PluginProcess; \
-# #rm -Rf ~/Library/Cookies/Cookies.binarycookies; \
-# #rm -Rf ~/Library/Preferences/Apple\ -\ Safari\ -\ Safari\ Extensions\ Gallery; \
-# #rm -Rf ~/Library/Preferences/com.apple.Safari.LSSharedFileList.plist; \
-# #rm -Rf ~/Library/Preferences/com.apple.Safari.RSS.plist; \
-# #rm -Rf ~/Library/Preferences/com.apple.Safari.plist; \
-# #rm -Rf ~/Library/Preferences/com.apple.WebFoundation.plist; \
-# #rm -Rf ~/Library/Preferences/com.apple.WebKit.PluginHost.plist; \
-# #rm -Rf ~/Library/Preferences/com.apple.WebKit.PluginProcess.plist; \
-# #rm -Rf ~/Library/PubSub/Database; \
-# #rm -Rf ~/Library/Saved\ Application\ State/com.apple.Safari.savedState"
 
 #I uninstalled nodejs from nvm and installed it from the official ubuntu repository because I need to do it for tern for vim.
 export NVM_DIR="~/.nvm"
