@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# to use visidata as the pager app in psql, export this before running psql `export PAGER='vd --filetype=tsv --delimiter="|" --undo=true --header=1 -'`
-
 ## Processes
 alias tu='top -o cpu'   #cpu
 alias tm='top -o vsize' #memory
@@ -22,10 +20,6 @@ alias copy="tr -d '\n' | pbcopy" # Note: this stips all newlines, not just the t
 alias lg='lazygit'
 alias keepass='~/.bin/KeePassXC.AppImage'
 alias dils='docker image ls'
-
-if [ "$(uname -s)" = "Linux" ]; then
-	alias open='xdg-open'
-fi
 
 function cd() {
 	# This changes cd to be cd then ls -lah. I found this here: https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls
@@ -50,24 +44,6 @@ function largest() {
 	du -h . | grep ^[0-9.][0-9.]G
 	du -h . | grep ^[5-9][0-9][0-9.]M
 }
-
-# https://scriptingosx.com/2017/02/terminal-finder-interaction/
-# prints the path of the front Finder window. Desktop if no window open
-function pwdf() {
-	osascript <<EOS
-        tell application "Finder"
-            if (count of Finder windows) is 0 then
-                set dir to (desktop as alias)
-            else
-                set dir to ((target of Finder window 1) as alias)
-            end if
-            return POSIX path of dir
-        end tell
-EOS
-}
-
-# changes directory to frontmost Finder window
-alias cdf='pwdf; cd "$(pwdf)"'
 
 function ca() {
 	conda_directory="$1"
