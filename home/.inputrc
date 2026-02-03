@@ -1,6 +1,7 @@
 $include /etc/inputrc
 set completion-ignore-case On
-set editing-mode vi set keymap vi-command
+set editing-mode vi
+set keymap vi-command
 
 # `man readline` shows all possible remap commands
 # see also: http://linux.about.com/library/cmd/blcmdl3_readline.htm
