@@ -237,7 +237,7 @@ eval "$(zoxide init zsh)"
 docker context use default
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 
 # <<< conda initialize <<<
