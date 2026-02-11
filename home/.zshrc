@@ -237,7 +237,8 @@ docker context use default
 source <(ng completion script)
 
 # VSCode manual shell integration: https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+# This sometimes doesn't work in VS Code
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # <<< conda initialize <<<
 # I think there is a conflict between /home and /Users between Ubuntu and MacOS. I have used the CONDA_PREFIX 
