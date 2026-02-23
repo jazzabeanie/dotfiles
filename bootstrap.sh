@@ -44,7 +44,7 @@ fi
 # 2. Install snaps
 if [ -f "install_snaps.sh" ]; then
     echo -e "${BLUE}Running install_snaps.sh...${NC}"
-    ./install_snaps.sh
+    sudo ./install_snaps.sh
 fi
 
 # 3. Setup dotfiles symlinks
