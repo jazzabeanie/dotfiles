@@ -1,92 +1,95 @@
-# sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.pref.backup
-# sudo apt update
-# now restart then run `sudo apt install snapd`
+#!/bin/bash
 
-# sudo add-apt-repository ppa:phoerious/keepassxc
-# sudo apt install --yes keepassxc
-sudo add-apt-repository ppa:hluk/copyq
+# Pre-setup: Repositories
+sudo add-apt-repository -y ppa:hluk/copyq
 sudo apt update
-# curl -sL https://github.com/jazzabeanie/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
-# chmod 755 ~/bin/vcprompt
-# In ubuntu I needed to install python2 and chagne the shebang in ~/bin/vcpromt to python2
-# sudo apt install --yes neovim # This doesn't install the latest version
-sudo apt install --yes curl
-sudo atp install --yes zsh
-sudo apt install --yes tmux
-sudo apt install --yes ripgrep
-# sudo apt install --yes cryptsetup # Already installed in Ubuntu 24
-sudo apt install --yes direnv
-sudo apt install --yes zoxide
-sudo apt install --yes python3-pip
-sudo apt install --yes pipx
-pipx ensurepath
-sudo apt install --yes libfuse2 # dependency of Joplin
-sudo apt install --yes xclip # This is to make tmux copy to system clipboard
-sudo apt install --yes jq # lightweight and flexible command-line JSON processor
-sudo apt install --yes xsel # helps vim access clipboard (referred to in .vimrc)
-sudo apt install --yes libncursesw5-dev # required for vifm: https://github.com/vifm/vifm/blob/master/INSTALL
-sudo apt install --yes build-essential # homebrew dependencies
-sudo apt install --yes gcc # homebrew dependencies
-sudo apt install --yes zip
-sudo apt install --yes libreadline-dev # required for `make` to work I think (did before building nnn from source anyway)
-sudo apt install --yes pkg-config # required for `make` to work I think (did before building nnn from source anyway)
-sudo apt install --yes expect # required for ./home/.bin/triton. automates scripts for interactive stuff
-sudo apt install --yes ncdu # analyses disk usage by folder
+
+# --- Core Essentials ---
+sudo apt install --yes \
+    bash \
+    build-essential \
+    coreutils \
+    curl \
+    gcc \
+    git \
+    git-extras \
+    gnome-tweaks \
+    gnome-tweak-tool \
+    keychain \
+    pkg-config \
+    tmux \
+    vim \
+    wget \
+    zip \
+    unrar \
+    zsh
+
+# --- Modern CLI Utilities ---
+sudo apt install --yes \
+    bat \
+    direnv \
+    fd-find \
+    fzf \
+    gron \
+    jq \
+    lsd \
+    ncdu \
+    ripgrep \
+    trash-cli \
+    tree \
+    zoxide
+
+# --- Development Tools ---
+sudo apt install --yes \
+    expect \
+    neovim \
+    python3-pip \
+    pipx \
+    sshfs \
+    xclip \
+    xsel
+
+# --- Media & Graphics ---
+sudo apt install --yes \
+    bc \
+    ffmpeg \
+    flameshot \
+    heif-gdk-pixbuf \
+    libfdk-aac-dev \
+    libjpeg-turbo8-dev \
+    libmp3lame-dev \
+    libopenjp2-7-dev \
+    libopus-dev \
+    libsdl2-dev \
+    libx264-dev \
+    libxvidcore-dev \
+    yt-dlp
+
+# --- Dependencies & Libraries ---
+sudo apt install --yes \
+    libfuse2 \
+    libncursesw5-dev \
+    libreadline-dev
+
+# --- Desktop Apps ---
 sudo apt install --yes copyq
-sudo apt install --yes tree
-sudo apt install --yes gnome-tweaks
-sudo apt install --yes keychain
-sudo apt install --yes bc # precision calculator
-sudo apt install --yes sshfs # let's me mount a remote folder locally
-sudo apt install --yes heif-gdk-pixbuf # HEIF codec
-sudo apt install --yes flameshot # nice screenshot app
-sudo apt install --yes lsd # ls improved
-sudo apt install --yes trash-cli # trash command line utility. Safer than rm
-sudo apt install --yes gnome-tweak-tool 
-# sudo apt install --yes lazygit # Double check that this works now: https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation
-sudo apt install --yes bash
-sudo apt install --yes coreutils
-sudo apt install --yes git-extras
-sudo apt install --yes unrar
-sudo apt install --yes vim
-sudo apt install --yes wget
-sudo apt install --yes ncdu
 
-# Media tools (FFMPEG and its dependencies)
-sudo apt install --yes libfdk-aac-dev
-sudo apt install --yes libsdl2-dev
-sudo apt install --yes ffmpeg
-sudo apt install --yes libjpeg-turbo8-dev
-sudo apt install --yes libmp3lame-dev
-sudo apt install --yes libopenjp2-7-dev
-sudo apt install --yes libopus-dev
-sudo apt install --yes libx264-dev
-sudo apt install --yes libxvidcore-dev
+# --- Post-Installation Setup ---
 
-# Modern utilities
-sudo apt install --yes direnv
-sudo apt install --yes ripgrep
-sudo apt install --yes neovim
-sudo apt install --yes yt-dlp
-sudo apt install --yes gron
-# sudo apt install --yes visidata  # use pipx instead (see readme)
-sudo apt install --yes fzf
-sudo apt install --yes bat
+# Pipx path setup
+pipx ensurepath
 
+# Setup symlinks for tools with different binary names
 mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
 
-# visidata: apt install old version. Use pip3 as per install instuctions https://www.visidata.org/install/
-# https://github.com/ajeetdsouza/zoxide # z (smarter version of cd)
-# lsd? - https://github.com/Peltoche/lsd
-# I had to play with permissions to get this to work
-  # curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly # McFly
-sudo apt-get install --yes fd-find
-mkdir -p ~/.local
-mkdir -p ~/.local/bin
-ln -s $(which fdfind) ~/.local/bin/fd
+# bat -> batcat
+if [ ! -L ~/.local/bin/bat ]; then
+    ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
 
-# pgAdmin 4: https://www.pgadmin.org/download/pgadmin-4-apt/
+# fd -> fdfind
+if [ ! -L ~/.local/bin/fd ]; then
+    ln -s $(which fdfind) ~/.local/bin/fd
+fi
 
-# Conda: https://docs.conda.io/en/latest/miniconda.html
-
+echo "Package installation complete!"
