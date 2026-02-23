@@ -2,6 +2,14 @@
 
 Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/en/getstarted/
 
+## Quick Start (Ubuntu)
+
+For a fresh Ubuntu installation, you can run the bootstrap script to automate most of the setup:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/jazzabeanie/dotfiles/master/bootstrap.sh | bash
+```
+
 ## Prerequisites
 
 Do I still need to do this?
