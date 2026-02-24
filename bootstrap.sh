@@ -59,6 +59,16 @@ if [ -f "setup_dotfiles.sh" ]; then
     ./setup_dotfiles.sh
 fi
 
+# 5. Install NVM (Node Version Manager)
+echo -e "${BLUE}Would you like to run the following command to install NVM?${NC}"
+echo -e "${GREEN}curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash${NC}"
+read -p "Confirm (y/n): " -r response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+else
+    echo -e "${BLUE}Skipping NVM installation.${NC}"
+fi
+
 # Offer to change default shell to zsh
 if [ "$SHELL" != "$(which zsh)" ]; then
     echo -e "${BLUE}Would you like to change your default shell to zsh? (y/n)${NC}"
