@@ -42,7 +42,6 @@ sudo apt install --yes \
 # --- Development Tools ---
 sudo apt install --yes \
     expect \
-    neovim \
     python3-pip \
     pipx \
     sshfs \
