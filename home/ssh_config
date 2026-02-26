@@ -8,3 +8,6 @@ Host *
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
   User ssm-user
 
+Host thinkpad lenovo
+  HostName 192.168.1.14
+  ForwardAgent yes
