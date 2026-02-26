@@ -224,7 +224,6 @@ export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 export MCFLY_LIGHT=FALSE
 
 eval "$(direnv hook zsh)"
-eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
 # eval $(keychain --eval --agents ssh id_ed25519)  # If you have password protected your ssh keys. To avoid having to enter my password on every git remote interaction
@@ -298,3 +297,5 @@ export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(mcfly init zsh)"
