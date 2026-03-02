@@ -234,7 +234,7 @@ eval $(keychain --eval --agents ssh id_ed25519 bitbucket_AIMS)  # To avoid havin
 docker context use default
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # VSCode manual shell integration: https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
 # This sometimes doesn't work in VS Code
