@@ -10,3 +10,5 @@ git-smudge-clean-filter
 connect
 portforward
 .ssh/config
+check-swarm
+safe_swarm_docker_access.sh
