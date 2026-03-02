@@ -42,6 +42,7 @@
     # see here for more info: http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
     tool = vimdiff
     conflictstyle = diff3
+	ff = false
 [mergetool]
     prompt = false
     conflictstyle = diff3

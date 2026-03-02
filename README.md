@@ -2,23 +2,15 @@
 
 Ansible is not free anymore. Consider using salt - https://docs.saltproject.io/en/getstarted/
 
-## Prerequisites
+## Quick Start (Ubuntu)
 
-Do I still need to do this?
-```
-touch ~/.gitconfig.local
-# input your personal GitHub details into .gitconfig.local:
-##################################
-#[github]
-#    user = GitHubUserName
-#[user]
-#    name = Your Name
-#    email = youremail@gmail.com
-##################################
+For a fresh Ubuntu installation, you can run the bootstrap script to automate most of the setup:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/jazzabeanie/dotfiles/master/bootstrap.sh | bash
 ```
 
 ## Installing
-
 
 Linux:
 
@@ -28,9 +20,7 @@ Linux:
   - may also need to start the agent and add them there too.
     - `eval "$(ssh-agent -s)"`
     - `ssh-add ~/.ssh/KEY_NAME`
-- install git `sudo apt install git curl zsh`
-- `git clone git@github.com:jazzabeanie/dotfiles.git ~/.dotfiles`
-- Make Zsh the default shell `chsh -s $(which zsh)`
+- Make Zsh the default shell `chsh -s $(which zsh)` (if it wasn't done by bootstrap)
 - log out and log back in
 - install [oh-my-zsh](https://ohmyz.sh/#install)
 - Following [Powerlevel10k getting started](https://github.com/romkatv/powerlevel10k#getting-started)

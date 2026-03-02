@@ -229,7 +229,6 @@ export RIPGREP_CONFIG_PATH="/home/$USER/.config/ripgreprc"
 export MCFLY_LIGHT=FALSE
 
 eval "$(direnv hook zsh)"
-eval "$(mcfly init zsh)"
 eval "$(zoxide init zsh)"
 
 # eval $(keychain --eval --agents ssh id_ed25519)  # If you have password protected your ssh keys. To avoid having to enter my password on every git remote interaction
@@ -242,7 +241,7 @@ eval "$(zoxide init zsh)"
 docker context use default
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 
 # <<< conda initialize <<<
@@ -305,3 +304,5 @@ export PATH="/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+eval "$(mcfly init zsh)"
