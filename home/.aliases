@@ -428,6 +428,17 @@ function ssm() {
   aws ssm start-session --target $1
 }
 
+
+function rcd {
+  tempfile="$(mktemp -t ranger-cd.XXXXXX)"
+  ranger --choosedir="$tempfile" "$@"
+  if [ -f "$tempfile" ]; then
+      dir="$(cat "$tempfile")"
+      rm -f "$tempfile"
+      [ -d "$dir" ] && cd "$dir"
+  fi
+}
+
 alias 1='cd-or-vim $(lf 1)'
 alias 2='cd-or-vim $(lf 2)'
 alias 3='cd-or-vim $(lf 3)'
